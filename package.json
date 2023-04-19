@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/kevingostomski/bootstrap-nice-select/issues"
   },
-  "homepage": "https://github.com/kevingostomski/bootstrap-nice-select#readme",
+  "homepage": "https://kevingostomski.github.io/bootstrap-nice-select/",
   "devDependencies": {
     "css-loader": "^6.7.3",
     "css-minimizer-webpack-plugin": "^5.0.0",

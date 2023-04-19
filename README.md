@@ -18,7 +18,7 @@ A modern looking select field for form submits which uses Bootstrap as dependenc
 
 ### Manual Download
 
-Use (Releases Pages)[https://github.com/wenzhixin/bootstrap-table/releases] or clone the repo: `https://github.com/kevingostomski/bootstrap-nice-select.git` and use the `dist` folder.
+Use [Releases Pages](https://github.com/kevingostomski/bootstrap-nice-select/releases) or clone the repo: `https://github.com/kevingostomski/bootstrap-nice-select.git` and use the `dist` folder.
 
 ### Npm
 
@@ -34,12 +34,12 @@ yarn add bootstrap-nice-select
 
 ### CDN
 
-You can source bootstrap-nice-select directly from a CDN like [CDNJS](https://cdnjs.com/) or [jsdelivr][https://www.jsdelivr.com/].
+You can source bootstrap-nice-select directly from a CDN like [jsdelivr](https://www.jsdelivr.com).
 
 > The CDN is updated after the release is made public, which means that there is a delay between the publishing of a release and its availability on the CDN.
 
 # **Release History**
-Look at the [Change Log](changelog).
+Look at the [Change Log](CHANGELOG.md).
 
 # **Local Development**
 
@@ -65,4 +65,4 @@ To develop the component, the VS Code plugin [Live Server](https://marketplace.v
 
 Copyright (C) 2023
 
-The license is available within the repository in the [LICENSE](license) file.
+The license is available within the repository in the [LICENSE](LICENSE) file.
