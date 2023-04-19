@@ -11,6 +11,8 @@ A modern looking select field for form submits which uses Bootstrap as dependenc
 - Localization
 - Get data in JSON format using AJAX/Fetch and have them searchable
 - Allow users to type in new options and add it on the fly
+- Setting icons option to override possible currently available themes
+- Options for calling methods which will be automatically added after the respective event listeners
 
 # Installation
 
@@ -41,15 +43,23 @@ Look at the [Change Log](changelog).
 
 # Local Development
 
-To develop bootstrap-nice-select locally please run:
+Development of this plugin was with [Visual Studio Code](https://code.visualstudio.com/).
+
+To develop `bootstrap-nice-select` locally please run:
 
 ```
 mkdir bootstrap-nice-select-dev
 cd bootstrap-nice-select-dev
-git clone https://github.com/wenzhixin/bootstrap-table
-
+git clone https://github.com/kevingostomski/bootstrap-nice-select.git
+git clone https://github.com/kevingostomski/bootstrap-nice-select-examples.git
+cd bootstrap-nice-select
+npm link
+cd ..
+cd bootstrap-nice-select-examples
+npm link bootstrap-nice-select
 ```
 
+To develop the component, the VS Code plugin [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) was used (special thanks to the maintainers for this wonderful plugin).
 
 # Copyright and license
 
