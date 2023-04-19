@@ -1,8 +1,8 @@
-# [Bootstrap-Nice-Select](https://kevingostomski.github.io/bootstrap-nice-select/)
+# **[Bootstrap-Nice-Select](https://kevingostomski.github.io/bootstrap-nice-select/)**
 
 A modern looking select field for form submits which uses Bootstrap as dependency to style ist. It can be initialized over HTML or JS and does not need jQuery to work with!
 
-# Features
+# **Features**
 
 - Created for Twitter Bootstrap (All versions supported)
 - Responsive web design
@@ -14,34 +14,34 @@ A modern looking select field for form submits which uses Bootstrap as dependenc
 - Setting icons option to override possible currently available themes
 - Options for calling methods which will be automatically added after the respective event listeners
 
-# Installation
+# **Installation**
 
-## Manual Download
+### Manual Download
 
 Use (Releases Pages)[https://github.com/wenzhixin/bootstrap-table/releases] or clone the repo: `https://github.com/kevingostomski/bootstrap-nice-select.git` and use the `dist` folder.
 
-## Npm
+### Npm
 
 ```
 npm install bootstrap-nice-select
 ```
 
-## Yarn
+### Yarn
 
 ```
 yarn add bootstrap-nice-select
 ```
 
-## CDN
+### CDN
 
 You can source bootstrap-nice-select directly from a CDN like [CDNJS](https://cdnjs.com/) or [jsdelivr][https://www.jsdelivr.com/].
 
 > The CDN is updated after the release is made public, which means that there is a delay between the publishing of a release and its availability on the CDN.
 
-# Release History
+# **Release History**
 Look at the [Change Log](changelog).
 
-# Local Development
+# **Local Development**
 
 Development of this plugin was with [Visual Studio Code](https://code.visualstudio.com/).
 
@@ -61,7 +61,7 @@ npm link bootstrap-nice-select
 
 To develop the component, the VS Code plugin [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) was used (special thanks to the maintainers for this wonderful plugin).
 
-# Copyright and license
+# **Copyright and license**
 
 Copyright (C) 2023
 
