@@ -1,4 +1,4 @@
-# **v1.0.0 (2023-04-19)**
+# **v1.0.1 (2023-04-19)**
 
 First release of the `bootstrap-nice-select` component.
 
