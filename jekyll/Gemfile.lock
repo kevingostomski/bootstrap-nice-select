@@ -3,7 +3,7 @@ GEM
   specs:
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
-    autoprefixer-rails (9.8.6.5)
+    autoprefixer-rails (6.3.7)
       execjs
     colorator (1.1.0)
     concurrent-ruby (1.2.2)
@@ -11,7 +11,7 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
     eventmachine (1.2.7)
-    execjs (2.7.0)
+    execjs (2.8.1)
     ffi (1.15.5)
     forwardable-extended (2.6.0)
     google-protobuf (3.22.3-arm64-darwin)
@@ -34,8 +34,8 @@ GEM
       safe_yaml (~> 1.0)
       terminal-table (>= 1.8, < 4.0)
       webrick (~> 1.7)
-    jekyll-autoprefixer (1.0.2)
-      autoprefixer-rails (~> 9.3)
+    jekyll-autoprefixer (1.0.1)
+      autoprefixer-rails (~> 6.3.6)
     jekyll-feed (0.17.0)
       jekyll (>= 3.7, < 5.0)
     jekyll-sass-converter (3.0.0)
@@ -73,10 +73,9 @@ PLATFORMS
   arm64-darwin-22
 
 DEPENDENCIES
-  execjs (= 2.7)
   http_parser.rb (~> 0.6.0)
   jekyll (>= 3.8, < 5.0)
-  jekyll-autoprefixer (~> 1.0)
+  jekyll-autoprefixer (= 1.0.1)
   jekyll-feed (~> 0.12)
   jekyll-seo-tag (~> 2.6)
   tzinfo (>= 1, < 3)
