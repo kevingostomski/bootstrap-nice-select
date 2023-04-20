@@ -34,9 +34,18 @@ yarn add bootstrap-nice-select
 
 ### CDN
 
-You can source bootstrap-nice-select directly from a CDN like [jsdelivr](https://www.jsdelivr.com).
+You can source bootstrap-nice-select directly from a CDN like [unpkg](https://unpkg.com).
 
-> The CDN is updated after the release is made public, which means that there is a delay between the publishing of a release and its availability on the CDN.
+```
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-nice-select@1.0.1/dist/css/bootstrap-nice-select.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://unpkg.com/bootstrap-nice-select@1.0.1/dist/js/bootstrap-nice-select.min.js"></script>
+
+```
+
+> The CDN is updated after the release is made public, which means that there is probably a delay between the publishing of a release and its availability on the CDN.
 
 # **Release History**
 Look at the [Change Log](CHANGELOG.md).
