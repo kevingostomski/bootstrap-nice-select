@@ -11,4 +11,4 @@ First release of the `bootstrap-nice-select` component.
 - Get data in JSON format using AJAX/Fetch and have them searchable via functionName or callback function
 - Allow users to type in new options and add it on the fly via tagging option
 - Setting own icons option to override possible themes
-- `AfterAdd` and `AfterDelete` options for functionName or callback function which will be automatically called after the event listeners
+- `AfterAdd` and `AfterDelete` options for callback function which will be automatically called after the event listeners
