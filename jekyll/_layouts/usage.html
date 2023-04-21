@@ -1,0 +1,37 @@
+---
+layout: "default"
+---
+<div class="container">
+    <div class="row">
+        <div class="col-md-2 font-size-13">
+            <div class="sticky-scroll">
+                <div id="sidebar-list-group" class="list-group">
+                    <p class="text-white d-flex justify-content-start align-items-center border-bottom pb-2"><i
+                            class="fa-solid fa-book-open pe-3"></i>Getting started</p>
+                    <a href="{{ site.baseurl }}/getting-started/introduction"
+                        class="list-group-item list-group-item-action">Introduction</a>
+                    <a href="{{ site.baseurl }}/getting-started/download"
+                        class="list-group-item list-group-item-action">Download</a>
+                    <a href="{{ site.baseurl }}/getting-started/usage"
+                        class="list-group-item list-group-item-action selected">Usage</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div data-bs-spy="scroll" data-bs-target="navbar-scrollspy" data-bs-smooth-scroll="true" data-offset="10"
+                tabindex="0">
+                {{ content }}
+            </div>
+        </div>
+        <div class="col-md-2 font-size-13">
+            <div class="sticky-scroll">
+                <nav id="navbar-scrollspy" class="border-start">
+                    <nav class="nav nav-pills flex-column">
+                        <a class="nav-link" href="#via-data-attributes">Via data attributes</a>
+                        <a class="nav-link" href="#via-javascript">Via JavaScript</a>
+                    </nav>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
