@@ -1,3 +1,21 @@
+# **v1.1.0 ()**
+
+### **Added**
+
+- Added more languages for localization
+- Finished release of [Homepage](https://kevingostomski.github.io/bootstrap-nice-select/) 
+- Added #3 - component is now mobile responsive
+
+### **Fixed**
+
+- Initialization from HTML fixed
+- Update README.md and markdown files
+
+### **Changed**
+
+- Margin and Padding is now better setted so it looks nicer
+
+
 # **v1.0.1 (2023-04-19)**
 
 First release of the `bootstrap-nice-select` component.

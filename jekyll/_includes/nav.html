@@ -1,34 +1,27 @@
-<nav class="navbar navbar-expand-lg bg-darker fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand ms-4" href="https://kevingostomski.github.io/bootstrap-nice-select/">
-            {{ site.title }}
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ site.baseurl }}/getting-started/introduction">Getting Started</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Examples</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Options</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Methods</a>
-                </li>
-            </ul>
-        </div>
-        <div class="d-flex align-items-center pe-5 me-4">
-            <a class="ms-3 me-2 text-white fs-5" href="https://github.com/kevingostomski/bootstrap-nice-select"><i
-                    class="fa-brands fa-github"></i></a>
-            <a class="ms-2 me-3 text-white fs-5" href="https://www.npmjs.com/package/bootstrap-nice-select"><i
-                    class="fa-brands fa-npm"></i></a>
-            <a class="btn btn-outline-warning mx-3" role="button"
-                href="{{ site.baseurl }}/getting-started/download">Download</a>
-        </div>
+<nav class="navbar navbar-expand-lg bg-darker fixed-top navbar-header">
+    <a class="navbar-brand ms-4" href="https://kevingostomski.github.io/bootstrap-nice-select/">
+        {{ site.title }}
+    </a>
+    <ul class="navbar-nav me-auto flex-row">
+        <li class="nav-item {% if layout.nav == 'Getting-Started' %}selected{% endif %}">
+            <a class="nav-link" href="{{ site.baseurl }}/getting-started/introduction">Getting Started</a>
+        </li>
+        <li class="nav-item {% if layout.nav == 'Documentation' %}selected{% endif %}">
+            <a class="nav-link" href="#">Documentation</a>
+        </li>
+        <li class="nav-item {% if layout.nav == 'Examples' %}selected{% endif %}">
+            <a class="nav-link" href="{{ site.baseurl }}/examples/initialization/from-html">Examples</a>
+        </li>
+        <li class="nav-item {% if layout.nav == 'Methods' %}selected{% endif %}">
+            <a class="nav-link" href="#">Methods</a>
+        </li>
+    </ul>
+    <div class="d-none d-lg-flex align-items-center pe-5 me-4">
+        <a class="ms-3 me-2 text-white fs-5" href="https://github.com/kevingostomski/bootstrap-nice-select"><i
+                class="fa-brands fa-github"></i></a>
+        <a class="ms-2 me-3 text-white fs-5" href="https://www.npmjs.com/package/bootstrap-nice-select"><i
+                class="fa-brands fa-npm"></i></a>
+        <a class="btn btn-outline-warning mx-3" role="button"
+            href="{{ site.baseurl }}/getting-started/download">Download</a>
     </div>
 </nav>

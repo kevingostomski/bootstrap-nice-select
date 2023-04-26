@@ -3,6 +3,7 @@ const webpack = require('webpack'); //to access built-in plugins -> currently Ba
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // Extract CSS from JS
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"); // CSS Minifier
 const TerserPlugin = require("terser-webpack-plugin"); // JS Minifier
+let version = "v1.1.0";
 
 const minified = {
     mode: 'production',
@@ -30,7 +31,7 @@ const minified = {
     }),
     new webpack.BannerPlugin({
         banner: `
-Bootstrap-Nice-Select v1.0.0 (https://github.com/kevingostomski/bootstrap-nice-select)
+Bootstrap-Nice-Select ${version} (https://github.com/kevingostomski/bootstrap-nice-select)
 Copyright 2023 Kevin Gostomski <kevingostomski2001@gmail.com>
 Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
         `
@@ -80,7 +81,7 @@ const unminified = {
     }),
     new webpack.BannerPlugin({
         banner: `
-Bootstrap-Nice-Select v1.0.0 (https://github.com/kevingostomski/bootstrap-nice-select)
+Bootstrap-Nice-Select ${version} (https://github.com/kevingostomski/bootstrap-nice-select)
 Copyright 2023 Kevin Gostomski <kevingostomski2001@gmail.com>
 Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
         `

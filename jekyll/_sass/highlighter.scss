@@ -1,7 +1,8 @@
 .highlight pre {
     padding: 45px 24px 24px 24px;
-    margin-bottom: 16px;
+    margin: 0;
     background-color: #1C1F22;
+    border-radius: inherit;
 }
 
 .highlight .hll {
@@ -313,21 +314,29 @@
     color: #a6e22e;
 }
 
+figure {
+    margin: 0;
+    border-radius: inherit;
+}
+
 .bd-clipboard {
-    display: block;
-    float: right;
 
     .btn-clipboard {
         background: transparent;
         border: none;
-        left: -40px;
+        left: -30px;
         top: 10px;
         position: relative;
         color: var(--bs-body-color);
         transition: color 0.4s ease;
+        float: right;
 
         &:hover {
             color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
         }
     }
+}
+
+.bg-highlight {
+    background-color: #1c1f22;
 }

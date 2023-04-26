@@ -3,7 +3,7 @@ Table below is sorted ascending by language code. If case of add new translation
 
 | Language Name                                                  | Language Code  | short form | comment        |
 | -------------------------------------------------------------- | -------------- | ---------- | -------------- |
-| Afrikaans (South Africa)                                       | af-ZA          | af         | missing        |
+| Afrikaans (South Africa)                                       | af-ZA          | af         |                |
 | Amharic (Ethiopia)                                             | am-ET          | am         | missing        |
 | Arabic (U.A.E.)                                                | ar-AE          |            | missing        |
 | Arabic (Bahrain)                                               | ar-BH          |            | missing        |
@@ -18,7 +18,7 @@ Table below is sorted ascending by language code. If case of add new translation
 | Mapudungun (Chile)                                             | arn-CL         |            | missing        |
 | Arabic (Oman)                                                  | ar-OM          |            | missing        |
 | Arabic (Qatar)                                                 | ar-QA          |            | missing        |
-| Arabic (Saudi Arabia)                                          | ar-SA          | ar         | missing        |
+| Arabic (Saudi Arabia)                                          | ar-SA          | ar         |                |
 | Arabic (Syria)                                                 | ar-SY          |            | missing        |
 | Arabic (Tunisia)                                               | ar-TN          |            | missing        |
 | Arabic (Yemen)                                                 | ar-YE          |            | missing        |
@@ -29,7 +29,7 @@ Table below is sorted ascending by language code. If case of add new translation
 | Azerbaijani (Latin, Azerbaijan)                                | az-Latn-AZ     | az         | missing        |
 | Bashkir (Russia)                                               | ba-RU          | ba         | missing        |
 | Belarusian (Belarus)                                           | be-BY          | be         | missing        |
-| Bulgarian (Bulgaria)                                           | bg-BG          | bg         | missing        |
+| Bulgarian (Bulgaria)                                           | bg-BG          | bg         |                |
 | Bangla (Bangladesh)                                            | bn-BD          | ba         | missing        |
 | Bangla (India)                                                 | bn-IN          |            | missing        |
 | Tibetan (People's Republic of China)                           | bo-CN          | bo         | missing        |
@@ -38,12 +38,12 @@ Table below is sorted ascending by language code. If case of add new translation
 | Bosnian (Cyrillic, Bosnia and Herzegovina)                     | bs-Cyrl-BA     |            | missing        |
 | Bosnian (Latin)                                                | bs-Latn        | bs         | missing        |
 | Bosnian (Latin, Bosnia and Herzegovina)                        | bs-Latn-BA     |            | missing        |
-| Catalan (Spain)                                                | ca-ES          | ca         | missing        |
+| Catalan (Spain)                                                | ca-ES          | ca         |                |
 | Valencian (Spain)                                              | ca-ES-valencia |            | missing        |
 | Cherokee                                                       | chr-Cher       | chr        | missing        |
 | Cherokee (United States)                                       | chr-Cher-US    |            | missing        |
 | Corsican (France)                                              | co-FR          | co         | missing        |
-| Czech (Czech Republic)                                         | cs-CZ          | cs         | missing        |
+| Czech (Czech Republic)                                         | cs-CZ          | cs         |                |
 | Welsh (United Kingdom)                                         | cy-GB          | cy         | missing        |
 | Danish (Denmark)                                               | da-DK          | da         | missing        |
 | German (Austria)                                               | de-AT          |            | missing        |
@@ -81,7 +81,7 @@ Table below is sorted ascending by language code. If case of add new translation
 | Spanish (Cuba)                                                 | es-CU          |            | missing        |
 | Spanish (Dominican Republic)                                   | es-DO          |            | missing        |
 | Spanish (Ecuador)                                              | es-EC          |            | missing        |
-| Spanish (Spain, International Sort)                            | es-ES          | es         | missing        |
+| Spanish (Spain, International Sort)                            | es-ES          | es         |                |
 | Spanish (Guatemala)                                            | es-GT          |            | missing        |
 | Spanish (Honduras)                                             | es-HN          |            | missing        |
 | Spanish (Mexico)                                               | es-MX          |            | missing        |
@@ -95,12 +95,12 @@ Table below is sorted ascending by language code. If case of add new translation
 | Spanish (United States)                                        | es-US          |            | missing        |
 | Spanish (Uruguay)                                              | es-UY          |            | missing        |
 | Spanish (Bolivarian Republic of Venezuela)                     | es-VE          |            | missing        |
-| Estonian (Estonia)                                             | et-EE          | et         | missing        |
+| Estonian (Estonia)                                             | et-EE          | et         |                |
 | Basque (Spain)                                                 | eu-ES          | eu         | missing        |
-| Persian (Iran)                                                 | fa-IR          | fa         | missing        |
+| Persian (Iran)                                                 | fa-IR          | fa         |                |
 | Fulah (Latin)                                                  | ff-Latn        | ff         | missing        |
 | Fulah (Latin, Senegal)                                         | ff-Latn-SN     |            | missing        |
-| Finnish (Finland)                                              | fi-FI          | fi         | missing        |
+| Finnish (Finland)                                              | fi-FI          | fi         |                |
 | Filipino (Philippines)                                         | fil-PH         | fil        | missing        |
 | Faroese (Faroe Islands)                                        | fo-FO          | fo         | missing        |
 | French (Belgium)                                               | fr-BE          |            | missing        |
@@ -109,7 +109,7 @@ Table below is sorted ascending by language code. If case of add new translation
 | French (Switzerland)                                           | fr-CH          |            | missing        |
 | French (Côte d’Ivoire)                                         | fr-CI          |            | missing        |
 | French (Cameroon)                                              | fr-CM          |            | missing        |
-| French (France)                                                | fr-FR          | fr         | missing        |
+| French (France)                                                | fr-FR          | fr         |                |
 | French (Haiti)                                                 | fr-HT          |            | missing        |
 | French (Luxembourg)                                            | fr-LU          |            | missing        |
 | French (Morocco)                                               | fr-MA          |            | missing        |
@@ -139,12 +139,12 @@ Table below is sorted ascending by language code. If case of add new translation
 | Yi (People's Republic of China)                                | ii-CN          | ii         | missing        |
 | Icelandic (Iceland)                                            | is-IS          | is         | missing        |
 | Italian (Switzerland)                                          | it-CH          |            | missing        |
-| Italian (Italy)                                                | it-IT          | it         | missing        |
+| Italian (Italy)                                                | it-IT          | it         |                |
 | Inuktitut (Syllabics)                                          | iu-Cans        |            | missing        |
 | Inuktitut (Syllabics, Canada)                                  | iu-Cans-CA     |            | missing        |
 | Inuktitut (Latin)                                              | iu-Latn        |            | missing        |
 | Inuktitut (Latin, Canada)                                      | iu-Latn-CA     |            | missing        |
-| Japanese (Japan)                                               | ja-JP          | ja         | missing        |
+| Japanese (Japan)                                               | ja-JP          | ja         |                |
 | Georgian (Georgia)                                             | ka-GE          | ka         | missing        |
 | Kazakh (Kazakhstan)                                            | kk-KZ          | kk         | missing        |
 | Greenlandic (Greenland)                                        | kl-GL          | kl         | missing        |
@@ -178,7 +178,7 @@ Table below is sorted ascending by language code. If case of add new translation
 | Nepali (India)                                                 | ne-IN          |            | missing        |
 | Nepali (Nepal)                                                 | ne-NP          | ne         | missing        |
 | Dutch (Belgium)                                                | nl-BE          |            | missing        |
-| Dutch (Netherlands)                                            | nl-NL          | nl         | missing        |
+| Dutch (Netherlands)                                            | nl-NL          | nl         |                |
 | Norwegian, Nynorsk (Norway)                                    | nn-NO          | nn         | missing        |
 | Sesotho sa Leboa (South Africa)                                | nso-ZA         | nso        | missing        |
 | Occitan (France)                                               | oc-FR          | oc         | missing        |
@@ -187,11 +187,11 @@ Table below is sorted ascending by language code. If case of add new translation
 | Punjabi                                                        | pa-Arab        |            | missing        |
 | Punjabi (Islamic Republic of Pakistan)                         | pa-Arab-PK     |            | missing        |
 | Punjabi (India)                                                | pa-IN          | pa         | missing        |
-| Polish (Poland)                                                | pl-PL          | pl         | missing        |
+| Polish (Poland)                                                | pl-PL          | pl         |                |
 | Dari (Afghanistan)                                             | prs-AF         | prs        | missing        |
 | Pashto (Afghanistan)                                           | ps-AF          | ps         | missing        |
 | Portuguese (Brazil)                                            | pt-BR          |            | missing        |
-| Portuguese (Portugal)                                          | pt-PT          | pt         | missing        |
+| Portuguese (Portugal)                                          | pt-PT          | pt         |                |
 | K'iche (Latin, Guatemala)                                      | quc-Latn-GT    | quc        | missing        |
 | K'iche (Guatemala)                                             | qut-GT         | qut        | missing        |
 | Quechua (Bolivia)                                              | quz-BO         |            | missing        |
@@ -199,9 +199,9 @@ Table below is sorted ascending by language code. If case of add new translation
 | Quechua (Peru)                                                 | quz-PE         | quz        | missing        |
 | Romansh (Switzerland)                                          | rm-CH          | rm         | missing        |
 | Romanian (Moldova)                                             | ro-MD          |            | missing        |
-| Romanian (Romania)                                             | ro-RO          | ro         | missing        |
+| Romanian (Romania)                                             | ro-RO          | ro         |                |
 | Russian (Moldova)                                              | ru-MD          |            | missing        |
-| Russian (Russia)                                               | ru-RU          | ru         | missing        |
+| Russian (Russia)                                               | ru-RU          | ru         |                |
 | Kinyarwanda (Rwanda)                                           | rw-RW          | rw         | missing        |
 | Sakha (Russia)                                                 | sah-RU         | sah        | missing        |
 | Sanskrit (India)                                               | sa-IN          | sah        | missing        |
@@ -247,7 +247,7 @@ Table below is sorted ascending by language code. If case of add new translation
 | Turkmen (Turkmenistan)                                         | tk-TM          | tk         | missing        |
 | Setswana (Botswana)                                            | tn-BW          | tn         | missing        |
 | Setswana (South Africa)                                        | tn-ZA          |            | missing        |
-| Turkish (Turkey)                                               | tr-TR          | tr         | missing        |
+| Turkish (Turkey)                                               | tr-TR          | tr         |                |
 | Tsonga (South Africa)                                          | ts-ZA          | ts         | missing        |
 | Tatar (Russia)                                                 | tt-RU          | tt         | missing        |
 | Tamazight (Latin)                                              | tzm-Latn       | tzm        | missing        |
@@ -267,7 +267,7 @@ Table below is sorted ascending by language code. If case of add new translation
 | Yoruba (Nigeria)                                               | yo-NG          | yo         | missing        |
 | Chinese (Simplified) (zh-CHS)                                  | zh-CHS         |            | missing        |
 | Chinese (Traditional) (zh-CHT)                                 | zh-CHT         |            | missing        |
-| Chinese (Simplified, People's Republic of China)               | zh-CN          | zh         | missing        |
+| Chinese (Simplified, People's Republic of China)               | zh-CN          | zh         |                |
 | Chinese (Simplified) (zh-Hans)                                 | zh-Hans        |            | missing        |
 | Chinese (Traditional) (zh-Hant)                                | zh-Hant        |            | missing        |
 | Chinese (Traditional, Hong Kong S.A.R.)                        | zh-HK          |            | missing        |

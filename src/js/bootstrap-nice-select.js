@@ -162,7 +162,7 @@ export const BootstrapNiceSelect = function (selector, options) {
             button.setAttribute("data-id", optKey);
             let icon = document.createElement("span");
             icon.classList.add(...Constants.CONSTANTS.classes.deleteButtonIcon);
-            icon.insertAdjacentHTML("beforeend", _bootstrapNiceSelect.icons && _bootstrapNiceSelect.icons.delete ? _bootstrapNiceSelect.icons.delete : Constants.ICONS.delete);
+            icon.insertAdjacentHTML("beforeend", _bootstrapNiceSelect.icons && _bootstrapNiceSelect.icons.delete ? _bootstrapNiceSelect.icons.delete : Constants.ICONS[_bootstrapNiceSelect.theme].delete);
             button.appendChild(icon);
             divWrapper.appendChild(button);
 
@@ -275,7 +275,7 @@ export const BootstrapNiceSelect = function (selector, options) {
         });
         let icon = document.createElement("span");
         icon.classList.add(...Constants.CONSTANTS.classes.addbuttonIcon);
-        icon.insertAdjacentHTML("beforeend", _bootstrapNiceSelect.icons && _bootstrapNiceSelect.icons.add ? _bootstrapNiceSelect.icons.add : Constants.ICONS.add);
+        icon.insertAdjacentHTML("beforeend", _bootstrapNiceSelect.icons && _bootstrapNiceSelect.icons.add ? _bootstrapNiceSelect.icons.add : Constants.ICONS[_bootstrapNiceSelect.theme].add);
         button.appendChild(icon);
 
         divWrapper.appendChild(button);
@@ -400,7 +400,7 @@ export const BootstrapNiceSelect = function (selector, options) {
         searchInputWrapper.classList.add(...Constants.CONSTANTS.classes.searchInputWrapper);
         let searchIcon = document.createElement("span");
         searchIcon.classList.add(...Constants.CONSTANTS.classes.searchIcon);
-        searchIcon.insertAdjacentHTML("beforeend", _bootstrapNiceSelect.icons && _bootstrapNiceSelect.icons.search ? _bootstrapNiceSelect.icons.search : Constants.ICONS.search);
+        searchIcon.insertAdjacentHTML("beforeend", _bootstrapNiceSelect.icons && _bootstrapNiceSelect.icons.search ? _bootstrapNiceSelect.icons.search : Constants.ICONS[_bootstrapNiceSelect.theme].search);
         let searchInput = document.createElement("input");
         searchInput.classList.add("w-100");
         searchInput.setAttribute("placeholder", Constants.LOCALISATION[_bootstrapNiceSelect.locale].formatSearch());
@@ -417,7 +417,7 @@ export const BootstrapNiceSelect = function (selector, options) {
         if (_bootstrapNiceSelect.tags) {
             let tagIcon = document.createElement("span");
             tagIcon.classList.add(...Constants.CONSTANTS.classes.tagIcon);
-            tagIcon.insertAdjacentHTML("beforeend", _bootstrapNiceSelect.icons && _bootstrapNiceSelect.icons.tag ? _bootstrapNiceSelect.icons.tag : Constants.ICONS.tag);
+            tagIcon.insertAdjacentHTML("beforeend", _bootstrapNiceSelect.icons && _bootstrapNiceSelect.icons.tag ? _bootstrapNiceSelect.icons.tag : Constants.ICONS[_bootstrapNiceSelect.theme].tag);
             let tooltip = document.createElement("span");
             tooltip.classList.add("tooltip-own");
             tagIcon.appendChild(tooltip);
@@ -454,6 +454,9 @@ export const BootstrapNiceSelect = function (selector, options) {
         }
         if (_selectField.getAttribute("data-locale")) {
             _bootstrapNiceSelect.locale = _selectField.getAttribute("data-locale");
+        }
+        if (_selectField.getAttribute("data-search-data")) {
+            _bootstrapNiceSelect.locale = _selectField.getAttribute("data-search-data");
         }
         if (_selectField.getAttribute("data-theme")) {
             _bootstrapNiceSelect.theme = _selectField.getAttribute("data-theme");
@@ -515,7 +518,7 @@ export const BootstrapNiceSelect = function (selector, options) {
     return _bootstrapNiceSelect;
 }
 
-$(document).ready(function () {
+document.addEventListener("DOMContentLoaded", function () {
     let selectsToInit = document.querySelectorAll('select[data-bs-toggle="bootstrap-nice-select"]');
     if (selectsToInit.length === 0) {
         selectsToInit = document.querySelectorAll('select[data-toggle="bootstrap-nice-select"]')

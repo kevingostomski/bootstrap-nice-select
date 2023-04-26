@@ -1,6 +1,6 @@
 /*!
  * 
- * Bootstrap-Nice-Select v1.0.0 (https://github.com/kevingostomski/bootstrap-nice-select)
+ * Bootstrap-Nice-Select v1.1.0 (https://github.com/kevingostomski/bootstrap-nice-select)
  * Copyright 2023 Kevin Gostomski <kevingostomski2001@gmail.com>
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  *
@@ -109,9 +109,9 @@ __webpack_require__.d(__webpack_exports__, {
         return context[funcName].apply(context, args);
     }
 });
-;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-de-DE.js
+;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-af-ZA.js
 /*
- *  Bootstrap Nice Select German Translation
+ *  Bootstrap Nice Select Afrikaans (South Africa) Translation
  *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
 */
 
@@ -119,19 +119,119 @@ const localisation = {
     locales: []
 }
 
-localisation.locales['de-DE'] = localisation.locales['de'] = {
+localisation.locales['af-ZA'] = localisation.locales['af'] = {
     formatSearch() {
-        return "Suche...";
+        return "Soek tans...";
+    },
+    formatHelpForTagging() {
+        return "Om eie etikette te skep, fokus die invoerveld en druk dan 'Enter' of ',' of 'Spasiebalk' om dit by die lys te voeg";
+    }
+}
+
+/* harmony default export */ const bootstrap_nice_select_af_ZA = (localisation);
+;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-ar-SA.js
+/*
+ *  Bootstrap Nice Select Arabic (Saudi Arabia) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+const bootstrap_nice_select_ar_SA_localisation = {
+    locales: []
+}
+
+bootstrap_nice_select_ar_SA_localisation.locales['ar-SA'] = bootstrap_nice_select_ar_SA_localisation.locales['ar'] = {
+    formatSearch() {
+        return "يبحث...";
+    },
+    formatHelpForTagging() {
+        return 'لإنشاء علامات خاصة ، ركز على حقل الإدخال ثم اضغط على "إدخال" أو "مفتاح المسافة" لإضافته إلى القائمة';
+    }
+}
+
+/* harmony default export */ const bootstrap_nice_select_ar_SA = (bootstrap_nice_select_ar_SA_localisation);
+;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-bg-BG.js
+/*
+ *  Bootstrap Nice Select Bulgarian (Bulgaria) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+const bootstrap_nice_select_bg_BG_localisation = {
+    locales: []
+}
+
+bootstrap_nice_select_bg_BG_localisation.locales['bg-BG'] = bootstrap_nice_select_bg_BG_localisation.locales['bg'] = {
+    formatSearch() {
+        return "Търсене...";
+    },
+    formatHelpForTagging() {
+        return "3a създаване на собствени тагове фокусирайте полето за въвеждане и след това натиснете 'Enter' или ',' или 'Интервал', за да ro добавите към списъка";
+    }
+}
+
+/* harmony default export */ const bootstrap_nice_select_bg_BG = (bootstrap_nice_select_bg_BG_localisation);
+;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-ca-ES.js
+/*
+ *  Bootstrap Nice Select Catalan (Spain) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+const bootstrap_nice_select_ca_ES_localisation = {
+    locales: []
+}
+
+bootstrap_nice_select_ca_ES_localisation.locales['ca-ES'] = bootstrap_nice_select_ca_ES_localisation.locales['ca'] = {
+    formatSearch() {
+        return "Buscant...";
+    },
+    formatHelpForTagging() {
+        return "Per crear etiquetes pròpies, centreu el camp d'entrada i premeu 'Enter' o ',' o 'Barra espaiadora' per afegir-lo a la llista";
+    }
+}
+
+/* harmony default export */ const bootstrap_nice_select_ca_ES = (bootstrap_nice_select_ca_ES_localisation);
+;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-cs-CZ.js
+/*
+ *  Bootstrap Nice Select Czech (Czech Republic) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+const bootstrap_nice_select_cs_CZ_localisation = {
+    locales: []
+}
+
+bootstrap_nice_select_cs_CZ_localisation.locales['cs-CZ'] = bootstrap_nice_select_cs_CZ_localisation.locales['cs'] = {
+    formatSearch() {
+        return "Hledání...";
+    },
+    formatHelpForTagging() {
+        return "Chcete-li vytvořit vlastní tagy, zaměřte se na vstupní pole a poté stiskněte 'Enter' nebo ',' nebo 'Mezerník' pro přidání do seznamu";
+    }
+}
+
+/* harmony default export */ const bootstrap_nice_select_cs_CZ = (bootstrap_nice_select_cs_CZ_localisation);
+;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-de-DE.js
+/*
+ *  Bootstrap Nice Select German (Germany) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+const bootstrap_nice_select_de_DE_localisation = {
+    locales: []
+}
+
+bootstrap_nice_select_de_DE_localisation.locales['de-DE'] = bootstrap_nice_select_de_DE_localisation.locales['de'] = {
+    formatSearch() {
+        return "Suchen...";
     },
     formatHelpForTagging() {
         return "Um eigene Tags zu erstellen, fokussieren Sie das Input-Feld und klicken nach ihrer Eingabe 'Enter' oder ',' oder 'Leertaste' um das Objekt zu erstellen";
     }
 }
 
-/* harmony default export */ const bootstrap_nice_select_de_DE = (localisation);
+/* harmony default export */ const bootstrap_nice_select_de_DE = (bootstrap_nice_select_de_DE_localisation);
 ;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-en-US.js
 /*
- *  Bootstrap Nice Select English Translation
+ *  Bootstrap Nice Select English (United States) Translation
  *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
 */
 
@@ -141,7 +241,7 @@ const bootstrap_nice_select_en_US_localisation = {
 
 bootstrap_nice_select_en_US_localisation.locales['en-US'] = bootstrap_nice_select_en_US_localisation.locales['en'] = {
     formatSearch() {
-        return "Search...";
+        return "Searching...";
     },
     formatHelpForTagging() {
         return "For creating own tags, focus the input field and then press 'Enter' or ',' or 'Spacebar' to add it to the list";
@@ -149,10 +249,290 @@ bootstrap_nice_select_en_US_localisation.locales['en-US'] = bootstrap_nice_selec
 }
 
 /* harmony default export */ const bootstrap_nice_select_en_US = (bootstrap_nice_select_en_US_localisation);
+;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-es-ES.js
+/*
+ *  Bootstrap Nice Select Spanish (Spain, International Sort) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+const bootstrap_nice_select_es_ES_localisation = {
+    locales: []
+}
+
+bootstrap_nice_select_es_ES_localisation.locales['es-ES'] = bootstrap_nice_select_es_ES_localisation.locales['es'] = {
+    formatSearch() {
+        return "Buscando...";
+    },
+    formatHelpForTagging() {
+        return "Para crear etiquetas propias, enfoque el campo de entrada y luego presione 'Entrar' o ',' o 'Barra espaciadora' para agregarlo a la lista";
+    }
+}
+
+/* harmony default export */ const bootstrap_nice_select_es_ES = (bootstrap_nice_select_es_ES_localisation);
+;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-et-EE.js
+/*
+ *  Bootstrap Nice Select Estonian (Estonia) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+const bootstrap_nice_select_et_EE_localisation = {
+    locales: []
+}
+
+bootstrap_nice_select_et_EE_localisation.locales['et-EE'] = bootstrap_nice_select_et_EE_localisation.locales['et'] = {
+    formatSearch() {
+        return "Otsimine...";
+    },
+    formatHelpForTagging() {
+        return "Enda siltide loomiseks fokusseerige sisestusväli ja vajutage selle loendisse lisamiseks sisestusklahvi või ',' või tühikuklahvi";
+    }
+}
+
+/* harmony default export */ const bootstrap_nice_select_et_EE = (bootstrap_nice_select_et_EE_localisation);
+;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-fa-IR.js
+/*
+ *  Bootstrap Nice Select Persian (Iran) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+const bootstrap_nice_select_fa_IR_localisation = {
+    locales: []
+}
+
+bootstrap_nice_select_fa_IR_localisation.locales['fa-IR'] = bootstrap_nice_select_fa_IR_localisation.locales['fa'] = {
+    formatSearch() {
+        return "جستجوکردن...";
+    },
+    formatHelpForTagging() {
+        return "برای ایجاد تگ های خود، فیلد ورودی را متمرکز کنید و سپس 'Enter' یا ',' ، یا 'Spacebar' را فشار دهید تا آن را به لیست اضافه کنید.";
+    }
+}
+
+/* harmony default export */ const bootstrap_nice_select_fa_IR = (bootstrap_nice_select_fa_IR_localisation);
+;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-fi-FI.js
+/*
+ *  Bootstrap Nice Select Finnish (Finland) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+const bootstrap_nice_select_fi_FI_localisation = {
+    locales: []
+}
+
+bootstrap_nice_select_fi_FI_localisation.locales['fi-FI'] = bootstrap_nice_select_fi_FI_localisation.locales['fi'] = {
+    formatSearch() {
+        return "Etsiminen...";
+    },
+    formatHelpForTagging() {
+        return "Luodaksesi omia tunnisteita, tarkenna syöttökenttä ja lisää se luetteloon painamalla Enter tai ',' tai 'Välilyönti'";
+    }
+}
+
+/* harmony default export */ const bootstrap_nice_select_fi_FI = (bootstrap_nice_select_fi_FI_localisation);
+;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-fr-FR.js
+/*
+ *  Bootstrap Nice Select French (France) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+const bootstrap_nice_select_fr_FR_localisation = {
+    locales: []
+}
+
+bootstrap_nice_select_fr_FR_localisation.locales['fr-FR'] = bootstrap_nice_select_fr_FR_localisation.locales['fr'] = {
+    formatSearch() {
+        return "Recherche...";
+    },
+    formatHelpForTagging() {
+        return "Pour créer vos propres balises, concentrez le champ de saisie, puis appuyez sur 'Entrée' ou ',' ou 'Barre d'espacement' pour l'ajouter à la liste";
+    }
+}
+
+/* harmony default export */ const bootstrap_nice_select_fr_FR = (bootstrap_nice_select_fr_FR_localisation);
+;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-it-IT.js
+/*
+ *  Bootstrap Nice Select Italian (Italy) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+const bootstrap_nice_select_it_IT_localisation = {
+    locales: []
+}
+
+bootstrap_nice_select_it_IT_localisation.locales['it-IT'] = bootstrap_nice_select_it_IT_localisation.locales['it'] = {
+    formatSearch() {
+        return "Ricerca...";
+    },
+    formatHelpForTagging() {
+        return "Per creare i propri tag, focalizzare il campo di input e quindi premere 'Invio' o ',' o 'Barra spaziatrice' per aggiungerlo all'elenco";
+    }
+}
+
+/* harmony default export */ const bootstrap_nice_select_it_IT = (bootstrap_nice_select_it_IT_localisation);
+;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-ja-JP.js
+/*
+ *  Bootstrap Nice Select Japanese (Japan) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+const bootstrap_nice_select_ja_JP_localisation = {
+    locales: []
+}
+
+bootstrap_nice_select_ja_JP_localisation.locales['ja-JP'] = bootstrap_nice_select_ja_JP_localisation.locales['ja'] = {
+    formatSearch() {
+        return "検索中...";
+    },
+    formatHelpForTagging() {
+        return "独自のタグを作成するには、入力フィールドにフォーカスし、「Enter」または「,」または「スペースバー」を押してリストに追加します。";
+    }
+}
+
+/* harmony default export */ const bootstrap_nice_select_ja_JP = (bootstrap_nice_select_ja_JP_localisation);
+;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-nl-NL.js
+/*
+ *  Bootstrap Nice Select Dutch (Netherlands) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+const bootstrap_nice_select_nl_NL_localisation = {
+    locales: []
+}
+
+bootstrap_nice_select_nl_NL_localisation.locales['nl-NL'] = bootstrap_nice_select_nl_NL_localisation.locales['nl'] = {
+    formatSearch() {
+        return "Zoeken...";
+    },
+    formatHelpForTagging() {
+        return "Voor het maken van eigen tags, focus het invoerveld en druk op 'Enter' of ',' of 'Spatiebalk' om het aan de lijst toe te voegen";
+    }
+}
+
+/* harmony default export */ const bootstrap_nice_select_nl_NL = (bootstrap_nice_select_nl_NL_localisation);
+;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-pl-PL.js
+/*
+ *  Bootstrap Nice Select Polish (Poland) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+const bootstrap_nice_select_pl_PL_localisation = {
+    locales: []
+}
+
+bootstrap_nice_select_pl_PL_localisation.locales['pl-PL'] = bootstrap_nice_select_pl_PL_localisation.locales['pl'] = {
+    formatSearch() {
+        return "Badawczy...";
+    },
+    formatHelpForTagging() {
+        return "Aby utworzyć własne tagi, zaznacz pole wprowadzania, a następnie naciśnij 'Enter' lub ',' lub 'Spacja', aby dodać je do listy";
+    }
+}
+
+/* harmony default export */ const bootstrap_nice_select_pl_PL = (bootstrap_nice_select_pl_PL_localisation);
+;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-pt-PT.js
+/*
+ *  Bootstrap Nice Select Portuguese (Portugal) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+const bootstrap_nice_select_pt_PT_localisation = {
+    locales: []
+}
+
+bootstrap_nice_select_pt_PT_localisation.locales['pt-PT'] = bootstrap_nice_select_pt_PT_localisation.locales['pt'] = {
+    formatSearch() {
+        return "Procurando...";
+    },
+    formatHelpForTagging() {
+        return "Para criar tags próprias, foque o campo de entrada e pressione 'Enter' ou ',' ou 'Barra de espaço' para adicioná-lo à lista";
+    }
+}
+
+/* harmony default export */ const bootstrap_nice_select_pt_PT = (bootstrap_nice_select_pt_PT_localisation);
+;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-ro-RO.js
+/*
+ *  Bootstrap Nice Select Romanian (Romania) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+const bootstrap_nice_select_ro_RO_localisation = {
+    locales: []
+}
+
+bootstrap_nice_select_ro_RO_localisation.locales['ro-RO'] = bootstrap_nice_select_ro_RO_localisation.locales['ro'] = {
+    formatSearch() {
+        return "In cautarea...";
+    },
+    formatHelpForTagging() {
+        return "Pentru a crea propriile etichete, focalizați câmpul de introducere și apoi apăsați 'Enter' sau ',' sau 'bara de spațiu' pentru a-l adăuga la listă";
+    }
+}
+
+/* harmony default export */ const bootstrap_nice_select_ro_RO = (bootstrap_nice_select_ro_RO_localisation);
+;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-ru-RU.js
+/*
+ *  Bootstrap Nice Select Russian (Russia) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+const bootstrap_nice_select_ru_RU_localisation = {
+    locales: []
+}
+
+bootstrap_nice_select_ru_RU_localisation.locales['ru-RU'] = bootstrap_nice_select_ru_RU_localisation.locales['ru'] = {
+    formatSearch() {
+        return "Идет поиск...";
+    },
+    formatHelpForTagging() {
+        return "Для создания собственных тегов сфокусируйте поле ввода, a затем нажмите 'Ввод', ',' или 'Пробел', чтобы добавить ero в список.";
+    }
+}
+
+/* harmony default export */ const bootstrap_nice_select_ru_RU = (bootstrap_nice_select_ru_RU_localisation);
+;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-tr-TR.js
+/*
+ *  Bootstrap Nice Select Turkish (Turkey) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+const bootstrap_nice_select_tr_TR_localisation = {
+    locales: []
+}
+
+bootstrap_nice_select_tr_TR_localisation.locales['tr-TR'] = bootstrap_nice_select_tr_TR_localisation.locales['tr'] = {
+    formatSearch() {
+        return "Aranıyor...";
+    },
+    formatHelpForTagging() {
+        return "Kendi etiketlerinizi oluşturmak için giriş alanına odaklanın ve ardından listeye eklemek için 'Enter' veya ',' veya 'Boşluk Çubuğu'na basın";
+    }
+}
+
+/* harmony default export */ const bootstrap_nice_select_tr_TR = (bootstrap_nice_select_tr_TR_localisation);
+;// CONCATENATED MODULE: ./src/js/locale/bootstrap-nice-select-zh-CN.js
+/*
+ *  Bootstrap Nice Select Chinese (Simplified, People's Republic of China) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+const bootstrap_nice_select_zh_CN_localisation = {
+    locales: []
+}
+
+bootstrap_nice_select_zh_CN_localisation.locales['zh-ZN'] = bootstrap_nice_select_zh_CN_localisation.locales['zh'] = {
+    formatSearch() {
+        return "搜索中...";
+    },
+    formatHelpForTagging() {
+        return "要创建自己的标签，请聚焦输入字段，然后按'Enter'或','或“空格键”将其添加到列表中";
+    }
+}
+
+/* harmony default export */ const bootstrap_nice_select_zh_CN = (bootstrap_nice_select_zh_CN_localisation);
 ;// CONCATENATED MODULE: ./src/js/constants/index.js
 
 
-const VERSION = "1.0.0";
+const VERSION = "1.1.0";
 
 const bootstrapVersion = utils.getBootstrapVersion();
 
@@ -193,7 +573,7 @@ const CONSTANTS = {
             deleteContainerList: ["list-group", "list-group-flush", "delete-list", "w-100"],
             deleteButtonWrapper: ["d-flex", "flex-row", "justify-content-between", "align-items-center"],
             deleteButtonText: ["m-0", "px-3", "optText", "text-truncate"],
-            deleteButton: ['btn', 'btn-danger', 'delete'],
+            deleteButton: ['btn', 'btn-danger', 'delete', "my-1"],
             deleteButtonIcon: ["icon"],
             addContainer: ['row-12', 'mt-3'],
             addContainerWrapper: ["d-flex", "flex-row", "justify-content-end", "align-items-center"],
@@ -219,8 +599,28 @@ const LOCALISATION = {
 }
 ;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function initAvailableLocales() {
-    for (let lang of [bootstrap_nice_select_de_DE, bootstrap_nice_select_en_US]) {
+    for (let lang of [bootstrap_nice_select_af_ZA, bootstrap_nice_select_ar_SA, bootstrap_nice_select_bg_BG, bootstrap_nice_select_ca_ES, bootstrap_nice_select_cs_CZ, bootstrap_nice_select_de_DE, bootstrap_nice_select_en_US, bootstrap_nice_select_es_ES, bootstrap_nice_select_et_EE, bootstrap_nice_select_fa_IR, bootstrap_nice_select_fi_FI, bootstrap_nice_select_fr_FR, bootstrap_nice_select_it_IT, bootstrap_nice_select_ja_JP, bootstrap_nice_select_nl_NL, bootstrap_nice_select_pl_PL, bootstrap_nice_select_pt_PT, bootstrap_nice_select_ro_RO, bootstrap_nice_select_ru_RU, bootstrap_nice_select_tr_TR, bootstrap_nice_select_zh_CN]) {
         for (let [key, value] of Object.entries(lang.locales)) {
             LOCALISATION[key] = value;
         }
@@ -280,7 +680,7 @@ const ICONS = {
         add: '<i class="bi bi-plus"></i>',
         tag: '<i class="bi bi-exclamation-circle"></i>'
     }
-}[DEFAULTS.theme]
+}
 
 /* harmony default export */ const constants = ({
     VERSION,
@@ -458,7 +858,7 @@ const BootstrapNiceSelect = function (selector, options) {
             button.setAttribute("data-id", optKey);
             let icon = document.createElement("span");
             icon.classList.add(...constants.CONSTANTS.classes.deleteButtonIcon);
-            icon.insertAdjacentHTML("beforeend", _bootstrapNiceSelect.icons && _bootstrapNiceSelect.icons.delete ? _bootstrapNiceSelect.icons.delete : constants.ICONS["delete"]);
+            icon.insertAdjacentHTML("beforeend", _bootstrapNiceSelect.icons && _bootstrapNiceSelect.icons.delete ? _bootstrapNiceSelect.icons.delete : constants.ICONS[_bootstrapNiceSelect.theme].delete);
             button.appendChild(icon);
             divWrapper.appendChild(button);
 
@@ -571,7 +971,7 @@ const BootstrapNiceSelect = function (selector, options) {
         });
         let icon = document.createElement("span");
         icon.classList.add(...constants.CONSTANTS.classes.addbuttonIcon);
-        icon.insertAdjacentHTML("beforeend", _bootstrapNiceSelect.icons && _bootstrapNiceSelect.icons.add ? _bootstrapNiceSelect.icons.add : constants.ICONS.add);
+        icon.insertAdjacentHTML("beforeend", _bootstrapNiceSelect.icons && _bootstrapNiceSelect.icons.add ? _bootstrapNiceSelect.icons.add : constants.ICONS[_bootstrapNiceSelect.theme].add);
         button.appendChild(icon);
 
         divWrapper.appendChild(button);
@@ -696,7 +1096,7 @@ const BootstrapNiceSelect = function (selector, options) {
         searchInputWrapper.classList.add(...constants.CONSTANTS.classes.searchInputWrapper);
         let searchIcon = document.createElement("span");
         searchIcon.classList.add(...constants.CONSTANTS.classes.searchIcon);
-        searchIcon.insertAdjacentHTML("beforeend", _bootstrapNiceSelect.icons && _bootstrapNiceSelect.icons.search ? _bootstrapNiceSelect.icons.search : constants.ICONS.search);
+        searchIcon.insertAdjacentHTML("beforeend", _bootstrapNiceSelect.icons && _bootstrapNiceSelect.icons.search ? _bootstrapNiceSelect.icons.search : constants.ICONS[_bootstrapNiceSelect.theme].search);
         let searchInput = document.createElement("input");
         searchInput.classList.add("w-100");
         searchInput.setAttribute("placeholder", constants.LOCALISATION[_bootstrapNiceSelect.locale].formatSearch());
@@ -713,7 +1113,7 @@ const BootstrapNiceSelect = function (selector, options) {
         if (_bootstrapNiceSelect.tags) {
             let tagIcon = document.createElement("span");
             tagIcon.classList.add(...constants.CONSTANTS.classes.tagIcon);
-            tagIcon.insertAdjacentHTML("beforeend", _bootstrapNiceSelect.icons && _bootstrapNiceSelect.icons.tag ? _bootstrapNiceSelect.icons.tag : constants.ICONS.tag);
+            tagIcon.insertAdjacentHTML("beforeend", _bootstrapNiceSelect.icons && _bootstrapNiceSelect.icons.tag ? _bootstrapNiceSelect.icons.tag : constants.ICONS[_bootstrapNiceSelect.theme].tag);
             let tooltip = document.createElement("span");
             tooltip.classList.add("tooltip-own");
             tagIcon.appendChild(tooltip);
@@ -750,6 +1150,9 @@ const BootstrapNiceSelect = function (selector, options) {
         }
         if (_selectField.getAttribute("data-locale")) {
             _bootstrapNiceSelect.locale = _selectField.getAttribute("data-locale");
+        }
+        if (_selectField.getAttribute("data-search-data")) {
+            _bootstrapNiceSelect.locale = _selectField.getAttribute("data-search-data");
         }
         if (_selectField.getAttribute("data-theme")) {
             _bootstrapNiceSelect.theme = _selectField.getAttribute("data-theme");
@@ -811,7 +1214,7 @@ const BootstrapNiceSelect = function (selector, options) {
     return _bootstrapNiceSelect;
 }
 
-$(document).ready(function () {
+document.addEventListener("DOMContentLoaded", function () {
     let selectsToInit = document.querySelectorAll('select[data-bs-toggle="bootstrap-nice-select"]');
     if (selectsToInit.length === 0) {
         selectsToInit = document.querySelectorAll('select[data-toggle="bootstrap-nice-select"]')

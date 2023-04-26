@@ -1,6 +1,6 @@
 # **[Bootstrap-Nice-Select](https://kevingostomski.github.io/bootstrap-nice-select/)**
 
-A modern looking select field for form submits which uses Bootstrap as dependency to style ist. It can be initialized over HTML or JS and does not need jQuery to work with!
+A modern looking select field for form submits which uses Bootstrap as dependency to style it. It can be initialized over HTML or JS and does not need jQuery to work with!
 
 # **Features**
 
@@ -26,22 +26,16 @@ Use [Releases Pages](https://github.com/kevingostomski/bootstrap-nice-select/rel
 npm install bootstrap-nice-select
 ```
 
-### Yarn
-
-```
-yarn add bootstrap-nice-select
-```
-
 ### CDN
 
 You can source bootstrap-nice-select directly from a CDN like [unpkg](https://unpkg.com).
 
 ```
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://unpkg.com/bootstrap-nice-select@1.0.1/dist/css/bootstrap-nice-select.min.css">
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-nice-select@1.1.0/dist/css/bootstrap-nice-select.min.css">
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://unpkg.com/bootstrap-nice-select@1.0.1/dist/js/bootstrap-nice-select.min.js"></script>
+<script src="https://unpkg.com/bootstrap-nice-select@1.1.0/dist/js/bootstrap-nice-select.min.js"></script>
 
 ```
 

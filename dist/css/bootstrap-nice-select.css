@@ -1,6 +1,6 @@
 /*!
  * 
- * Bootstrap-Nice-Select v1.0.0 (https://github.com/kevingostomski/bootstrap-nice-select)
+ * Bootstrap-Nice-Select v1.1.0 (https://github.com/kevingostomski/bootstrap-nice-select)
  * Copyright 2023 Kevin Gostomski <kevingostomski2001@gmail.com>
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  *
@@ -70,6 +70,9 @@
 }
 .bootstrap-nice-select button.delete .icon {
   margin: 0 15px;
+}
+.bootstrap-nice-select i.material-icons {
+  font-size: inherit;
 }
 
 .bootstrap-nice-select-overlay {
@@ -166,6 +169,7 @@
   border-radius: 7px;
   color: rgb(186, 186, 186);
   font-size: 13px;
+  border: none;
 }
 .bootstrap-nice-select-overlay div.search-container ul li:hover {
   background-color: rgb(48, 52, 79);
@@ -225,6 +229,9 @@
   border-width: 5px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+}
+.bootstrap-nice-select-overlay i.material-icons {
+  font-size: inherit;
 }
 
 /*# sourceMappingURL=bootstrap-nice-select.css.map*/

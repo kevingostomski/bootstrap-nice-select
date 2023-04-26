@@ -1,5 +1,5 @@
 /*
- *  Bootstrap Nice Select English Translation
+ *  Bootstrap Nice Select English (United States) Translation
  *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
 */
 
@@ -9,7 +9,7 @@ const localisation = {
 
 localisation.locales['en-US'] = localisation.locales['en'] = {
     formatSearch() {
-        return "Search...";
+        return "Searching...";
     },
     formatHelpForTagging() {
         return "For creating own tags, focus the input field and then press 'Enter' or ',' or 'Spacebar' to add it to the list";

@@ -13,6 +13,7 @@ permalink: "getting-started/usage"
 
 ## **Via data attributes**
 
+<div class="mb-3">
 {% highlight html %}
 <select data-bs-toggle="bootstrap-nice-select">
     <option value="Banana">Banana</option>
@@ -27,9 +28,11 @@ permalink: "getting-started/usage"
     <option value="Brocoli">Brocoli</option>
 </select>
 {% endhighlight %}
+</div>
 
 For pre-selecting options you can use `selected="selected"` or for multiple select, you can use `multiple="multiple"`.
 
+<div class="mb-3">
 {% highlight html %}
 <select data-bs-toggle="bootstrap-nice-select" multiple="multiple">
     <option value="Banana">Banana</option>
@@ -44,9 +47,11 @@ For pre-selecting options you can use `selected="selected"` or for multiple sele
     <option value="Brocoli">Brocoli</option>
 </select>
 {% endhighlight %}
+</div>
 
 You can even use `<optgroup>` tags to render options in a group and search for group texts in the items search overlay field.
 
+<div class="mb-3">
 {% highlight html %}
 <select data-bs-toggle="bootstrap-nice-select" multiple="multiple">
     <optgroup label="Fruit">
@@ -65,6 +70,7 @@ You can even use `<optgroup>` tags to render options in a group and search for g
     </optgroup>
 </select>
 {% endhighlight %}
+</div>
 
 Currently, remote URL data is only supported through the initialization through JavaScript but the support for data attributes will be added in the upcoming release.
 
@@ -74,16 +80,21 @@ Currently, remote URL data is only supported through the initialization through 
 
 Call a bootstrap-nice-select field with an `id` or `class`.
 
+<div class="mb-3">
 {% highlight html %}
 <select id="my-select"></select>
 {% endhighlight %}
+</div>
 
+<div class="mb-3">
 {% highlight javascript %}
 let select = bootstrapNiceSelect.BootstrapNiceSelect("#my-select");
 {% endhighlight %}
+</div>
 
 For setting available options, create a javascript object and append it to the initialization. You can set something like the `locale` option, the `scrollable` feature or many more.
 
+<div class="mb-3">
 {% highlight javascript %}
 let select = bootstrapNiceSelect.BootstrapNiceSelect("#my-select", {
     locale: "de",
@@ -91,9 +102,10 @@ let select = bootstrapNiceSelect.BootstrapNiceSelect("#my-select", {
     ...
 });
 {% endhighlight %}
+</div>
 
-For using remote URL data, give the option the function name you created or a callback function and return the data in JSON format. When using remote URL data, predefined options
-which are not already `selected="selected"` are ignored but the select field need bo be HTML5 conform, if your JSON data is using `<optgroup>` tags.
+For using remote URL data, give the option `searchData` the function name you created or a callback function and return the data in JSON format. When using remote URL data, predefined options
+which are not already `selected="selected"` are ignored but the select field need to be HTML conform, if your JSON data is using `<optgroup>` tags or other available data options.
 {% highlight javascript %}
 let dbData = {
     items: [

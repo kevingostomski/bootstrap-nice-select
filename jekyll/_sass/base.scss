@@ -3,7 +3,7 @@ main {
 }
 
 body {
-    font-family: 'Bitter', serif;
+    font-family: 'Roboto Slab', serif;
 }
 
 #heading {
@@ -62,14 +62,17 @@ body {
     }
 }
 
-#sidebar-list-group {
-    .list-group-item {
+#pages {
+    .nav-link {
         border: 0;
+        border-radius: 10px;
 
         &:hover,
         &:active,
         &:focus {
             border-radius: 10px;
+            color: #fff;
+            background-color: rgb(44, 48, 53);
         }
 
         &.selected {
@@ -77,5 +80,47 @@ body {
             background-color: rgb(103, 48, 233);
             color: #fff;
         }
+    }
+}
+
+.navbar-header {
+    ul {
+        &.navbar-nav {
+            li {
+                &.nav-item {
+                    &.selected {
+                        a {
+                            color: #fff;
+                        }
+
+                        border-bottom: 1px solid #fff;
+                        background-color: inherit;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 991px) {
+
+    .navbar-header {
+        flex-direction: column;
+
+        ul {
+            &.navbar-nav {
+                margin-top: 10px;
+                padding: 0 10px;
+                margin-left: auto;
+
+                li {
+                    &.nav-item {
+                        padding: 0 10px;
+                    }
+                }
+            }
+        }
+
     }
 }
