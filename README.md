@@ -1,3 +1,14 @@
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/kevingostomski/bootstrap-nice-select/build-jekyll.yml)
+![GitHub last commit](https://img.shields.io/github/last-commit/kevingostomski/bootstrap-nice-select)
+![GitHub all releases](https://img.shields.io/github/downloads/kevingostomski/bootstrap-nice-select/total)
+![GitHub release (latest by SemVer)](https://img.shields.io/github/downloads/kevingostomski/bootstrap-nice-select/latest/total?sort=semver)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/kevingostomski/bootstrap-nice-select)
+![npm](https://img.shields.io/npm/v/bootstrap-nice-select)
+![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/kevingostomski/bootstrap-nice-select/dev/webpack)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/kevingostomski/bootstrap-nice-select)
+![Website](https://img.shields.io/website?down_color=lightgrey&down_message=offline&up_color=blue&up_message=online&url=https%3A%2F%2Fkevingostomski.github.io%2Fbootstrap-nice-select%2F)
+![GitHub](https://img.shields.io/github/license/kevingostomski/bootstrap-nice-select)
+
 # **[Bootstrap-Nice-Select](https://kevingostomski.github.io/bootstrap-nice-select/)**
 
 A modern looking select field for form submits which uses Bootstrap as dependency to style it. It can be initialized over HTML or JS and does not need jQuery to work with!
