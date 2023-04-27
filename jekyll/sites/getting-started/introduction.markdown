@@ -1,5 +1,5 @@
 ---
-layout: "introduction"
+layout: "gettingstarted-introduction"
 permalink: "getting-started/introduction"
 ---
 

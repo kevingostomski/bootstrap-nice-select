@@ -2,7 +2,7 @@
  * 
  * Bootstrap-Nice-Select v1.1.0 (https://github.com/kevingostomski/bootstrap-nice-select)
  * Copyright 2023 Kevin Gostomski <kevingostomski2001@gmail.com>
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * Licensed under MIT (https://github.com/kevingostomski/bootstrap-nice-select/blob/main/LICENSE)
  *
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -630,6 +630,7 @@ initAvailableLocales();
 
 const DEFAULTS = {
     multiple: false,
+    disabled: false,
     searchData: undefined,
     tags: false,
     tokenSeparators: [',', ' ', 'Enter'],
@@ -638,9 +639,7 @@ const DEFAULTS = {
     scrollable: {
         on: false,
         height: undefined
-    },
-    afterAdd: undefined,
-    afterDelete: undefined
+    }
 }
 
 const ICONS = {
@@ -720,26 +719,18 @@ const BootstrapNiceSelect = function (selector, options) {
         }
     }
 
-    function triggerCallbackAfterDeleteByNameOrFunction(key, text) {
-        if (_bootstrapNiceSelect['afterDelete'] instanceof Function || typeof _bootstrapNiceSelect['afterDelete'] === 'function') {
-            _bootstrapNiceSelect['afterDelete'](key, text);
-        } else {
-            utils.executeFunctionByName(_bootstrapNiceSelect['afterDelete'], window, key, text);
-        }
-    }
-
-    function triggerCallbackAfterAddByNameOrFunction(key, text) {
-        if (_bootstrapNiceSelect['afterAdd'] instanceof Function || typeof _bootstrapNiceSelect['afterAdd'] === 'function') {
-            _bootstrapNiceSelect['afterAdd'](key, text);
-        } else {
-            utils.executeFunctionByName(_bootstrapNiceSelect['afterAdd'], window, key, text);
-        }
-    }
-
     function refreshSearchList() {
         let searchUl = _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul");
         searchUl.innerHTML = "";
         for (let searchOption of _searchData.items) {
+
+            const afterAdd = new CustomEvent("inserted.bs.bootstrap-nice-select", {
+                detail: {
+                    key: searchOption.id,
+                    value: searchOption.text
+                }
+            });
+
             let li = document.createElement("li");
             li.classList.add(...constants.CONSTANTS.classes.searchListItem);
             let text = document.createElement("span");
@@ -755,6 +746,7 @@ const BootstrapNiceSelect = function (selector, options) {
                 li.appendChild(badge);
             }
             li.addEventListener('click', function () {
+
                 if (!_bootstrapNiceSelect.multiple) {
                     let deleteLiElements = _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').getElementsByTagName("li");
                     for (let i = 0; (li = deleteLiElements[i]); i++) {
@@ -784,7 +776,7 @@ const BootstrapNiceSelect = function (selector, options) {
                     return;
                 }
                 if (searchOption.optGroup) {
-                    let deleteButton = createDeleteButton(searchOption.id, searchOption.text, searchOption.optGroup);
+                    let deleteButton = createDeleteButton(searchOption.id, searchOption.text, searchOption.optGroup, (searchOption.disabled) ? true : false);
                     let selectedHeader = _selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list h5[data-optgroup=${searchOption.optGroup}]`);
                     if (selectedHeader) {
                         selectedHeader.insertAdjacentElement('afterend', deleteButton);
@@ -797,12 +789,10 @@ const BootstrapNiceSelect = function (selector, options) {
                         _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').appendChild(deleteButton);
                     }
                 } else {
-                    let deleteButton = createDeleteButton(searchOption.id, searchOption.text, undefined);
+                    let deleteButton = createDeleteButton(searchOption.id, searchOption.text, undefined, (searchOption.disabled) ? true : false);
                     _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').appendChild(deleteButton);
                 }
-                if (_bootstrapNiceSelect['afterAdd'] !== undefined) {
-                    triggerCallbackAfterAddByNameOrFunction(searchOption.id, searchOption.text);
-                }
+                _selectField.dispatchEvent(afterAdd);
             });
             li.addEventListener('keydown', function (event) {
                 event.preventDefault();
@@ -842,9 +832,17 @@ const BootstrapNiceSelect = function (selector, options) {
         }
     }
 
-    function createDeleteButton(optKey, optValue, optGroup) {
+    function createDeleteButton(optKey, optValue, optGroup, disabled) {
+
+        const afterDelete = new CustomEvent("removed.bs.bootstrap-nice-select", {
+            detail: {
+                key: optKey,
+                value: optValue
+            }
+        });
 
         let deleteButton = function () {
+
             let divWrapper = document.createElement("div");
             divWrapper.classList.add(...constants.CONSTANTS.classes.deleteButtonWrapper);
 
@@ -856,6 +854,9 @@ const BootstrapNiceSelect = function (selector, options) {
             let button = document.createElement("button");
             button.classList.add(...constants.CONSTANTS.classes.deleteButton);
             button.setAttribute("data-id", optKey);
+            if (disabled || _bootstrapNiceSelect.disabled) {
+                button.setAttribute("disabled", "disabled");
+            }
             let icon = document.createElement("span");
             icon.classList.add(...constants.CONSTANTS.classes.deleteButtonIcon);
             icon.insertAdjacentHTML("beforeend", _bootstrapNiceSelect.icons && _bootstrapNiceSelect.icons.delete ? _bootstrapNiceSelect.icons.delete : constants.ICONS[_bootstrapNiceSelect.theme].delete);
@@ -876,18 +877,18 @@ const BootstrapNiceSelect = function (selector, options) {
                         _searchData.items.push({
                             id: optKey,
                             text: optValue,
-                            optGroup: optGroup
+                            optGroup: optGroup,
+                            disabled: disabled
                         });
                     } else {
                         _searchData.items.push({
                             id: optKey,
-                            text: optValue
+                            text: optValue,
+                            disabled: disabled
                         });
                     }
                 }
-                if (_bootstrapNiceSelect['afterDelete'] !== undefined) {
-                    triggerCallbackAfterDeleteByNameOrFunction(optKey, optValue);
-                }
+                _selectField.dispatchEvent(afterDelete);
             });
             return divWrapper;
         }
@@ -909,13 +910,14 @@ const BootstrapNiceSelect = function (selector, options) {
                 ulElement.appendChild(headerElement);
                 for (let optionElement of optGroup.children) {
                     if (optionElement.selected) {
-                        ulElement.appendChild(createDeleteButton(optionElement.value, optionElement.innerText, optGroup.label));
+                        ulElement.appendChild(createDeleteButton(optionElement.value, optionElement.innerText, optGroup.label, optionElement.disabled));
                     } else {
                         if (_bootstrapNiceSelect.searchData === undefined) {
                             _searchData.items.push({
                                 id: optionElement.value,
                                 text: optionElement.innerText,
-                                optGroup: optGroup.label
+                                optGroup: optGroup.label,
+                                disabled: optionElement.disabled
                             });
                         }
                     }
@@ -926,12 +928,13 @@ const BootstrapNiceSelect = function (selector, options) {
         let optGroupsNotAvailable = function () {
             for (let optionElement of _selectField.children) {
                 if (optionElement.selected) {
-                    ulElement.appendChild(createDeleteButton(optionElement.value, optionElement.innerText, undefined));
+                    ulElement.appendChild(createDeleteButton(optionElement.value, optionElement.innerText, undefined, optionElement.disabled));
                 } else {
                     if (_bootstrapNiceSelect.searchData === undefined) {
                         _searchData.items.push({
                             id: optionElement.value,
-                            text: optionElement.innerText
+                            text: optionElement.innerText,
+                            disabled: optionElement.disabled
                         });
                     }
                 }
@@ -960,6 +963,9 @@ const BootstrapNiceSelect = function (selector, options) {
 
         let button = document.createElement("button");
         button.classList.add(...constants.CONSTANTS.classes.addButton);
+        if (_bootstrapNiceSelect.disabled) {
+            button.setAttribute("disabled", "disabled");
+        }
         button.addEventListener("click", function () {
             _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.add("active");
 
@@ -1047,7 +1053,7 @@ const BootstrapNiceSelect = function (selector, options) {
                         _selectField.appendChild(newOption);
                     }
                     if (!_selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list button[data-id=${keyValue}]`)) {
-                        let newDeleteButton = createDeleteButton(keyValue, keyValue, undefined);
+                        let newDeleteButton = createDeleteButton(keyValue, keyValue, undefined, false);
                         _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').appendChild(newDeleteButton);
                     }
                     _selectField.nextElementSibling.querySelector('.bootstrap-nice-select-overlay').classList.remove("active");
@@ -1134,6 +1140,9 @@ const BootstrapNiceSelect = function (selector, options) {
     }
 
     let syncViaHtml = function () {
+        if (_selectField.getAttribute("disabled")) {
+            _bootstrapNiceSelect.disabled = true;
+        }
         if (_selectField.getAttribute('multiple')) {
             _bootstrapNiceSelect.multiple = true;
         } else {

@@ -142,3 +142,102 @@ When using `<optgroup>` tags, you can search for this labels in the search conta
 {% endhighlight %}
     </div>
 </div>
+
+&nbsp;
+
+#### Disabled Component
+
+You can set `disabled="disabled"` for the whole `<select>` field or for a single `<option>` element, so it can not be removed or new items can not be added. Setting the `disabled` tags works for remote data too, so they can be first time added but not removed afterwards.
+
+&nbsp;
+
+##### Select Disabled
+<div class="container my-4 border rounded p-0">
+    <div class="p-5 border-bottom">
+        <select multiple="multiple" data-bs-toggle="bootstrap-nice-select" disabled="disabled">
+            <optgroup label="Fruit">
+                <option value="Banana">Banana</option>
+                <option value="Apple" selected="selected">Apple</option>
+                <option value="Orange">Orange</option>
+                <option value="Lemon">Lemon</option>
+            </optgroup>
+            <optgroup label="Vegetable">
+                <option value="Pepper">Pepper</option>
+                <option value="Mushrooms">Mushrooms</option>
+                <option value="Cabbages" selected="selected">Cabbages</option>
+                <option value="Celery">Celery</option>
+                <option value="Garlic">Garlic</option>
+                <option value="Brocoli">Brocoli</option>
+            </optgroup>
+        </select>
+    </div>
+    <div class="bg-highlight rounded">
+{% highlight html %}
+<div class="container">
+    <select multiple="multiple" data-bs-toggle="bootstrap-nice-select" disabled="disabled">
+        <optgroup label="Fruit">
+            <option value="Banana">Banana</option>
+            <option value="Apple" selected="selected">Apple</option>
+            <option value="Orange">Orange</option>
+            <option value="Lemon">Lemon</option>
+        </optgroup>
+        <optgroup label="Vegetable">
+            <option value="Pepper">Pepper</option>
+            <option value="Mushrooms">Mushrooms</option>
+            <option value="Cabbages" selected="selected">Cabbages</option>
+            <option value="Celery">Celery</option>
+            <option value="Garlic">Garlic</option>
+            <option value="Brocoli">Brocoli</option>
+        </optgroup>
+    </select>
+</div>
+{% endhighlight %}
+    </div>
+</div>
+
+&nbsp;
+
+##### Single Option Disabled
+<div class="container my-4 border rounded p-0">
+    <div class="p-5 border-bottom">
+        <select multiple="multiple" data-bs-toggle="bootstrap-nice-select">
+            <optgroup label="Fruit">
+                <option value="Banana">Banana</option>
+                <option value="Apple" selected="selected">Apple</option>
+                <option value="Orange">Orange</option>
+                <option value="Lemon">Lemon</option>
+            </optgroup>
+            <optgroup label="Vegetable">
+                <option value="Pepper">Pepper</option>
+                <option value="Mushrooms">Mushrooms</option>
+                <option value="Cabbages" selected="selected" disabled="disabled">Cabbages</option>
+                <option value="Celery">Celery</option>
+                <option value="Garlic">Garlic</option>
+                <option value="Brocoli" disabled="disabled">Brocoli</option>
+            </optgroup>
+        </select>
+    </div>
+    <div class="bg-highlight rounded">
+{% highlight html %}
+<div class="container">
+    <select multiple="multiple" data-bs-toggle="bootstrap-nice-select">
+        <optgroup label="Fruit">
+            <option value="Banana">Banana</option>
+            <option value="Apple" selected="selected">Apple</option>
+            <option value="Orange">Orange</option>
+            <option value="Lemon">Lemon</option>
+        </optgroup>
+        <optgroup label="Vegetable">
+            <option value="Pepper">Pepper</option>
+            <option value="Mushrooms">Mushrooms</option>
+            <option value="Cabbages" selected="selected" disabled="disabled">Cabbages</option>
+            <option value="Celery">Celery</option>
+            <option value="Garlic">Garlic</option>
+            <option value="Brocoli" disabled="disabled">Brocoli</option>
+        </optgroup>
+    </select>
+</div>
+{% endhighlight %}
+    </div>
+</div>
+

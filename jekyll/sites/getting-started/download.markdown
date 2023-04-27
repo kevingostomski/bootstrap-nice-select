@@ -1,5 +1,5 @@
 ---
-layout: "download"
+layout: "gettingstarted-download"
 permalink: "getting-started/download"
 ---
 

@@ -107,4 +107,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    if (document.querySelector("#event-inserted")) {
+        document.querySelector("#event-inserted").addEventListener("inserted.bs.bootstrap-nice-select", function (e) {
+            alert(`ADDED = Key: '${e.detail.key}' | Text: '${e.detail.value}'`);
+        });
+    }
+
+    if (document.querySelector("#event-removed")) {
+        document.querySelector("#event-removed").addEventListener("removed.bs.bootstrap-nice-select", function (e) {
+            alert(`REMOVED = Key: '${e.detail.key}' | Text: '${e.detail.value}'`);
+        });
+    }
 });

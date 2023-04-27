@@ -53,6 +53,10 @@
                 transition: 100ms;
             }
 
+            &:disabled {
+                cursor: not-allowed;
+            }
+
             .icon {
                 margin: 0 15px;
             }
@@ -75,6 +79,10 @@
                 box-shadow: 0px 0px 0px $delete-box-shadow-color;
                 transform: translateY(5px);
                 transition: 100ms;
+            }
+
+            &:disabled {
+                cursor: not-allowed;
             }
 
             .icon {

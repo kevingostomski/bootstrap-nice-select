@@ -2,7 +2,7 @@
  * 
  * Bootstrap-Nice-Select v1.1.0 (https://github.com/kevingostomski/bootstrap-nice-select)
  * Copyright 2023 Kevin Gostomski <kevingostomski2001@gmail.com>
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * Licensed under MIT (https://github.com/kevingostomski/bootstrap-nice-select/blob/main/LICENSE)
  *
  */
 /* optgroup text-decoration color */
@@ -49,6 +49,9 @@
   transform: translateY(5px);
   transition: 100ms;
 }
+.bootstrap-nice-select button.add:disabled {
+  cursor: not-allowed;
+}
 .bootstrap-nice-select button.add .icon {
   margin: 0 15px;
 }
@@ -67,6 +70,9 @@
   box-shadow: 0px 0px 0px #c4253d;
   transform: translateY(5px);
   transition: 100ms;
+}
+.bootstrap-nice-select button.delete:disabled {
+  cursor: not-allowed;
 }
 .bootstrap-nice-select button.delete .icon {
   margin: 0 15px;

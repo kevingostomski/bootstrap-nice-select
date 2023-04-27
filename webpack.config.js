@@ -33,7 +33,7 @@ const minified = {
         banner: `
 Bootstrap-Nice-Select ${version} (https://github.com/kevingostomski/bootstrap-nice-select)
 Copyright 2023 Kevin Gostomski <kevingostomski2001@gmail.com>
-Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+Licensed under MIT (https://github.com/kevingostomski/bootstrap-nice-select/blob/main/LICENSE)
         `
     })
     ],
@@ -83,7 +83,7 @@ const unminified = {
         banner: `
 Bootstrap-Nice-Select ${version} (https://github.com/kevingostomski/bootstrap-nice-select)
 Copyright 2023 Kevin Gostomski <kevingostomski2001@gmail.com>
-Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+Licensed under MIT (https://github.com/kevingostomski/bootstrap-nice-select/blob/main/LICENSE)
         `
     })
     ],

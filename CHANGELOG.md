@@ -1,10 +1,11 @@
-# **v1.1.0 ()**
+# **v1.1.0 (2023-04-27)**
 
 ### **Added**
 
 - Added more languages for localization
 - Finished release of [Homepage](https://kevingostomski.github.io/bootstrap-nice-select/) 
 - Added #3 - component is now mobile responsive
+- Adding `disabled` feature
 
 ### **Fixed**
 
@@ -14,6 +15,7 @@
 ### **Changed**
 
 - Margin and Padding is now better setted so it looks nicer
+- `afterAdd` and `afterDelete` options are now [CustomEvents](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent), which need to be added to the select `selector` HTML object so they get dispatched/triggered on the right time (normally v2.0 release because of not backwards compatible manner but because nobody uses the component currently, version will just be inreased as MINOR release)
 
 
 # **v1.0.1 (2023-04-19)**

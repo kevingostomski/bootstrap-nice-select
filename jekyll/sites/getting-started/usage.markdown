@@ -1,5 +1,5 @@
 ---
-layout: "usage"
+layout: "gettingstarted-usage"
 permalink: "getting-started/usage"
 ---
 

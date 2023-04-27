@@ -1,6 +1,6 @@
 ---
 layout: "default"
-nav: "Getting-Started"
+nav: "Documentation"
 ---
 <div class="row m-5">
     <div class="col col-lg-2 font-size-13 border-bottom border-end mb-3">
@@ -12,16 +12,16 @@ nav: "Getting-Started"
             <div class="collapse navbar-collapse" id="pages">
                 <div class="navbar-nav flex-column w-100">
                     <p class="text-white d-flex justify-content-start align-items-center border-bottom pb-2"><i
-                            class="fa-solid fa-book-open pe-3"></i>Getting started</p>
-                    <a href="{{ site.baseurl }}/getting-started/introduction" class="nav-link p-2">Introduction</a>
-                    <a href="{{ site.baseurl }}/getting-started/download" class="nav-link p-2">Download</a>
-                    <a href="{{ site.baseurl }}/getting-started/usage" class="nav-link p-2 selected">Usage</a>
+                            class="fa-solid fa-book pe-3 text-warning"></i>API</p>
+                    <a href="{{ site.baseurl }}/documentation/options" class="nav-link p-2">Options</a>
+                    <a href="{{ site.baseurl }}/documentation/events" class="nav-link p-2 selected">Events</a>
+                    <a href="{{ site.baseurl }}/documentation/methods" class="nav-link p-2">Methods</a>
                 </div>
             </div>
         </nav>
     </div>
-    <div class="col col-lg-10 col-xxl-8">
-        <div data-bs-spy="scroll" data-bs-target="navbar-scrollspy" data-bs-smooth-scroll="true" data-offset="10"
+    <div class="col-lg-10 col-xxl-8">
+        <div data-bs-spy="scroll" data-bs-target="navbar-scrollspy" data-bs-smooth-scroll="true" data-offset="5"
             tabindex="0">
             {{ content }}
         </div>
@@ -30,8 +30,8 @@ nav: "Getting-Started"
         <div class="sticky-scroll">
             <nav id="navbar-scrollspy" class="border-start">
                 <nav class="nav nav-pills flex-column">
-                    <a class="nav-link" href="#via-data-attributes">Via data attributes</a>
-                    <a class="nav-link" href="#via-javascript">Via JavaScript</a>
+                    <a class="nav-link" href="#inserted">Inserted</a>
+                    <a class="nav-link" href="#removed">Removed</a>
                 </nav>
             </nav>
         </div>

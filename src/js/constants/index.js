@@ -98,6 +98,7 @@ initAvailableLocales();
 
 const DEFAULTS = {
     multiple: false,
+    disabled: false,
     searchData: undefined,
     tags: false,
     tokenSeparators: [',', ' ', 'Enter'],
@@ -106,9 +107,7 @@ const DEFAULTS = {
     scrollable: {
         on: false,
         height: undefined
-    },
-    afterAdd: undefined,
-    afterDelete: undefined
+    }
 }
 
 const ICONS = {

@@ -20,7 +20,7 @@ nav: "Examples"
                             class="nav-link p-2 {% if page.selected == 'From-JavaScript' %}selected{% endif %}">From
                             JavaScript</a>
                     </div>
-                    <div class="navbar-nav flex-column w-100">
+                    <div class="navbar-nav flex-column w-100 mb-5">
                         <p class="text-white d-flex justify-content-start align-items-center border-bottom pb-2"><i
                                 class="fa-solid fa-filter pe-3 text-info"></i>Options</p>
                         <a href="{{ site.baseurl }}/examples/options/icons"
@@ -36,6 +36,14 @@ nav: "Examples"
                             class="nav-link p-2 {% if page.selected == 'Tags' %}selected{% endif %}">Tags</a>
                         <a href="{{ site.baseurl }}/examples/options/theme"
                             class="nav-link p-2 {% if page.selected == 'Theme' %}selected{% endif %}">Theme</a>
+                    </div>
+                    <div class="navbar-nav flex-column w-100 mb-5">
+                        <p class="text-white d-flex justify-content-start align-items-center border-bottom pb-2"><i
+                                class="fa-solid fa-screwdriver-wrench pe-3 text-danger"></i>Events</p>
+                        <a href="{{ site.baseurl }}/examples/events/inserted"
+                            class="nav-link p-2 {% if page.selected == 'AfterInserting' %}selected{% endif %}">Inserted</a>
+                        <a href="{{ site.baseurl }}/examples/events/removed"
+                            class="nav-link p-2 {% if page.selected == 'AfterRemoving' %}selected{% endif %}">Removed</a>
                     </div>
                 </div>
             </div>
