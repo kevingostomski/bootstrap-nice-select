@@ -2,6 +2,7 @@
 layout: "gettingstarted-download"
 permalink: "getting-started/download"
 title: "Getting Started [Download]"
+description: "Getting Started webpage for how to download Bootstrap-Nice-Select"
 ---
 
 # Download

@@ -2,7 +2,8 @@
 layout: "examples"
 permalink: "examples/initialization/from-html"
 selected: "From-HTML"
-title: "Examples [Initialization]"
+description: "Example how to initialize the Bootstrap-Nice-Select component via HTML - Gives an overview how to implement it and how it looks like"
+title: "Examples [Initialization - From HTML]"
 ---
 
 # **Select from HTML**

@@ -2,7 +2,8 @@
 layout: "examples"
 permalink: "examples/options/tags"
 selected: "Tags"
-title: "Examples [Options]"
+description: "Example how to set the 'Tags' option of Bootstrap-Nice-Select - Gives an overview how to implement the option and how it looks like"
+title: "Examples [Options - Tags]"
 ---
 
 # **Dynamic Item creation**

@@ -2,7 +2,8 @@
 layout: "examples"
 permalink: "examples/events/removed"
 selected: "AfterRemoving"
-title: "Examples [Events]"
+description: "Example for the event 'Removed' of Bootstrap-Nice-Select - Gives an overview how to implement the event and how it looks like"
+title: "Examples [Events - Removed]"
 ---
 
 # **Removed**

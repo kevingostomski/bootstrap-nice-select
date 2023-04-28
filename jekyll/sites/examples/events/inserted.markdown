@@ -2,7 +2,8 @@
 layout: "examples"
 permalink: "examples/events/inserted"
 selected: "AfterInserting"
-title: "Examples [Events]"
+description: "Example for the event 'Inserted' of Bootstrap-Nice-Select - Gives an overview how to implement the event and how it looks like"
+title: "Examples [Events - Inserted]"
 ---
 
 # **Inserted**

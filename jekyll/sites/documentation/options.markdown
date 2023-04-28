@@ -1,6 +1,7 @@
 ---
 layout: "documentation-options"
 permalink: "documentation/options"
+description: "Documentation for Options API of Bootstrap-Nice-Select - Gives an overview how to implement each option for the component and which options are available"
 title: "Documentation [Options]"
 ---
 

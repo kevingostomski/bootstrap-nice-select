@@ -1,6 +1,7 @@
 ---
 layout: "documentation-methods"
 permalink: "documentation/methods"
+description: "Documentation for Methods API of Bootstrap-Nice-Select - Gives an overview how to implement methods for the component, which methods are available and what parameters each method has"
 title: "Documentation [Methods]"
 ---
 

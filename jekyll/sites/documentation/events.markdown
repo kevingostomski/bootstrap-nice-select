@@ -1,6 +1,7 @@
 ---
 layout: "documentation-events"
 permalink: "documentation/events"
+description: "Documentation for Events API of Bootstrap-Nice-Select - Gives an overview how to implement events for the component, which events are available and what parameters each event has"
 title: "Documentation [Events]"
 ---
 

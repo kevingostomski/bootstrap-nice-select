@@ -2,7 +2,8 @@
 layout: "examples"
 permalink: "examples/initialization/from-javascript"
 selected: "From-JavaScript"
-title: "Examples [Initialization]"
+description: "Example how to initialize the Bootstrap-Nice-Select component via JavaScript - Gives an overview how to implement it and how it looks like"
+title: "Examples [Initialization - From JavaScript]"
 ---
 
 # **Select from JavaScript**

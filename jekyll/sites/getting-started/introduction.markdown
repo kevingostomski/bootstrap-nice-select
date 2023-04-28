@@ -2,6 +2,7 @@
 layout: "gettingstarted-introduction"
 permalink: "getting-started/introduction"
 title: "Getting Started [Introduction]"
+description: "Getting Started introduction webpage for how to download and use Bootstrap-Nice-Select and how it can be used to make your Bootstrap webpage better"
 ---
 
 # Introduction
