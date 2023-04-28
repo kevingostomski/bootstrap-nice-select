@@ -106,13 +106,10 @@ body {
 @media (max-width: 991px) {
 
     .navbar-header {
-        flex-direction: column;
-
         ul {
             &.navbar-nav {
-                margin-top: 10px;
-                padding: 0 10px;
-                margin-left: auto;
+                overflow-x: auto;
+                white-space: nowrap;
 
                 li {
                     &.nav-item {
