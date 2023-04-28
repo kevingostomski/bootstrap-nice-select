@@ -11,6 +11,16 @@ title: "Documentation [Options]"
 
 ---
 
+Because there are some changes in class names and layout between Bootstrap 4 and Bootstrap 5, bootstrap-nice-select needs to know the version of Bootstrap you are using. By default, bootstrap-nice-select automatically detects the version of Bootstrap. However, there are some instances where the version detection does not work properly (e.g. Bootstrap is being loaded asynchronously or there is a namespace collision). For now, bootstrap-nice-select does not default to using a specific Bootstrap formatting if version detection fails. This will be changed in the next minor release so you can set it manually if problems occur. 
+
+You can change the default settings for bootstrap-nice-select by modifying `bootstrapNiceSelect.DEFAULTS` object as example:
+
+{% highlight javascript %}
+bootstrapNiceSelect.DEFAULTS.tags = true;
+{% endhighlight %}
+
+&nbsp;
+
 &nbsp;
 
 ## **disabled**
