@@ -2,6 +2,7 @@
 layout: "examples"
 permalink: "examples/options/locale"
 selected: "Locale"
+title: "Examples [Options]"
 ---
 
 # **Locale**

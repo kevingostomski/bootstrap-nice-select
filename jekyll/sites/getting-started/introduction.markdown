@@ -1,6 +1,7 @@
 ---
 layout: "gettingstarted-introduction"
 permalink: "getting-started/introduction"
+title: "Getting Started [Introduction]"
 ---
 
 # Introduction

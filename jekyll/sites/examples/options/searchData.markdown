@@ -2,6 +2,7 @@
 layout: "examples"
 permalink: "examples/options/searchData"
 selected: "SearchData"
+title: "Examples [Options]"
 ---
 
 # **Search Data**

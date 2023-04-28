@@ -2,6 +2,7 @@
 layout: "examples"
 permalink: "examples/events/removed"
 selected: "AfterRemoving"
+title: "Examples [Events]"
 ---
 
 # **Removed**

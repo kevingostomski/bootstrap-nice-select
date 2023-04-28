@@ -2,6 +2,7 @@
 layout: "examples"
 permalink: "examples/options/icons"
 selected: "Icons"
+title: "Examples [Options]"
 ---
 
 # **Custom Icons**

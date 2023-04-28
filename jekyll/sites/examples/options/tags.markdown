@@ -2,6 +2,7 @@
 layout: "examples"
 permalink: "examples/options/tags"
 selected: "Tags"
+title: "Examples [Options]"
 ---
 
 # **Dynamic Item creation**

@@ -1,6 +1,7 @@
 ---
 layout: "documentation-events"
 permalink: "documentation/events"
+title: "Documentation [Events]"
 ---
 
 # Select Events

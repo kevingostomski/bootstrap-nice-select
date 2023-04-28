@@ -1,6 +1,7 @@
 ---
 layout: "gettingstarted-usage"
 permalink: "getting-started/usage"
+title: "Getting Started [Usage]"
 ---
 
 # Usage

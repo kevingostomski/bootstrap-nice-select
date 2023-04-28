@@ -2,6 +2,7 @@
 layout: "examples"
 permalink: "examples/options/scrollable"
 selected: "Scrollable"
+title: "Examples [Options]"
 ---
 
 # **Scrollable**

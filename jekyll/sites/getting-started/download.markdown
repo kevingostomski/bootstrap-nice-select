@@ -1,6 +1,7 @@
 ---
 layout: "gettingstarted-download"
 permalink: "getting-started/download"
+title: "Getting Started [Download]"
 ---
 
 # Download

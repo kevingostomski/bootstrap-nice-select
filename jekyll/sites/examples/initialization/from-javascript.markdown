@@ -2,6 +2,7 @@
 layout: "examples"
 permalink: "examples/initialization/from-javascript"
 selected: "From-JavaScript"
+title: "Examples [Initialization]"
 ---
 
 # **Select from JavaScript**

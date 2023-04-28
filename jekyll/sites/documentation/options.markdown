@@ -1,6 +1,7 @@
 ---
 layout: "documentation-options"
 permalink: "documentation/options"
+title: "Documentation [Options]"
 ---
 
 # Select Options

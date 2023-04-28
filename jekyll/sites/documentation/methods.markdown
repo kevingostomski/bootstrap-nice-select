@@ -1,6 +1,7 @@
 ---
 layout: "documentation-methods"
 permalink: "documentation/methods"
+title: "Documentation [Methods]"
 ---
 
 # Select Methods

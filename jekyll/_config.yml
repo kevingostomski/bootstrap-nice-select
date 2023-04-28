@@ -22,7 +22,7 @@ title: Bootstrap-Nice-Select
 email: kevingostomski2001@gmail.com
 version: v1.1.0
 baseurl: "/bootstrap-nice-select" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://kevingostomski.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 # theme: minima
@@ -30,6 +30,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-autoprefixer
+  - jekyll-sitemap
   - webrick
   - execjs
 
@@ -42,6 +43,18 @@ sass:
   style: compressed
 
 highlighter: rouge
+
+defaults:
+  -
+    scope:
+      path: "assets/css/*"
+    values:
+      sitemap: false
+  -
+    scope:
+      path: "assets/js/*"
+    values:
+      sitemap: false
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

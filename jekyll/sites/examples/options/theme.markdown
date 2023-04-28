@@ -2,6 +2,7 @@
 layout: "examples"
 permalink: "examples/options/theme"
 selected: "Theme"
+title: "Examples [Options]"
 ---
 
 # **Theme**

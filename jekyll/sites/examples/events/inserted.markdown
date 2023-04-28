@@ -2,6 +2,7 @@
 layout: "examples"
 permalink: "examples/events/inserted"
 selected: "AfterInserting"
+title: "Examples [Events]"
 ---
 
 # **Inserted**

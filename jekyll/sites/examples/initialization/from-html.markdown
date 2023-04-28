@@ -2,6 +2,7 @@
 layout: "examples"
 permalink: "examples/initialization/from-html"
 selected: "From-HTML"
+title: "Examples [Initialization]"
 ---
 
 # **Select from HTML**
