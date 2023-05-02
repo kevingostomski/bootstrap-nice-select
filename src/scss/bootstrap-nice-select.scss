@@ -47,10 +47,14 @@
             transition: all .3s ease;
 
             &:hover {
+                color: $add-color;
+                background-color: $add-bg-color;
                 box-shadow: 0px 5px 0px color.scale($add-bg-color, $blackness: 20%);
             }
 
             &:active {
+                color: $add-color;
+                background-color: $add-bg-color;
                 box-shadow: 0px 0px 0px color.scale($add-bg-color, $blackness: 20%);
                 transform: translateY(5px);
                 transition: 100ms;
@@ -75,12 +79,15 @@
             height: 40px;
             transition: all .3s ease;
 
-            &:hover,
-            &:focus {
+            &:hover {
+                color: $delete-color;
+                background-color: $delete-bg-color;
                 box-shadow: 0px 5px 0px color.scale($delete-bg-color, $blackness: 20%);
             }
 
             &:active {
+                color: $delete-color;
+                background-color: $delete-bg-color;
                 box-shadow: 0px 0px 0px color.scale($delete-bg-color, $blackness: 20%);
                 transform: translateY(5px);
                 transition: 100ms;

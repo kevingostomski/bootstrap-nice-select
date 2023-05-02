@@ -1,6 +1,6 @@
 /*!
  * 
- * Bootstrap-Nice-Select v1.1.2 (https://github.com/kevingostomski/bootstrap-nice-select)
+ * Bootstrap-Nice-Select v1.1.3 (https://github.com/kevingostomski/bootstrap-nice-select)
  * Copyright 2023 Kevin Gostomski <kevingostomski2001@gmail.com>
  * Licensed under MIT (https://github.com/kevingostomski/bootstrap-nice-select/blob/main/LICENSE)
  *
