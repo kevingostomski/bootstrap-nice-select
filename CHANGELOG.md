@@ -1,3 +1,10 @@
+# **v1.1.1 (2023-05-02)**
+
+### **Fixed**
+
+- Issue [#15](https://github.com/kevingostomski/bootstrap-nice-select/issues/15) - Screen resizing fix for buttons on small screen
+- Issue [#10](https://github.com/kevingostomski/bootstrap-nice-select/issues/10) - Button shadow colors are inheritable and can be created on your own via SASS variables
+
 # **v1.1.0 (2023-04-27)**
 
 ### **Added**
