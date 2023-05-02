@@ -67,3 +67,13 @@ npm i bootstrap-nice-select
 {% endhighlight %}
 
 &nbsp;
+
+#### Yarn
+
+Install and manage Bootstrap-Nice-Select’s CSS, JavaScript, locales, and extensions using [yarn](https://yarnpkg.com/).
+
+{% highlight shell %}
+yarn add bootstrap-nice-select
+{% endhighlight %}
+
+&nbsp;
