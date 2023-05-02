@@ -1,4 +1,6 @@
-# **v1.1.1 (2023-05-02)**
+# **v1.1.2 (2023-05-02)**
+
+Because of wrong usage of `npm publish`, release v1.1.1 is skipped
 
 ### **Fixed**
 
