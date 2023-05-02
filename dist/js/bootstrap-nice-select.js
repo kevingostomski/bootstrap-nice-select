@@ -1,6 +1,6 @@
 /*!
  * 
- * Bootstrap-Nice-Select v1.1.0 (https://github.com/kevingostomski/bootstrap-nice-select)
+ * Bootstrap-Nice-Select v1.1.1 (https://github.com/kevingostomski/bootstrap-nice-select)
  * Copyright 2023 Kevin Gostomski <kevingostomski2001@gmail.com>
  * Licensed under MIT (https://github.com/kevingostomski/bootstrap-nice-select/blob/main/LICENSE)
  *
@@ -545,11 +545,11 @@ const CONSTANTS = {
             deleteContainerList: ["list-group", "list-group-flush", "delete-list", "w-100"],
             deleteButtonWrapper: ["d-flex", "flex-row", "justify-content-between", "align-items-center"],
             deleteButtonText: ["m-0", "px-3", "optText", "text-truncate"],
-            deleteButton: ['btn', 'btn-danger', 'delete'],
+            deleteButton: ['d-flex', 'align-items-center', 'btn', 'delete'],
             deleteButtonIcon: ["icon"],
             addContainer: ['row-12', 'mt-3'],
             addContainerWrapper: ["d-flex", "flex-row", "justify-content-end", "align-items-center"],
-            addButton: ['btn', 'btn-success', 'add'],
+            addButton: ['d-flex', 'align-items-center', 'btn', 'add'],
             addbuttonIcon: ['icon'],
             overlayContainer: ['bootstrap-nice-select-overlay'],
             overlayContainerWrapper: ["h-100", "bootstrap-nice-select-closer"],
@@ -573,11 +573,11 @@ const CONSTANTS = {
             deleteContainerList: ["list-group", "list-group-flush", "delete-list", "w-100"],
             deleteButtonWrapper: ["d-flex", "flex-row", "justify-content-between", "align-items-center"],
             deleteButtonText: ["m-0", "px-3", "optText", "text-truncate"],
-            deleteButton: ['btn', 'btn-danger', 'delete', "my-1"],
+            deleteButton: ['d-flex', 'align-items-center', 'btn', 'delete', "my-1"],
             deleteButtonIcon: ["icon"],
             addContainer: ['row-12', 'mt-3'],
             addContainerWrapper: ["d-flex", "flex-row", "justify-content-end", "align-items-center"],
-            addButton: ['btn', 'btn-success', 'add'],
+            addButton: ['d-flex', 'align-items-center', 'btn', 'add'],
             addbuttonIcon: ['icon'],
             overlayContainer: ['bootstrap-nice-select-overlay'],
             overlayContainerWrapper: ["h-100", "bootstrap-nice-select-closer"],

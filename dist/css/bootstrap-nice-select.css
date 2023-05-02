@@ -1,6 +1,6 @@
 /*!
  * 
- * Bootstrap-Nice-Select v1.1.0 (https://github.com/kevingostomski/bootstrap-nice-select)
+ * Bootstrap-Nice-Select v1.1.1 (https://github.com/kevingostomski/bootstrap-nice-select)
  * Copyright 2023 Kevin Gostomski <kevingostomski2001@gmail.com>
  * Licensed under MIT (https://github.com/kevingostomski/bootstrap-nice-select/blob/main/LICENSE)
  *
@@ -36,16 +36,18 @@
 .bootstrap-nice-select button.add {
   padding: 0.375rem;
   border: none;
-  box-shadow: 0 7px 0 #0f932c;
+  background-color: #28a745;
+  color: #fff;
+  box-shadow: 0 7px 0 #28863d;
   font-size: 15px;
   height: 40px;
   transition: all 0.3s ease;
 }
 .bootstrap-nice-select button.add:hover {
-  box-shadow: 0px 5px 0px #0f932c;
+  box-shadow: 0px 5px 0px #28863d;
 }
 .bootstrap-nice-select button.add:active {
-  box-shadow: 0px 0px 0px #0f932c;
+  box-shadow: 0px 0px 0px #28863d;
   transform: translateY(5px);
   transition: 100ms;
 }
@@ -58,16 +60,18 @@
 .bootstrap-nice-select button.delete {
   padding: 0.375rem;
   border: none;
-  box-shadow: 0px 7px 0px #c4253d;
+  background-color: #dc3545;
+  color: #fff;
+  box-shadow: 0px 7px 0px #b03541;
   font-size: 15px;
   height: 40px;
   transition: all 0.3s ease;
 }
 .bootstrap-nice-select button.delete:hover, .bootstrap-nice-select button.delete:focus {
-  box-shadow: 0px 5px 0px #c4253d;
+  box-shadow: 0px 5px 0px #b03541;
 }
 .bootstrap-nice-select button.delete:active {
-  box-shadow: 0px 0px 0px #c4253d;
+  box-shadow: 0px 0px 0px #b03541;
   transform: translateY(5px);
   transition: 100ms;
 }
