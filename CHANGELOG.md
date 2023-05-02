@@ -11,7 +11,7 @@
 
 - Added more languages for localization
 - Finished release of [Homepage](https://kevingostomski.github.io/bootstrap-nice-select/) 
-- Added #3 - component is now mobile responsive
+- Added [#3](https://github.com/kevingostomski/bootstrap-nice-select/issues/3) - component is now mobile responsive
 - Adding `disabled` feature
 
 ### **Fixed**
