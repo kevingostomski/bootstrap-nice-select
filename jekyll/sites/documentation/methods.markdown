@@ -13,4 +13,104 @@ title: "Documentation [Methods]"
 
 &nbsp;
 
-Currently, there are no methods available but in future releases, there will be probably added for programmatic control.
+Methods can currently be called like the following:
+
+{% highlight javascript %}
+let select = bootstrapNiceSelect.BootstrapNiceSelect('#my-selector');
+
+select.bootstrapNiceSelect("functionName", parameter);
+{% endhighlight %}
+
+&nbsp;
+
+The `parameter` correspond to the [rest parameter syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) and can be useful as example for selecting or deselecting more as one `<option>` tag.
+
+&nbsp;
+
+&nbsp;
+
+## **close**
+
+- **Parameter:** `undefined`
+- **Detail:** Close the HTML overlay with the search container to add new items
+- **Example:** [Overlay]({% link sites/examples/methods/open-close.markdown %})
+
+&nbsp;
+
+&nbsp;
+
+## **deselect**
+
+- **Parameter:** `...ids`
+- **Detail:** Deselect already added `<option>` elements via their setted `val`
+- **Example:** [Select Methods]({% link sites/examples/methods/select.markdown %})
+
+&nbsp;
+
+&nbsp;
+
+## **deselectAll**
+
+- **Parameter:** `undefined`
+- **Detail:** Deselect all possible `<option>` elements
+- **Example:** [Select Methods]({% link sites/examples/methods/select.markdown %})
+
+&nbsp;
+
+&nbsp;
+
+## **destroy**
+
+- **Parameter:** `undefined`
+- **Detail:** Destroy the initialized select HTML node
+- **Example:** [Destroy]({% link sites/examples/methods/destroy.markdown %})
+
+&nbsp;
+
+&nbsp;
+
+## **hide**
+
+- **Parameter:** `undefined`
+- **Detail:** Hide the initialized select HTML node
+- **Example:** [Visibility]({% link sites/examples/methods/show-hide.markdown %})
+
+&nbsp;
+
+&nbsp;
+
+## **open**
+
+- **Parameter:** `searchInput`
+- **Detail:** Open the HTML overlay with the search container to add new items
+- **Example:** [Overlay]({% link sites/examples/methods/open-close.markdown %})
+
+&nbsp;
+
+&nbsp;
+
+## **show**
+
+- **Parameter:** `undefined`
+- **Detail:** Shows the initialized select HTML node
+- **Example:** [Visibility]({% link sites/examples/methods/show-hide.markdown %})
+
+&nbsp;
+
+&nbsp;
+
+## **select**
+
+- **Parameter:** `...items`
+- **Detail:** Creates new `<option>` elements for the select field 
+- **Example:** [Select Methods]({% link sites/examples/methods/select.markdown %})
+
+&nbsp;
+
+&nbsp;
+
+## **selectAll**
+
+- **Parameter:** `undefined`
+- **Detail:** Select all possible `<option>` elements which are available
+- **Example:** [Select Methods]({% link sites/examples/methods/select.markdown %})

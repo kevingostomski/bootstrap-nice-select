@@ -33,6 +33,19 @@ bootstrapNiceSelect.DEFAULTS.tags = true;
 
 &nbsp;
 
+## **animation**
+
+- **Attribute:** `data-animation`
+- **Type:** `Boolean`
+- **Detail:**
+  Set to `false` if you do not want to have animation effects for the API methods `show()` and `hide()`.
+- **Default:** `true`
+- **Example:** [Animation]({% link sites/examples/options/animation.markdown %})
+
+&nbsp;
+
+&nbsp;
+
 ## **disabled**
 
 - **Attribute:** `disabled="disabled"`

@@ -97,6 +97,7 @@ function initAvailableLocales() {
 initAvailableLocales();
 
 const DEFAULTS = {
+    animation: true,
     multiple: false,
     disabled: false,
     searchData: undefined,

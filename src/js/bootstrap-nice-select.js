@@ -51,7 +51,6 @@ export const BootstrapNiceSelect = function (selector, options) {
                 li.appendChild(badge);
             }
             li.addEventListener('click', function () {
-
                 if (!_bootstrapNiceSelect.multiple) {
                     let deleteLiElements = _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').getElementsByTagName("li");
                     for (let i = 0; (li = deleteLiElements[i]); i++) {
@@ -81,7 +80,7 @@ export const BootstrapNiceSelect = function (selector, options) {
                     return;
                 }
                 if (searchOption.optGroup) {
-                    let deleteButton = createDeleteButton(searchOption.id, searchOption.text, searchOption.optGroup, (searchOption.disabled) ? true : false);
+                    let deleteButton = createDeleteButton(searchOption.id, searchOption.text, searchOption.optGroup, (searchOption.disabled) ? searchOption.disabled : false);
                     let selectedHeader = _selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list h5[data-optgroup=${searchOption.optGroup}]`);
                     if (selectedHeader) {
                         selectedHeader.insertAdjacentElement('afterend', deleteButton);
@@ -94,7 +93,7 @@ export const BootstrapNiceSelect = function (selector, options) {
                         _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').appendChild(deleteButton);
                     }
                 } else {
-                    let deleteButton = createDeleteButton(searchOption.id, searchOption.text, undefined, (searchOption.disabled) ? true : false);
+                    let deleteButton = createDeleteButton(searchOption.id, searchOption.text, undefined, (searchOption.disabled) ? searchOption.disabled : false);
                     _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').appendChild(deleteButton);
                 }
                 _selectField.dispatchEvent(afterAdd);
@@ -298,19 +297,10 @@ export const BootstrapNiceSelect = function (selector, options) {
         }
 
         let hideOverlayOnClick = function (event) {
-            if (_bootstrapNiceSelect.searchData === undefined) {
-                let target = (event && event.target);
-                if (target == this) {
-                    overlayElement.classList.remove("active");
-                    _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
-                    _selectField.nextElementSibling.querySelectorAll(".bootstrap-nice-select-overlay div.search-container ul li").forEach(element => element.tabIndex = -1);
-                }
-            } else {
-                let target = (event && event.target);
-                if (target == this) {
-                    overlayElement.classList.remove("active");
-                    _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
-                }
+            let target = (event && event.target);
+            if (target == this) {
+                overlayElement.classList.remove("active");
+                _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
             }
         }
 
@@ -321,6 +311,7 @@ export const BootstrapNiceSelect = function (selector, options) {
                     _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.add("active");
                 } else {
                     _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
+                    return;
                 }
                 let liNodes = _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").getElementsByTagName("li");
                 for (let i = 0; i < liNodes.length; i++) {
@@ -460,7 +451,7 @@ export const BootstrapNiceSelect = function (selector, options) {
             }
         }
         if (_selectField.getAttribute('data-tags')) {
-            _bootstrapNiceSelect.tags = _selectField.getAttribute('data-tags');
+            _bootstrapNiceSelect.tags = (_selectField.getAttribute('data-tags') === 'true');
         }
         if (_selectField.getAttribute("data-locale")) {
             _bootstrapNiceSelect.locale = _selectField.getAttribute("data-locale");
@@ -472,8 +463,11 @@ export const BootstrapNiceSelect = function (selector, options) {
             _bootstrapNiceSelect.theme = _selectField.getAttribute("data-theme");
         }
         if (_selectField.getAttribute("data-scrollable-on")) {
-            _bootstrapNiceSelect.scrollable.on = _selectField.getAttribute("data-scrollable-on");
+            _bootstrapNiceSelect.scrollable.on = (_selectField.getAttribute("data-scrollable-on") === 'true');
             _bootstrapNiceSelect.scrollable.height = _selectField.getAttribute("data-scrollable-height");
+        }
+        if (_selectField.getAttribute("data-animation")) {
+            _bootstrapNiceSelect.animation = (_selectField.getAttribute("data-animation") === 'true');
         }
     }
 
@@ -493,6 +487,8 @@ export const BootstrapNiceSelect = function (selector, options) {
      * 
      */
 
+
+    // private params, which should be not accessible via the public object
     let _selectField = document.querySelector(selector);
     _selectField.setAttribute("hidden", "hidden");
     let _currentLi = 0;
@@ -506,6 +502,7 @@ export const BootstrapNiceSelect = function (selector, options) {
     syncViaHtml();
     syncViaJavascript();
 
+    // init HTMLElement and inject it to DOM
     let main = document.createElement("div");
     main.classList.add(...Constants.CONSTANTS.classes.mainContainer);
     let deleteElement = initDeleteField();
@@ -524,6 +521,174 @@ export const BootstrapNiceSelect = function (selector, options) {
     main.appendChild(initOverlay());
 
     _selectField.parentNode.insertBefore(main, _selectField.nextSibling);
+
+    // Add programmatic control
+    _bootstrapNiceSelect.bootstrapNiceSelect = function (functionName, ...args) {
+        switch (functionName) {
+            case 'select':
+                if (args.length === 0) {
+                    console.error("No given option to select something for method 'select'. Please read the manual how to use the function...");
+                    break;
+                }
+                for (let arg of args) {
+                    const afterAdd = new CustomEvent("inserted.bs.bootstrap-nice-select", {
+                        detail: {
+                            key: arg.id,
+                            value: arg.text
+                        }
+                    });
+                    if (!_bootstrapNiceSelect.multiple) {
+                        let deleteLiElements = _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').getElementsByTagName("li");
+                        for (let i = 0; (li = deleteLiElements[i]); i++) {
+                            li.parentNode.removeChild(li);
+                        }
+                        let oldSelectedOption = _selectField.querySelector('option[selected="selected"]');
+                        if (oldSelectedOption) {
+                            oldSelectedOption.removeAttribute("selected");
+                        }
+                    }
+                    let option = _selectField.querySelector(`option[value="${arg.id}"]`);
+                    if (option) {
+                        option.setAttribute("selected", "selected");
+                    } else {
+                        let newOption = document.createElement("option");
+                        newOption.value = arg.id;
+                        newOption.innerText = arg.text;
+                        newOption.setAttribute("selected", "selected");
+                        _selectField.appendChild(newOption);
+                    }
+                    if (_selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list button[data-id=${arg.id}]`)) {
+                        continue;
+                    }
+                    if (arg.optGroup) {
+                        let deleteButton = createDeleteButton(arg.id, arg.text, arg.optGroup, (arg.disabled) ? arg.disabled : false);
+                        let selectedHeader = _selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list h5[data-optgroup=${arg.optGroup}]`);
+                        if (selectedHeader) {
+                            selectedHeader.insertAdjacentElement('afterend', deleteButton);
+                        } else {
+                            let newHeader = document.createElement("h5");
+                            newHeader.classList.add(...Constants.CONSTANTS.classes.deleteContainerHeader);
+                            newHeader.innerHTML = arg.optGroup;
+                            newHeader.setAttribute("data-optgroup", arg.optGroup);
+                            _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').appendChild(newHeader);
+                            _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').appendChild(deleteButton);
+                        }
+                    } else {
+                        let deleteButton = createDeleteButton(arg.id, arg.text, undefined, (arg.disabled) ? arg.disabled : false);
+                        _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').appendChild(deleteButton);
+                    }
+                    _selectField.dispatchEvent(afterAdd);
+                }
+                break;
+            case 'deselect':
+                if (args.length === 0) {
+                    console.error("No given option to deselect something for method 'deselect'. Please read the manual how to use the function...");
+                    break;
+                }
+                for (let arg of args) {
+                    let foundedButton = _selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list li button[data-id="${arg}"]`);
+                    if (!foundedButton) {
+                        console.error(`Could not deselect given option "${arg}", because could not trigger click event for respective delete button...`);
+                        continue;
+                    }
+                    foundedButton.click();
+                }
+                break;
+            case 'selectAll':
+                if (!_bootstrapNiceSelect.multiple) {
+                    console.error("Method 'selectAll' should not be used for a select field without 'multiple' property because it does not make sense if you can only select one. Please use method 'select' instead...");
+                    break;
+                }
+                if (_bootstrapNiceSelect.searchData) {
+                    args.length > 0 ? getRemoteSearchData(args[0]) : getRemoteSearchData("");
+                }
+                for (let searchOption of _searchData.items) {
+                    const afterAdd = new CustomEvent("inserted.bs.bootstrap-nice-select", {
+                        detail: {
+                            key: searchOption.id,
+                            value: searchOption.text
+                        }
+                    });
+                    let option = _selectField.querySelector(`option[value="${searchOption.id}"]`);
+                    if (option) {
+                        option.setAttribute("selected", "selected");
+                    } else {
+                        let newOption = document.createElement("option");
+                        newOption.value = searchOption.id;
+                        newOption.innerText = searchOption.text;
+                        newOption.setAttribute("selected", "selected");
+                        _selectField.appendChild(newOption);
+                    }
+                    if (_bootstrapNiceSelect.searchData === undefined) {
+                        _searchData.items = _searchData.items.filter(data => data.id !== searchOption.id);
+                    }
+                    if (_selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list button[data-id=${searchOption.id}]`)) {
+                        continue;
+                    }
+                    if (searchOption.optGroup) {
+                        let deleteButton = createDeleteButton(searchOption.id, searchOption.text, searchOption.optGroup, (searchOption.disabled) ? searchOption.disabled : false);
+                        let selectedHeader = _selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list h5[data-optgroup=${searchOption.optGroup}]`);
+                        if (selectedHeader) {
+                            selectedHeader.insertAdjacentElement('afterend', deleteButton);
+                        } else {
+                            let newHeader = document.createElement("h5");
+                            newHeader.classList.add(...Constants.CONSTANTS.classes.deleteContainerHeader);
+                            newHeader.innerHTML = searchOption.optGroup;
+                            newHeader.setAttribute("data-optgroup", searchOption.optGroup);
+                            _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').appendChild(newHeader);
+                            _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').appendChild(deleteButton);
+                        }
+                    } else {
+                        let deleteButton = createDeleteButton(searchOption.id, searchOption.text, undefined, (searchOption.disabled) ? searchOption.disabled : false);
+                        _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').appendChild(deleteButton);
+                    }
+                    _selectField.dispatchEvent(afterAdd);
+                }
+                break;
+            case 'deselectAll':
+                let foundedButtons = _selectField.nextElementSibling.querySelectorAll(".bootstrap-nice-select ul.delete-list li button");
+                for (let foundedButton of foundedButtons) {
+                    foundedButton.click();
+                }
+                break;
+            case 'destroy':
+                _selectField.nextElementSibling.remove();
+                _selectField.removeAttribute("hidden");
+                break;
+            case 'show':
+                if (_bootstrapNiceSelect.animation) {
+                    _selectField.nextElementSibling.classList.remove("fade-out-down");
+                    _selectField.nextElementSibling.classList.add("fade-in-down");
+                } else {
+                    _selectField.nextElementSibling.style.opacity = "1";
+                }
+                break;
+            case 'hide':
+                if (_bootstrapNiceSelect.animation) {
+                    _selectField.nextElementSibling.classList.remove("fade-in-down");
+                    _selectField.nextElementSibling.classList.add("fade-out-down");
+                } else {
+                    _selectField.nextElementSibling.style.opacity = "0";
+                }
+                break;
+            case 'open':
+                _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.add("active");
+                let input = _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container input");
+                if (args.length > 0) {
+                    input.value = args[0];
+                    input.dispatchEvent(new Event('keyup'));
+                } else {
+                    input.value = '';
+                }
+                input.focus();
+                refreshSearchList();
+                break;
+            case 'close':
+                _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.remove("active");
+                _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
+                break;
+        }
+    };
 
     return _bootstrapNiceSelect;
 }

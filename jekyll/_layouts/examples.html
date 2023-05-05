@@ -23,6 +23,8 @@ nav: "Examples"
                     <div class="navbar-nav flex-column w-100 mb-5">
                         <p class="text-white d-flex justify-content-start align-items-center border-bottom pb-2"><i
                                 class="fa-solid fa-filter pe-3 text-info"></i>Options</p>
+                        <a href="{{ site.baseurl }}/examples/options/animation"
+                            class="nav-link p-2 {% if page.selected == 'Animation' %}selected{% endif %}">Animation</a>
                         <a href="{{ site.baseurl }}/examples/options/icons"
                             class="nav-link p-2 {% if page.selected == 'Icons' %}selected{% endif %}">Custom Icons</a>
                         <a href="{{ site.baseurl }}/examples/options/locale"
@@ -44,6 +46,18 @@ nav: "Examples"
                             class="nav-link p-2 {% if page.selected == 'AfterInserting' %}selected{% endif %}">Inserted</a>
                         <a href="{{ site.baseurl }}/examples/events/removed"
                             class="nav-link p-2 {% if page.selected == 'AfterRemoving' %}selected{% endif %}">Removed</a>
+                    </div>
+                    <div class="navbar-nav flex-column w-100 mb-5">
+                        <p class="text-white d-flex justify-content-start align-items-center border-bottom pb-2"><i
+                                class="fa-solid fa-hammer pe-3 text-warning"></i>Methods</p>
+                        <a href="{{ site.baseurl }}/examples/methods/destroy"
+                            class="nav-link p-2 {% if page.selected == 'Destroy' %}selected{% endif %}">Destroy</a>
+                        <a href="{{ site.baseurl }}/examples/methods/overlay"
+                            class="nav-link p-2 {% if page.selected == 'Overlay' %}selected{% endif %}">Overlay</a>
+                        <a href="{{ site.baseurl }}/examples/methods/select"
+                            class="nav-link p-2 {% if page.selected == 'Select' %}selected{% endif %}">Select</a>
+                        <a href="{{ site.baseurl }}/examples/methods/visibility"
+                            class="nav-link p-2 {% if page.selected == 'Visibility' %}selected{% endif %}">Visibility</a>
                     </div>
                 </div>
             </div>

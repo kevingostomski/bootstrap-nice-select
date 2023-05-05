@@ -1,4 +1,15 @@
-## **v1.1.3 (2023-05-02)**
+# **v1.2.0 (2023-05-05)**
+
+### **Fixed**
+
+- Use actual setted `disabled` property from item when given and not just decide, if it exists or not
+
+### **Added**
+
+- Programmatic control - Methods API documentation added with examples how to use them
+- added new option `animation` as default `true` if `hide()` or `show()` API method is called
+
+# **v1.1.3 (2023-05-02)**
 
 ### **Fixed**
 
