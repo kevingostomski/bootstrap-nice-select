@@ -76,7 +76,7 @@ export const BootstrapNiceSelect = function (selector, options) {
                 }
                 _selectField.nextElementSibling.querySelector('.bootstrap-nice-select-overlay').classList.remove("active");
                 this.parentNode.classList.remove("active");
-                if (_selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list button[data-id=${searchOption.id}]`)) {
+                if (_selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list button[data-id="${searchOption.id}"]`)) {
                     return;
                 }
                 if (searchOption.optGroup) {
@@ -350,7 +350,7 @@ export const BootstrapNiceSelect = function (selector, options) {
                         newOption.setAttribute("selected", "selected");
                         _selectField.appendChild(newOption);
                     }
-                    if (!_selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list button[data-id=${keyValue}]`)) {
+                    if (!_selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list button[data-id="${keyValue}"]`)) {
                         let newDeleteButton = createDeleteButton(keyValue, keyValue, undefined, false);
                         _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').appendChild(newDeleteButton);
                     }
@@ -559,7 +559,7 @@ export const BootstrapNiceSelect = function (selector, options) {
                         newOption.setAttribute("selected", "selected");
                         _selectField.appendChild(newOption);
                     }
-                    if (_selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list button[data-id=${arg.id}]`)) {
+                    if (_selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list button[data-id="${arg.id}"]`)) {
                         continue;
                     }
                     if (arg.optGroup) {
@@ -624,7 +624,7 @@ export const BootstrapNiceSelect = function (selector, options) {
                     if (_bootstrapNiceSelect.searchData === undefined) {
                         _searchData.items = _searchData.items.filter(data => data.id !== searchOption.id);
                     }
-                    if (_selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list button[data-id=${searchOption.id}]`)) {
+                    if (_selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list button[data-id="${searchOption.id}"]`)) {
                         continue;
                     }
                     if (searchOption.optGroup) {

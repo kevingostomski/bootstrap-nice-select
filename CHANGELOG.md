@@ -1,3 +1,10 @@
+# **v1.2.3 (2023-05-09)**
+
+### **Fixed**
+
+- `Spacebar` characters are the reason why on special tagging elements the CSS selector keeps breaking. Fix is now added
+
+
 # **v1.2.2 (2023-05-09)**
 
 ### **Fixed**
