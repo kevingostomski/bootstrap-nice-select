@@ -102,7 +102,7 @@ const DEFAULTS = {
     disabled: false,
     searchData: undefined,
     tags: false,
-    tokenSeparators: [',', ' ', 'Enter'],
+    tokenSeparators: [','],
     locale: "en-US",
     theme: 'font-awesome-6',
     scrollable: {

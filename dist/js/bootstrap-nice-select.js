@@ -1,6 +1,6 @@
 /*!
  * 
- * Bootstrap-Nice-Select v1.2.1 (https://github.com/kevingostomski/bootstrap-nice-select)
+ * Bootstrap-Nice-Select v1.2.2 (https://github.com/kevingostomski/bootstrap-nice-select)
  * Copyright 2023 Kevin Gostomski <kevingostomski2001@gmail.com>
  * Licensed under MIT (https://github.com/kevingostomski/bootstrap-nice-select/blob/main/LICENSE)
  *
@@ -124,7 +124,7 @@ localisation.locales['af-ZA'] = localisation.locales['af'] = {
         return "Soek tans...";
     },
     formatHelpForTagging() {
-        return "Om eie etikette te skep, fokus die invoerveld en druk dan 'Enter' of ',' of 'Spasiebalk' om dit by die lys te voeg";
+        return "Om eie etikette te skep, fokus die invoerveld en druk dan ',' om dit by die lys te voeg";
     }
 }
 
@@ -164,7 +164,7 @@ bootstrap_nice_select_bg_BG_localisation.locales['bg-BG'] = bootstrap_nice_selec
         return "Търсене...";
     },
     formatHelpForTagging() {
-        return "3a създаване на собствени тагове фокусирайте полето за въвеждане и след това натиснете 'Enter' или ',' или 'Интервал', за да ro добавите към списъка";
+        return "3a създаване на собствени тагове фокусирайте полето за въвеждане и след това натиснете ',' за да ro добавите към списъка";
     }
 }
 
@@ -184,7 +184,7 @@ bootstrap_nice_select_ca_ES_localisation.locales['ca-ES'] = bootstrap_nice_selec
         return "Buscant...";
     },
     formatHelpForTagging() {
-        return "Per crear etiquetes pròpies, centreu el camp d'entrada i premeu 'Enter' o ',' o 'Barra espaiadora' per afegir-lo a la llista";
+        return "Per crear etiquetes pròpies, centreu el camp d'entrada i premeu ',' per afegir-lo a la llista";
     }
 }
 
@@ -204,7 +204,7 @@ bootstrap_nice_select_cs_CZ_localisation.locales['cs-CZ'] = bootstrap_nice_selec
         return "Hledání...";
     },
     formatHelpForTagging() {
-        return "Chcete-li vytvořit vlastní tagy, zaměřte se na vstupní pole a poté stiskněte 'Enter' nebo ',' nebo 'Mezerník' pro přidání do seznamu";
+        return "Chcete-li vytvořit vlastní tagy, zaměřte se na vstupní pole a poté stiskněte ',' pro přidání do seznamu";
     }
 }
 
@@ -224,7 +224,7 @@ bootstrap_nice_select_de_DE_localisation.locales['de-DE'] = bootstrap_nice_selec
         return "Suchen...";
     },
     formatHelpForTagging() {
-        return "Um eigene Tags zu erstellen, fokussieren Sie das Input-Feld und klicken nach ihrer Eingabe 'Enter' oder ',' oder 'Leertaste' um das Objekt zu erstellen";
+        return "Um eigene Tags zu erstellen, fokussieren Sie das Input-Feld und klicken nach ihrer Eingabe ',' um das Objekt zu erstellen";
     }
 }
 
@@ -244,7 +244,7 @@ bootstrap_nice_select_en_US_localisation.locales['en-US'] = bootstrap_nice_selec
         return "Searching...";
     },
     formatHelpForTagging() {
-        return "For creating own tags, focus the input field and then press 'Enter' or ',' or 'Spacebar' to add it to the list";
+        return "For creating own tags, focus the input field and then press ',' to add it to the list";
     }
 }
 
@@ -264,7 +264,7 @@ bootstrap_nice_select_es_ES_localisation.locales['es-ES'] = bootstrap_nice_selec
         return "Buscando...";
     },
     formatHelpForTagging() {
-        return "Para crear etiquetas propias, enfoque el campo de entrada y luego presione 'Entrar' o ',' o 'Barra espaciadora' para agregarlo a la lista";
+        return "Para crear etiquetas propias, enfoque el campo de entrada y luego presione ',' para agregarlo a la lista";
     }
 }
 
@@ -284,7 +284,7 @@ bootstrap_nice_select_et_EE_localisation.locales['et-EE'] = bootstrap_nice_selec
         return "Otsimine...";
     },
     formatHelpForTagging() {
-        return "Enda siltide loomiseks fokusseerige sisestusväli ja vajutage selle loendisse lisamiseks sisestusklahvi või ',' või tühikuklahvi";
+        return "Enda siltide loomiseks fokusseerige sisestusväli ja vajutage selle loendisse lisamiseks sisestusklahvi või ','";
     }
 }
 
@@ -324,7 +324,7 @@ bootstrap_nice_select_fi_FI_localisation.locales['fi-FI'] = bootstrap_nice_selec
         return "Etsiminen...";
     },
     formatHelpForTagging() {
-        return "Luodaksesi omia tunnisteita, tarkenna syöttökenttä ja lisää se luetteloon painamalla Enter tai ',' tai 'Välilyönti'";
+        return "Luodaksesi omia tunnisteita, tarkenna syöttökenttä ja lisää se luetteloon painamalla ','";
     }
 }
 
@@ -344,7 +344,7 @@ bootstrap_nice_select_fr_FR_localisation.locales['fr-FR'] = bootstrap_nice_selec
         return "Recherche...";
     },
     formatHelpForTagging() {
-        return "Pour créer vos propres balises, concentrez le champ de saisie, puis appuyez sur 'Entrée' ou ',' ou 'Barre d'espacement' pour l'ajouter à la liste";
+        return "Pour créer vos propres balises, concentrez le champ de saisie, puis appuyez sur ',' pour l'ajouter à la liste";
     }
 }
 
@@ -364,7 +364,7 @@ bootstrap_nice_select_it_IT_localisation.locales['it-IT'] = bootstrap_nice_selec
         return "Ricerca...";
     },
     formatHelpForTagging() {
-        return "Per creare i propri tag, focalizzare il campo di input e quindi premere 'Invio' o ',' o 'Barra spaziatrice' per aggiungerlo all'elenco";
+        return "Per creare i propri tag, focalizzare il campo di input e quindi premere ',' per aggiungerlo all'elenco";
     }
 }
 
@@ -384,7 +384,7 @@ bootstrap_nice_select_ja_JP_localisation.locales['ja-JP'] = bootstrap_nice_selec
         return "検索中...";
     },
     formatHelpForTagging() {
-        return "独自のタグを作成するには、入力フィールドにフォーカスし、「Enter」または「,」または「スペースバー」を押してリストに追加します。";
+        return "独自のタグを作成するには、入力フィールドにフォーカスし、「,」を押してリストに追加します。";
     }
 }
 
@@ -404,7 +404,7 @@ bootstrap_nice_select_nl_NL_localisation.locales['nl-NL'] = bootstrap_nice_selec
         return "Zoeken...";
     },
     formatHelpForTagging() {
-        return "Voor het maken van eigen tags, focus het invoerveld en druk op 'Enter' of ',' of 'Spatiebalk' om het aan de lijst toe te voegen";
+        return "Voor het maken van eigen tags, focus het invoerveld en druk op ',' om het aan de lijst toe te voegen";
     }
 }
 
@@ -424,7 +424,7 @@ bootstrap_nice_select_pl_PL_localisation.locales['pl-PL'] = bootstrap_nice_selec
         return "Badawczy...";
     },
     formatHelpForTagging() {
-        return "Aby utworzyć własne tagi, zaznacz pole wprowadzania, a następnie naciśnij 'Enter' lub ',' lub 'Spacja', aby dodać je do listy";
+        return "Aby utworzyć własne tagi, zaznacz pole wprowadzania, a następnie naciśnij ',', aby dodać je do listy";
     }
 }
 
@@ -444,7 +444,7 @@ bootstrap_nice_select_pt_PT_localisation.locales['pt-PT'] = bootstrap_nice_selec
         return "Procurando...";
     },
     formatHelpForTagging() {
-        return "Para criar tags próprias, foque o campo de entrada e pressione 'Enter' ou ',' ou 'Barra de espaço' para adicioná-lo à lista";
+        return "Para criar tags próprias, foque o campo de entrada e pressione ',' para adicioná-lo à lista";
     }
 }
 
@@ -464,7 +464,7 @@ bootstrap_nice_select_ro_RO_localisation.locales['ro-RO'] = bootstrap_nice_selec
         return "In cautarea...";
     },
     formatHelpForTagging() {
-        return "Pentru a crea propriile etichete, focalizați câmpul de introducere și apoi apăsați 'Enter' sau ',' sau 'bara de spațiu' pentru a-l adăuga la listă";
+        return "Pentru a crea propriile etichete, focalizați câmpul de introducere și apoi apăsați ',' pentru a-l adăuga la listă";
     }
 }
 
@@ -484,7 +484,7 @@ bootstrap_nice_select_ru_RU_localisation.locales['ru-RU'] = bootstrap_nice_selec
         return "Идет поиск...";
     },
     formatHelpForTagging() {
-        return "Для создания собственных тегов сфокусируйте поле ввода, a затем нажмите 'Ввод', ',' или 'Пробел', чтобы добавить ero в список.";
+        return "Для создания собственных тегов сфокусируйте поле ввода, a затем нажмите ',', чтобы добавить ero в список.";
     }
 }
 
@@ -504,7 +504,7 @@ bootstrap_nice_select_tr_TR_localisation.locales['tr-TR'] = bootstrap_nice_selec
         return "Aranıyor...";
     },
     formatHelpForTagging() {
-        return "Kendi etiketlerinizi oluşturmak için giriş alanına odaklanın ve ardından listeye eklemek için 'Enter' veya ',' veya 'Boşluk Çubuğu'na basın";
+        return "Kendi etiketlerinizi oluşturmak için giriş alanına odaklanın ve ardından listeye eklemek için ',' na basın";
     }
 }
 
@@ -524,7 +524,7 @@ bootstrap_nice_select_zh_CN_localisation.locales['zh-ZN'] = bootstrap_nice_selec
         return "搜索中...";
     },
     formatHelpForTagging() {
-        return "要创建自己的标签，请聚焦输入字段，然后按'Enter'或','或“空格键”将其添加到列表中";
+        return "要创建自己的标签，请聚焦输入字段，然后按','将其添加到列表中";
     }
 }
 
@@ -634,7 +634,7 @@ const DEFAULTS = {
     disabled: false,
     searchData: undefined,
     tags: false,
-    tokenSeparators: [',', ' ', 'Enter'],
+    tokenSeparators: [','],
     locale: "en-US",
     theme: 'font-awesome-6',
     scrollable: {

@@ -12,7 +12,7 @@ localisation.locales['et-EE'] = localisation.locales['et'] = {
         return "Otsimine...";
     },
     formatHelpForTagging() {
-        return "Enda siltide loomiseks fokusseerige sisestusväli ja vajutage selle loendisse lisamiseks sisestusklahvi või ',' või tühikuklahvi";
+        return "Enda siltide loomiseks fokusseerige sisestusväli ja vajutage selle loendisse lisamiseks sisestusklahvi või ','";
     }
 }
 

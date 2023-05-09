@@ -12,7 +12,7 @@ localisation.locales['ro-RO'] = localisation.locales['ro'] = {
         return "In cautarea...";
     },
     formatHelpForTagging() {
-        return "Pentru a crea propriile etichete, focalizați câmpul de introducere și apoi apăsați 'Enter' sau ',' sau 'bara de spațiu' pentru a-l adăuga la listă";
+        return "Pentru a crea propriile etichete, focalizați câmpul de introducere și apoi apăsați ',' pentru a-l adăuga la listă";
     }
 }
 

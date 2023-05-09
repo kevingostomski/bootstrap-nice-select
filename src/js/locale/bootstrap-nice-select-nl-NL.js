@@ -12,7 +12,7 @@ localisation.locales['nl-NL'] = localisation.locales['nl'] = {
         return "Zoeken...";
     },
     formatHelpForTagging() {
-        return "Voor het maken van eigen tags, focus het invoerveld en druk op 'Enter' of ',' of 'Spatiebalk' om het aan de lijst toe te voegen";
+        return "Voor het maken van eigen tags, focus het invoerveld en druk op ',' om het aan de lijst toe te voegen";
     }
 }
 

@@ -12,7 +12,7 @@ localisation.locales['pl-PL'] = localisation.locales['pl'] = {
         return "Badawczy...";
     },
     formatHelpForTagging() {
-        return "Aby utworzyć własne tagi, zaznacz pole wprowadzania, a następnie naciśnij 'Enter' lub ',' lub 'Spacja', aby dodać je do listy";
+        return "Aby utworzyć własne tagi, zaznacz pole wprowadzania, a następnie naciśnij ',', aby dodać je do listy";
     }
 }
 

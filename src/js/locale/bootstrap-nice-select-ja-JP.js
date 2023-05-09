@@ -12,7 +12,7 @@ localisation.locales['ja-JP'] = localisation.locales['ja'] = {
         return "検索中...";
     },
     formatHelpForTagging() {
-        return "独自のタグを作成するには、入力フィールドにフォーカスし、「Enter」または「,」または「スペースバー」を押してリストに追加します。";
+        return "独自のタグを作成するには、入力フィールドにフォーカスし、「,」を押してリストに追加します。";
     }
 }
 

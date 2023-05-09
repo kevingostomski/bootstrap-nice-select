@@ -155,7 +155,7 @@ bootstrapNiceSelect.DEFAULTS.tags = true;
 - **Attribute:** `data-tags`
 - **Type:** `Boolean`
 - **Detail:**
-  Set `true` to enable dynamic item creation on input search field with pressing "Enter", "," or "Spacebar".
+  Set `true` to enable dynamic item creation on input search field with pressing ",".
 - **Default:** `false`
 - **Example:** [Tagging]({% link sites/examples/options/tags.markdown %})
 

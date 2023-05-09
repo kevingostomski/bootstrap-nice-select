@@ -12,7 +12,7 @@ localisation.locales['tr-TR'] = localisation.locales['tr'] = {
         return "Aranıyor...";
     },
     formatHelpForTagging() {
-        return "Kendi etiketlerinizi oluşturmak için giriş alanına odaklanın ve ardından listeye eklemek için 'Enter' veya ',' veya 'Boşluk Çubuğu'na basın";
+        return "Kendi etiketlerinizi oluşturmak için giriş alanına odaklanın ve ardından listeye eklemek için ',' na basın";
     }
 }
 

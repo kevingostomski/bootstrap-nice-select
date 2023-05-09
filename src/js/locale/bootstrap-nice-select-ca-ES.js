@@ -12,7 +12,7 @@ localisation.locales['ca-ES'] = localisation.locales['ca'] = {
         return "Buscant...";
     },
     formatHelpForTagging() {
-        return "Per crear etiquetes pròpies, centreu el camp d'entrada i premeu 'Enter' o ',' o 'Barra espaiadora' per afegir-lo a la llista";
+        return "Per crear etiquetes pròpies, centreu el camp d'entrada i premeu ',' per afegir-lo a la llista";
     }
 }
 

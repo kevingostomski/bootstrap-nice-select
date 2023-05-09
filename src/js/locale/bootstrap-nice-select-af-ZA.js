@@ -12,7 +12,7 @@ localisation.locales['af-ZA'] = localisation.locales['af'] = {
         return "Soek tans...";
     },
     formatHelpForTagging() {
-        return "Om eie etikette te skep, fokus die invoerveld en druk dan 'Enter' of ',' of 'Spasiebalk' om dit by die lys te voeg";
+        return "Om eie etikette te skep, fokus die invoerveld en druk dan ',' om dit by die lys te voeg";
     }
 }
 

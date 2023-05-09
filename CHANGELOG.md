@@ -1,3 +1,10 @@
+# **v1.2.2 (2023-05-09)**
+
+### **Fixed**
+
+- Issue [#18](https://github.com/kevingostomski/bootstrap-nice-select/issues/18) - no tag creation on pressing `Enter` or `Spacebar`
+
+
 # **v1.2.1 (2023-05-09)**
 
 ### **Fixed**

@@ -12,7 +12,7 @@ localisation.locales['it-IT'] = localisation.locales['it'] = {
         return "Ricerca...";
     },
     formatHelpForTagging() {
-        return "Per creare i propri tag, focalizzare il campo di input e quindi premere 'Invio' o ',' o 'Barra spaziatrice' per aggiungerlo all'elenco";
+        return "Per creare i propri tag, focalizzare il campo di input e quindi premere ',' per aggiungerlo all'elenco";
     }
 }
 

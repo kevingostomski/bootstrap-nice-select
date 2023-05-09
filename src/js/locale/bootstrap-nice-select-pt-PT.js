@@ -12,7 +12,7 @@ localisation.locales['pt-PT'] = localisation.locales['pt'] = {
         return "Procurando...";
     },
     formatHelpForTagging() {
-        return "Para criar tags próprias, foque o campo de entrada e pressione 'Enter' ou ',' ou 'Barra de espaço' para adicioná-lo à lista";
+        return "Para criar tags próprias, foque o campo de entrada e pressione ',' para adicioná-lo à lista";
     }
 }
 

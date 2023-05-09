@@ -12,7 +12,7 @@ localisation.locales['fi-FI'] = localisation.locales['fi'] = {
         return "Etsiminen...";
     },
     formatHelpForTagging() {
-        return "Luodaksesi omia tunnisteita, tarkenna syöttökenttä ja lisää se luetteloon painamalla Enter tai ',' tai 'Välilyönti'";
+        return "Luodaksesi omia tunnisteita, tarkenna syöttökenttä ja lisää se luetteloon painamalla ','";
     }
 }
 

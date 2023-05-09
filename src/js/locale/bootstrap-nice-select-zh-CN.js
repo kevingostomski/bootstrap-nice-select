@@ -12,7 +12,7 @@ localisation.locales['zh-ZN'] = localisation.locales['zh'] = {
         return "搜索中...";
     },
     formatHelpForTagging() {
-        return "要创建自己的标签，请聚焦输入字段，然后按'Enter'或','或“空格键”将其添加到列表中";
+        return "要创建自己的标签，请聚焦输入字段，然后按','将其添加到列表中";
     }
 }
 
