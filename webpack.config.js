@@ -3,7 +3,7 @@ const webpack = require('webpack'); //to access built-in plugins -> currently Ba
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // Extract CSS from JS
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"); // CSS Minifier
 const TerserPlugin = require("terser-webpack-plugin"); // JS Minifier
-let version = "v1.2.0";
+let version = "v1.2.1";
 
 const minified = {
     mode: 'production',

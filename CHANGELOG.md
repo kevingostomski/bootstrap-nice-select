@@ -1,3 +1,10 @@
+# **v1.2.1 (2023-05-09)**
+
+### **Fixed**
+
+- Issue [#17](https://github.com/kevingostomski/bootstrap-nice-select/issues/17) - when using inside form, it does not get submitted directly anymore if clicking on an add button or delete button
+
+
 # **v1.2.0 (2023-05-05)**
 
 ### **Fixed**
@@ -9,11 +16,13 @@
 - Programmatic control - Methods API documentation added with examples how to use them
 - added new option `animation` as default `true` if `hide()` or `show()` API method is called
 
+
 # **v1.1.3 (2023-05-02)**
 
 ### **Fixed**
 
 - Invisble add/delete button on :active & :focus selector is now visible
+
 
 # **v1.1.2 (2023-05-02)**
 
@@ -23,6 +32,7 @@ Because of wrong usage of `npm publish`, release v1.1.1 is skipped
 
 - Issue [#15](https://github.com/kevingostomski/bootstrap-nice-select/issues/15) - Screen resizing fix for buttons on small screen
 - Issue [#10](https://github.com/kevingostomski/bootstrap-nice-select/issues/10) - Button shadow colors are inheritable and can be created on your own via SASS variables
+
 
 # **v1.1.0 (2023-04-27)**
 

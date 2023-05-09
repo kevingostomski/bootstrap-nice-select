@@ -1,6 +1,6 @@
 /*!
  * 
- * Bootstrap-Nice-Select v1.2.0 (https://github.com/kevingostomski/bootstrap-nice-select)
+ * Bootstrap-Nice-Select v1.2.1 (https://github.com/kevingostomski/bootstrap-nice-select)
  * Copyright 2023 Kevin Gostomski <kevingostomski2001@gmail.com>
  * Licensed under MIT (https://github.com/kevingostomski/bootstrap-nice-select/blob/main/LICENSE)
  *
@@ -853,6 +853,7 @@ const BootstrapNiceSelect = function (selector, options) {
 
             let button = document.createElement("button");
             button.classList.add(...constants.CONSTANTS.classes.deleteButton);
+            button.setAttribute("type", "button");
             button.setAttribute("data-id", optKey);
             if (disabled || _bootstrapNiceSelect.disabled) {
                 button.setAttribute("disabled", "disabled");
@@ -963,6 +964,7 @@ const BootstrapNiceSelect = function (selector, options) {
 
         let button = document.createElement("button");
         button.classList.add(...constants.CONSTANTS.classes.addButton);
+        button.setAttribute("type", "button");
         if (_bootstrapNiceSelect.disabled) {
             button.setAttribute("disabled", "disabled");
         }

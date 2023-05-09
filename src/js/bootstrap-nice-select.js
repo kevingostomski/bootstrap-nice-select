@@ -157,6 +157,7 @@ export const BootstrapNiceSelect = function (selector, options) {
 
             let button = document.createElement("button");
             button.classList.add(...Constants.CONSTANTS.classes.deleteButton);
+            button.setAttribute("type", "button");
             button.setAttribute("data-id", optKey);
             if (disabled || _bootstrapNiceSelect.disabled) {
                 button.setAttribute("disabled", "disabled");
@@ -267,6 +268,7 @@ export const BootstrapNiceSelect = function (selector, options) {
 
         let button = document.createElement("button");
         button.classList.add(...Constants.CONSTANTS.classes.addButton);
+        button.setAttribute("type", "button");
         if (_bootstrapNiceSelect.disabled) {
             button.setAttribute("disabled", "disabled");
         }
