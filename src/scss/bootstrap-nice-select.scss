@@ -313,9 +313,9 @@
                         border-radius: 6px;
                         position: absolute;
                         z-index: $overlay-z-index + 1;
-                        bottom: 125%;
+                        bottom: 200%;
                         left: 50%;
-                        margin-left: calc(-1 * ($width / 2));
+                        margin-left: calc(-1 * $width);
                         opacity: 0;
                         transition: opacity 0.3s ease;
 
@@ -323,9 +323,9 @@
                             content: "";
                             position: absolute;
                             top: 100%;
-                            left: 50%;
-                            margin-left: -5px;
-                            border-width: 5px;
+                            left: 90%;
+                            margin-left: -7px;
+                            border-width: 7px;
                             border-style: solid;
                             border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
                         }
