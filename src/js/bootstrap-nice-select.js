@@ -421,7 +421,7 @@ export const BootstrapNiceSelect = function (selector, options) {
             let tooltip = document.createElement("span");
             tooltip.classList.add("tooltip-own");
             tagIcon.appendChild(tooltip);
-            tooltip.innerText = Constants.LOCALISATION[_bootstrapNiceSelect.locale].formatHelpForTagging();
+            tooltip.append(...Utils.htmlToElements(`${Constants.LOCALISATION[_bootstrapNiceSelect.locale].formatHelpForTagging()}<br/>${_bootstrapNiceSelect.tokenSeparators.join("<br/>")}`));
             searchInputWrapper.appendChild(tagIcon);
         }
         search.appendChild(searchInputWrapper);
@@ -459,7 +459,7 @@ export const BootstrapNiceSelect = function (selector, options) {
             _bootstrapNiceSelect.locale = _selectField.getAttribute("data-locale");
         }
         if (_selectField.getAttribute("data-search-data")) {
-            _bootstrapNiceSelect.locale = _selectField.getAttribute("data-search-data");
+            _bootstrapNiceSelect.searchData = _selectField.getAttribute("data-search-data");
         }
         if (_selectField.getAttribute("data-theme")) {
             _bootstrapNiceSelect.theme = _selectField.getAttribute("data-theme");

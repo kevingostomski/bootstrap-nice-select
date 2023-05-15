@@ -77,6 +77,7 @@ npm link bootstrap-nice-select
 ```
 
 To develop the component, the VS Code plugin [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) was used (special thanks to the maintainers for this wonderful plugin).
+In addition, if you want to update the `npm link` project which is used, use `npm run dev` so sourcemaps are available to test the project better.
 
 # **Copyright and license**
 

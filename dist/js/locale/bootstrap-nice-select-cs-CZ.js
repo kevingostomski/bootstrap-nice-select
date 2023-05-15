@@ -57,7 +57,7 @@ __webpack_require__.r(__webpack_exports__);
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
   "BootstrapNiceSelect": () => (/* binding */ BootstrapNiceSelect),
-  "DEFAULTS": () => (/* binding */ bootstrap_nice_select_DEFAULTS)
+  "DEFAULTS": () => (/* binding */ bootstrap_nice_select_cs_CZ_DEFAULTS)
 });
 
 ;// CONCATENATED MODULE: ./src/js/utils/index.js
@@ -252,7 +252,7 @@ const ICONS = {
 
     ICONS
 });
-;// CONCATENATED MODULE: ./src/js/bootstrap-nice-select.js
+;// CONCATENATED MODULE: ./src/js/bootstrap-nice-select-cs-CZ.js
 
 
 
@@ -260,7 +260,7 @@ const ICONS = {
 /**
  * Needed to set globally options for multiple creation of BootstrapNiceSelect
  */
-const bootstrap_nice_select_DEFAULTS = Object.create(constants.DEFAULTS);
+const bootstrap_nice_select_cs_CZ_DEFAULTS = Object.create(constants.DEFAULTS);
 
 /**
  * Initialize select field
@@ -753,7 +753,7 @@ const BootstrapNiceSelect = function (selector, options) {
         items: []
     };
 
-    const _bootstrapNiceSelect = Object.create(bootstrap_nice_select_DEFAULTS);
+    const _bootstrapNiceSelect = Object.create(bootstrap_nice_select_cs_CZ_DEFAULTS);
 
     // sync options
     syncViaHtml();
@@ -960,6 +960,24 @@ document.addEventListener("DOMContentLoaded", function () {
         BootstrapNiceSelect(`.bootstrap-nice-select-element-${i}`);
     }
 });
+
+/*
+ *  Bootstrap Nice Select Czech (Czech Republic) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+
+(function (locales) {
+    locales['cs-CZ'] = locales['cs'] = {
+        formatSearch() {
+            return "Vyhledávání...";
+        },
+        formatHelpForTagging() {
+            return "Chcete-li vytvořit vlastní značky, zaměřte se na vstupní pole a kliknutím na jedno z následujících tlačítek vytvořte objekt:";
+        }
+    }
+    bootstrap_nice_select_cs_CZ_DEFAULTS.locale = "cs-CZ";
+})(constants.LOCALISATION);
 /******/ 	return __webpack_exports__;
 /******/ })()
 ;

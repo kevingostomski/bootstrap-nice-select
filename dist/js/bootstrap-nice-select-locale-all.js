@@ -57,7 +57,7 @@ __webpack_require__.r(__webpack_exports__);
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
   "BootstrapNiceSelect": () => (/* binding */ BootstrapNiceSelect),
-  "DEFAULTS": () => (/* binding */ bootstrap_nice_select_DEFAULTS)
+  "DEFAULTS": () => (/* binding */ bootstrap_nice_select_locale_all_DEFAULTS)
 });
 
 ;// CONCATENATED MODULE: ./src/js/utils/index.js
@@ -252,7 +252,7 @@ const ICONS = {
 
     ICONS
 });
-;// CONCATENATED MODULE: ./src/js/bootstrap-nice-select.js
+;// CONCATENATED MODULE: ./src/js/bootstrap-nice-select-locale-all.js
 
 
 
@@ -260,7 +260,7 @@ const ICONS = {
 /**
  * Needed to set globally options for multiple creation of BootstrapNiceSelect
  */
-const bootstrap_nice_select_DEFAULTS = Object.create(constants.DEFAULTS);
+const bootstrap_nice_select_locale_all_DEFAULTS = Object.create(constants.DEFAULTS);
 
 /**
  * Initialize select field
@@ -753,7 +753,7 @@ const BootstrapNiceSelect = function (selector, options) {
         items: []
     };
 
-    const _bootstrapNiceSelect = Object.create(bootstrap_nice_select_DEFAULTS);
+    const _bootstrapNiceSelect = Object.create(bootstrap_nice_select_locale_all_DEFAULTS);
 
     // sync options
     syncViaHtml();
@@ -960,6 +960,311 @@ document.addEventListener("DOMContentLoaded", function () {
         BootstrapNiceSelect(`.bootstrap-nice-select-element-${i}`);
     }
 });
+
+/*
+ *  Bootstrap Nice Select Afrikaans (South Africa) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+(function (locales) {
+    locales['af-ZA'] = locales['af'] = {
+        formatSearch() {
+            return "Soek...";
+        },
+        formatHelpForTagging() {
+            return "Om jou eie merkers te skep, fokus op die invoerveld en klik op een van die volgende knoppies om die voorwerp te skep:";
+        }
+    }
+    bootstrap_nice_select_locale_all_DEFAULTS.locale = "af-ZA";
+})(constants.LOCALISATION);/*
+ *  Bootstrap Nice Select Arabic (Saudi Arabia) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+(function (locales) {
+    locales['ar-SA'] = locales['ar'] = {
+        formatSearch() {
+            return "يبحث...";
+        },
+        formatHelpForTagging() {
+            return "لإنشاء العلامات الخاصة بك ، ركز على حقل الإدخال وانقر فوق أحد الأزرار التالية لإنشاء الكائن:";
+        }
+    }
+    bootstrap_nice_select_locale_all_DEFAULTS.locale = "ar-SA";
+})(constants.LOCALISATION);/*
+ *  Bootstrap Nice Select Bulgarian (Bulgaria) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+(function (locales) {
+    locales['bg-BG'] = locales['bg'] = {
+        formatSearch() {
+            return "Търсене...";
+        },
+        formatHelpForTagging() {
+            return "За да създадете свои собствени тагове, фокусирайте се върху полето за въвеждане и щракнете върху един от следните бутони, за да създадете обекта:";
+        }
+    }
+    bootstrap_nice_select_locale_all_DEFAULTS.locale = "bg-BG";
+})(constants.LOCALISATION);/*
+ *  Bootstrap Nice Select Catalan (Spain) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+(function (locales) {
+    locales['ca-ES'] = locales['ca'] = {
+        formatSearch() {
+            return "Cerca...";
+        },
+        formatHelpForTagging() {
+            return "Per crear les vostres pròpies etiquetes, centreu-vos en el camp d'entrada i feu clic en un dels botons següents per crear l'objecte:";
+        }
+    }
+    bootstrap_nice_select_locale_all_DEFAULTS.locale = "ca-ES";
+})(constants.LOCALISATION);/*
+ *  Bootstrap Nice Select Czech (Czech Republic) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+
+(function (locales) {
+    locales['cs-CZ'] = locales['cs'] = {
+        formatSearch() {
+            return "Vyhledávání...";
+        },
+        formatHelpForTagging() {
+            return "Chcete-li vytvořit vlastní značky, zaměřte se na vstupní pole a kliknutím na jedno z následujících tlačítek vytvořte objekt:";
+        }
+    }
+    bootstrap_nice_select_locale_all_DEFAULTS.locale = "cs-CZ";
+})(constants.LOCALISATION);/*
+ *  Bootstrap Nice Select German (Germany) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+(function (locales) {
+    locales['de-DE'] = locales['de'] = {
+        formatSearch() {
+            return "Suchen...";
+        },
+        formatHelpForTagging() {
+            return "Um eigene Tags zu erstellen, fokussieren Sie das Eingabefeld und klicken Sie einen der folgenden Tasten um das Objekt zu erstellen:";
+        }
+    }
+    bootstrap_nice_select_locale_all_DEFAULTS.locale = "de-DE";
+})(constants.LOCALISATION);/*
+ *  Bootstrap Nice Select English (United States) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+(function (locales) {
+    locales['en-US'] = locales['en'] = {
+        formatSearch() {
+            return "Search...";
+        },
+        formatHelpForTagging() {
+            return "To create your own tags, focus on the input field and click one of the following buttons to create the object:";
+        }
+    }
+    bootstrap_nice_select_locale_all_DEFAULTS.locale = "en-US";
+})(constants.LOCALISATION);/*
+ *  Bootstrap Nice Select Spanish (Spain, International Sort) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+(function (locales) {
+    locales['es-ES'] = locales['es'] = {
+        formatSearch() {
+            return "Buscar...";
+        },
+        formatHelpForTagging() {
+            return "Para crear sus propias etiquetas, céntrese en el campo de entrada y haga clic en uno de los siguientes botones para crear el objeto:";
+        }
+    }
+    bootstrap_nice_select_locale_all_DEFAULTS.locale = "es-ES";
+})(constants.LOCALISATION);/*
+ *  Bootstrap Nice Select Estonian (Estonia) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+(function (locales) {
+    locales['et-EE'] = locales['et'] = {
+        formatSearch() {
+            return "Otsing...";
+        },
+        formatHelpForTagging() {
+            return "Oma siltide loomiseks keskenduge sisestusväljale ja klõpsake objekti loomiseks ühte järgmistest nuppudest:";
+        }
+    }
+    bootstrap_nice_select_locale_all_DEFAULTS.locale = "et-EE";
+})(constants.LOCALISATION);/*
+ *  Bootstrap Nice Select Persian (Iran) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+(function (locales) {
+    locales['fa-IR'] = locales['fa'] = {
+        formatSearch() {
+            return "جستجو کردن...";
+        },
+        formatHelpForTagging() {
+            return "برای ایجاد تگ های خود، روی فیلد ورودی تمرکز کنید و یکی از دکمه های زیر را برای ایجاد شیء کلیک کنید:";
+        }
+    }
+    bootstrap_nice_select_locale_all_DEFAULTS.locale = "fa-IR";
+})(constants.LOCALISATION);/*
+ *  Bootstrap Nice Select Finnish (Finland) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+(function (locales) {
+    locales['fi-FI'] = locales['fi'] = {
+        formatSearch() {
+            return "Hae...";
+        },
+        formatHelpForTagging() {
+            return "Jos haluat luoda omia tunnisteita, keskity syöttökenttään ja luo objekti napsauttamalla jotakin seuraavista painikkeista:";
+        }
+    }
+    bootstrap_nice_select_locale_all_DEFAULTS.locale = "fi-FI";
+})(constants.LOCALISATION);/*
+ *  Bootstrap Nice Select French (France) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+(function (locales) {
+    locales['fr-FR'] = locales['fr'] = {
+        formatSearch() {
+            return "Recherche...";
+        },
+        formatHelpForTagging() {
+            return "Pour créer vos propres balises, concentrez-vous sur le champ de saisie et cliquez sur l'un des boutons suivants pour créer l'objet:";
+        }
+    }
+    bootstrap_nice_select_locale_all_DEFAULTS.locale = "fr-FR";
+})(constants.LOCALISATION);/*
+ *  Bootstrap Nice Select Italian (Italy) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+(function (locales) {
+    locales['it-IT'] = locales['it'] = {
+        formatSearch() {
+            return "Ricerca...";
+        },
+        formatHelpForTagging() {
+            return "Per creare i tuoi tag, concentrati sul campo di input e fai clic su uno dei seguenti pulsanti per creare l'oggetto:";
+        }
+    }
+    bootstrap_nice_select_locale_all_DEFAULTS.locale = "it-IT";
+})(constants.LOCALISATION);/*
+ *  Bootstrap Nice Select Japanese (Japan) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+(function (locales) {
+    locales['ja-JP'] = locales['ja'] = {
+        formatSearch() {
+            return "検索...";
+        },
+        formatHelpForTagging() {
+            return "独自のタグを作成するには、入力フィールドに焦点を当て、次のいずれかのボタンをクリックしてオブジェクトを作成します。";
+        }
+    }
+    bootstrap_nice_select_locale_all_DEFAULTS.locale = "ja-JP";
+})(constants.LOCALISATION);/*
+ *  Bootstrap Nice Select Dutch (Netherlands) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+(function (locales) {
+    locales['nl-NL'] = locales['nl'] = {
+        formatSearch() {
+            return "Zoekopdracht...";
+        },
+        formatHelpForTagging() {
+            return "Om uw eigen tags te maken, focust u zich op het invoerveld en klikt u op een van de volgende knoppen om het object te maken:";
+        }
+    }
+    bootstrap_nice_select_locale_all_DEFAULTS.locale = "nl-NL";
+})(constants.LOCALISATION);/*
+ *  Bootstrap Nice Select Polish (Poland) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+(function (locales) {
+    locales['pl-PL'] = locales['pl'] = {
+        formatSearch() {
+            return "Szukaj...";
+        },
+        formatHelpForTagging() {
+            return "Aby utworzyć własne tagi, skup się na polu wejściowym i kliknij jeden z poniższych przycisków, aby utworzyć obiekt:";
+        }
+    }
+    bootstrap_nice_select_locale_all_DEFAULTS.locale = "pl-PL";
+})(constants.LOCALISATION);/*
+ *  Bootstrap Nice Select Portuguese (Portugal) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+(function (locales) {
+    locales['pt-PT'] = locales['pt'] = {
+        formatSearch() {
+            return "Procurar...";
+        },
+        formatHelpForTagging() {
+            return "Para criar suas próprias tags, concentre-se no campo de entrada e clique em um dos seguintes botões para criar o objeto:";
+        }
+    }
+    bootstrap_nice_select_locale_all_DEFAULTS.locale = "pt-PT";
+})(constants.LOCALISATION);/*
+ *  Bootstrap Nice Select Romanian (Romania) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+(function (locales) {
+    locales['ro-RO'] = locales['ro'] = {
+        formatSearch() {
+            return "Căutare...";
+        },
+        formatHelpForTagging() {
+            return "Pentru a vă crea propriile etichete, concentrați-vă pe câmpul de introducere și faceți clic pe unul dintre următoarele butoane pentru a crea obiectul:";
+        }
+    }
+    bootstrap_nice_select_locale_all_DEFAULTS.locale = "ro-RO";
+})(constants.LOCALISATION);/*
+ *  Bootstrap Nice Select Russian (Russia) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+(function (locales) {
+    locales['ru-RU'] = locales['ru'] = {
+        formatSearch() {
+            return "Поиск...";
+        },
+        formatHelpForTagging() {
+            return "Чтобы создать собственные теги, сфокусируйтесь на поле ввода и нажмите одну из следующих кнопок, чтобы создать объект:";
+        }
+    }
+    bootstrap_nice_select_locale_all_DEFAULTS.locale = "ru-RU";
+})(constants.LOCALISATION);/*
+ *  Bootstrap Nice Select Turkish (Turkey) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+(function (locales) {
+    locales['tr-TR'] = locales['tr'] = {
+        formatSearch() {
+            return "Aramak...";
+        },
+        formatHelpForTagging() {
+            return "Kendi etiketlerinizi oluşturmak için giriş alanına odaklanın ve nesneyi oluşturmak için aşağıdaki düğmelerden birine tıklayın:";
+        }
+    }
+    bootstrap_nice_select_locale_all_DEFAULTS.locale = "tr-TR";
+})(constants.LOCALISATION);
+
+bootstrap_nice_select_locale_all_DEFAULTS.locale = "en-US"
 /******/ 	return __webpack_exports__;
 /******/ })()
 ;
