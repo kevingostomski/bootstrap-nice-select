@@ -1,12 +1,13 @@
 {
   "name": "bootstrap-nice-select",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "description": "This plugin let's you create a modern looking select field for form submits building with Bootstrap. No jQuery needed!",
   "main": "dist/js/bootstrap-nice-select.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublishOnly": "webpack --env production",
-    "build": "webpack --env production"
+    "prepublishOnly": "rm -r ./dist && webpack --env production && find ./src/js/ -maxdepth 1 -type f -name 'bootstrap-nice-select-*.js' -delete",
+    "build": "rm -r ./dist && webpack --env production && find ./src/js/ -maxdepth 1 -type f -name 'bootstrap-nice-select-*.js' -delete",
+    "dev": "rm -r ./dist && webpack --env development --devtool 'source-map' && find ./src/js/ -maxdepth 1 -type f -name 'bootstrap-nice-select-*.js' -delete"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,6 @@
     "url": "https://github.com/kevingostomski/bootstrap-nice-select/issues"
   },
   "homepage": "https://kevingostomski.github.io/bootstrap-nice-select/",
-  "dependencies": {},
   "peerDependencies": {
     "bootstrap": ">=4.0.0"
   },

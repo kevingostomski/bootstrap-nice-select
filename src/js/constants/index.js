@@ -63,38 +63,14 @@ const CONSTANTS = {
     }
 }[bootstrapVersion]
 
-const LOCALISATION = {
-}
-import af from "..//locale/bootstrap-nice-select-af-ZA.js";
-import ar from "../locale/bootstrap-nice-select-ar-SA.js";
-import bg from "../locale/bootstrap-nice-select-bg-BG.js";
-import ca from "../locale/bootstrap-nice-select-ca-ES.js"
-import cs from "../locale/bootstrap-nice-select-cs-CZ.js"
-import ger from "../locale/bootstrap-nice-select-de-DE.js";
-import eng from "../locale/bootstrap-nice-select-en-US.js";
-import es from "../locale/bootstrap-nice-select-es-ES.js";
-import et from "../locale/bootstrap-nice-select-et-EE.js";
-import fa from "../locale/bootstrap-nice-select-fa-IR.js";
-import fi from "../locale/bootstrap-nice-select-fi-FI.js";
-import fr from "../locale/bootstrap-nice-select-fr-FR.js";
-import it from "../locale/bootstrap-nice-select-it-IT.js";
-import ja from "../locale/bootstrap-nice-select-ja-JP.js";
-import nl from "../locale/bootstrap-nice-select-nl-NL.js";
-import pl from "../locale/bootstrap-nice-select-pl-PL.js";
-import pt from "../locale/bootstrap-nice-select-pt-PT.js";
-import ro from "../locale/bootstrap-nice-select-ro-RO.js";
-import ru from "../locale/bootstrap-nice-select-ru-RU.js";
-import tr from "../locale/bootstrap-nice-select-tr-TR.js";
-import zh from "../locale/bootstrap-nice-select-zh-CN.js";
-
-function initAvailableLocales() {
-    for (let lang of [af, ar, bg, ca, cs, ger, eng, es, et, fa, fi, fr, it, ja, nl, pl, pt, ro, ru, tr, zh]) {
-        for (let [key, value] of Object.entries(lang.locales)) {
-            LOCALISATION[key] = value;
-        }
+const EN = {
+    formatSearch() {
+        return "Search...";
+    },
+    formatHelpForTagging() {
+        return "To create your own tags, focus on the input field and click one of the following buttons to create the object:";
     }
 }
-initAvailableLocales();
 
 const DEFAULTS = {
     animation: true,
@@ -155,7 +131,10 @@ export default {
 
     CONSTANTS,
 
-    LOCALISATION,
+    LOCALISATION: {
+        'en': EN,
+        'en-US': EN
+    },
 
     DEFAULTS,
 

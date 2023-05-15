@@ -57,7 +57,7 @@ __webpack_require__.r(__webpack_exports__);
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
   "BootstrapNiceSelect": () => (/* binding */ BootstrapNiceSelect),
-  "DEFAULTS": () => (/* binding */ bootstrap_nice_select_DEFAULTS)
+  "DEFAULTS": () => (/* binding */ bootstrap_nice_select_tr_TR_DEFAULTS)
 });
 
 ;// CONCATENATED MODULE: ./src/js/utils/index.js
@@ -252,7 +252,7 @@ const ICONS = {
 
     ICONS
 });
-;// CONCATENATED MODULE: ./src/js/bootstrap-nice-select.js
+;// CONCATENATED MODULE: ./src/js/bootstrap-nice-select-tr-TR.js
 
 
 
@@ -260,7 +260,7 @@ const ICONS = {
 /**
  * Needed to set globally options for multiple creation of BootstrapNiceSelect
  */
-const bootstrap_nice_select_DEFAULTS = Object.create(constants.DEFAULTS);
+const bootstrap_nice_select_tr_TR_DEFAULTS = Object.create(constants.DEFAULTS);
 
 /**
  * Initialize select field
@@ -753,7 +753,7 @@ const BootstrapNiceSelect = function (selector, options) {
         items: []
     };
 
-    const _bootstrapNiceSelect = Object.create(bootstrap_nice_select_DEFAULTS);
+    const _bootstrapNiceSelect = Object.create(bootstrap_nice_select_tr_TR_DEFAULTS);
 
     // sync options
     syncViaHtml();
@@ -960,6 +960,23 @@ document.addEventListener("DOMContentLoaded", function () {
         BootstrapNiceSelect(`.bootstrap-nice-select-element-${i}`);
     }
 });
+
+/*
+ *  Bootstrap Nice Select Turkish (Turkey) Translation
+ *  Author: Kevin Gostomski <kevingostomski2001@gmail.com> 
+*/
+
+(function (locales) {
+    locales['tr-TR'] = locales['tr'] = {
+        formatSearch() {
+            return "Aramak...";
+        },
+        formatHelpForTagging() {
+            return "Kendi etiketlerinizi oluşturmak için giriş alanına odaklanın ve nesneyi oluşturmak için aşağıdaki düğmelerden birine tıklayın:";
+        }
+    }
+    bootstrap_nice_select_tr_TR_DEFAULTS.locale = "tr-TR";
+})(constants.LOCALISATION);
 /******/ 	return __webpack_exports__;
 /******/ })()
 ;
