@@ -757,6 +757,9 @@ const BootstrapNiceSelect = function (selector, options) {
         if (_selectField.getAttribute("data-tags-check")) {
             _bootstrapNiceSelect.tagsCheck = _selectField.getAttribute("data-tags-check");
         }
+        if (_selectField.getAttribute("data-token-separators")) {
+            _bootstrapNiceSelect.tokenSeparators = JSON.parse(_selectField.getAttribute("data-token-separators"));
+        }
     }
 
     let syncViaJavascript = function () {
