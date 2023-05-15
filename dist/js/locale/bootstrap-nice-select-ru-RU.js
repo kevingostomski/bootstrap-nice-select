@@ -615,7 +615,7 @@ const BootstrapNiceSelect = function (selector, options) {
             }
 
             if (_bootstrapNiceSelect.searchData === undefined) {
-                if (event.key === "Tab") {
+                if (event.key === "Tab" || event.key === "ArrowDown") {
                     event.preventDefault();
                     let liElements = _selectField.nextElementSibling.querySelectorAll(".bootstrap-nice-select-overlay div.search-container ul li:not(.hidden)");
                     if (liElements.length > 0) {
@@ -626,7 +626,7 @@ const BootstrapNiceSelect = function (selector, options) {
                     }
                 };
             } else {
-                if (event.key === "Tab") {
+                if (event.key === "Tab" || event.key === "ArrowDown") {
                     event.preventDefault();
                     let liElements = _selectField.nextElementSibling.querySelectorAll(".bootstrap-nice-select-overlay div.search-container ul li");
                     if (liElements.length > 0) {
