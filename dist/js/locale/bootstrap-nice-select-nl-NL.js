@@ -190,6 +190,7 @@ const DEFAULTS = {
     disabled: false,
     searchData: undefined,
     tags: false,
+    tagsCheck: undefined,
     tokenSeparators: [','],
     locale: "en-US",
     theme: 'font-awesome-6',
@@ -594,7 +595,22 @@ const BootstrapNiceSelect = function (selector, options) {
         let keyboardInteraction = function (event) {
 
             let allowTagsInputInteraction = function (keyValue) {
+
+                let checkTagBeforeCreation = function () {
+                    if (_bootstrapNiceSelect['tagsCheck'] instanceof Function || typeof _bootstrapNiceSelect['tagsCheck'] === 'function') {
+                        return _bootstrapNiceSelect['tagsCheck'](keyValue);
+                    }
+                    if (_bootstrapNiceSelect['tagsCheck'] instanceof String || typeof _bootstrapNiceSelect['tagsCheck'] === 'string') {
+                        return utils.executeFunctionByName(_bootstrapNiceSelect['tagsCheck'], window, keyValue);
+                    }
+                    return true;
+                }
+
                 if (_bootstrapNiceSelect.tokenSeparators.includes(event.key)) {
+                    if (!checkTagBeforeCreation()) {
+                        console.error(`Can not create option with value '${keyValue}' because of given check function...`);
+                        return;
+                    }
                     let optionAlreadyCreatedBefore = _selectField.querySelector(`option[value="${keyValue}"]`);
                     if (optionAlreadyCreatedBefore) {
                         optionAlreadyCreatedBefore.setAttribute("selected", "selected");
@@ -725,6 +741,9 @@ const BootstrapNiceSelect = function (selector, options) {
         }
         if (_selectField.getAttribute("data-animation")) {
             _bootstrapNiceSelect.animation = (_selectField.getAttribute("data-animation") === 'true');
+        }
+        if (_selectField.getAttribute("data-tags-check")) {
+            _bootstrapNiceSelect.tagsCheck = _selectField.getAttribute("data-tags-check");
         }
     }
 

@@ -78,6 +78,7 @@ const DEFAULTS = {
     disabled: false,
     searchData: undefined,
     tags: false,
+    tagsCheck: undefined,
     tokenSeparators: [','],
     locale: "en-US",
     theme: 'font-awesome-6',
