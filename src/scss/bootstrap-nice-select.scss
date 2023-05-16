@@ -146,7 +146,7 @@
 
 .bootstrap-nice-select-overlay {
     position: fixed;
-    display: none;
+    transform: scale(0);
     width: 100%;
     height: 100%;
     top: 0;
@@ -154,12 +154,13 @@
     right: 0;
     bottom: 0;
     z-index: $overlay-z-index;
-    background-image: $overlay-background-color;
-    backdrop-filter: blur(4px);
 
     &.active {
-        display: block;
+        transform: scale(1);
+        background: $overlay-background-color;
+        backdrop-filter: blur(5px);
     }
+
 
     .bootstrap-nice-select-closer {
         display: flex;
@@ -338,6 +339,95 @@
     i {
         &.material-icons {
             font-size: inherit;
+        }
+    }
+
+    @keyframes fadeIn {
+        0% {
+            background: rgba(0, 0, 0, .0);
+            backdrop-filter: blur(5px) opacity(0);
+        }
+
+        100% {
+            background: $overlay-background-color;
+            backdrop-filter: blur(5px) opacity(1);
+        }
+    }
+
+    @keyframes fadeOut {
+        0% {
+            background: $overlay-background-color;
+        }
+
+        100% {
+            background: rgba(0, 0, 0, .0);
+        }
+    }
+
+    @keyframes roadRunnerIn {
+        0% {
+            transform: translateX(-1500px) skewX(30deg) scaleX(1.3);
+        }
+
+        70% {
+            transform: translateX(30px) skewX(0deg) scaleX(.9);
+        }
+
+        100% {
+            transform: translateX(0px) skewX(0deg) scaleX(1);
+        }
+    }
+
+    @keyframes roadRunnerOut {
+        0% {
+            transform: translateX(0px) skewX(0deg) scaleX(1);
+        }
+
+        30% {
+            transform: translateX(-30px) skewX(-5deg) scaleX(.9);
+        }
+
+        100% {
+            transform: translateX(1500px) skewX(30deg) scaleX(1.3);
+        }
+    }
+
+    @keyframes quickScaleDown {
+        0% {
+            transform: scale(1);
+        }
+
+        99.9% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(0);
+        }
+    }
+
+    &.animate-in {
+        transform: scale(1);
+
+        .bootstrap-nice-select-closer {
+            animation: fadeIn .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+
+            .search-container {
+                transform: translateX(-1500px);
+                animation: roadRunnerIn .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+            }
+        }
+
+        &.animate-out {
+            animation: quickScaleDown 0s .5s linear forwards;
+
+            .bootstrap-nice-select-closer {
+                animation: fadeOut .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+
+                .search-container {
+                    animation: roadRunnerOut .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+                }
+            }
         }
     }
 }
