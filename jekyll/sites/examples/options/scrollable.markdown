@@ -2,7 +2,7 @@
 layout: "examples"
 permalink: "examples/options/scrollable"
 selected: "Scrollable"
-description: "Example how to set the 'Scrollable' option of Bootstrap-Nice-Select - Gives an overview how to implement the option and how it looks like"
+description: "Example how to set the 'scrollable' option of Bootstrap-Nice-Select - Gives an overview how to implement the option and how it looks like"
 title: "Examples [Options - Scrollable]"
 ---
 

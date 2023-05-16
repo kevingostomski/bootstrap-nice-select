@@ -133,7 +133,7 @@
 }
 .bootstrap-nice-select-overlay.active {
   transform: scale(1);
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(17, 26, 43, 0.8);
   backdrop-filter: blur(5px);
 }
 .bootstrap-nice-select-overlay .bootstrap-nice-select-closer {
@@ -284,13 +284,13 @@
     backdrop-filter: blur(5px) opacity(0);
   }
   100% {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(17, 26, 43, 0.8);
     backdrop-filter: blur(5px) opacity(1);
   }
 }
 @keyframes fadeOut {
   0% {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(17, 26, 43, 0.8);
   }
   100% {
     background: rgba(0, 0, 0, 0);

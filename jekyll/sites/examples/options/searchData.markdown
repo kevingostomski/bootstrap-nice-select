@@ -2,7 +2,7 @@
 layout: "examples"
 permalink: "examples/options/searchData"
 selected: "SearchData"
-description: "Example how to set the 'SearchData' option of Bootstrap-Nice-Select - Gives an overview how to implement the option and how it looks like"
+description: "Example how to set the 'searchData' option of Bootstrap-Nice-Select - Gives an overview how to implement the option and how it looks like"
 title: "Examples [Options - SearchData]"
 ---
 

@@ -2,7 +2,7 @@
 layout: "examples"
 permalink: "examples/options/tags"
 selected: "Tags"
-description: "Example how to set the 'Tags' option of Bootstrap-Nice-Select - Gives an overview how to implement the option and how it looks like"
+description: "Example how to set the 'tags' option of Bootstrap-Nice-Select - Gives an overview how to implement the option and how it looks like"
 title: "Examples [Options - Tags]"
 ---
 
@@ -34,7 +34,7 @@ Use `tags` option via JavaScript or `data-tags` via attribute to let the user cr
     <div class="bg-highlight rounded">
 {% highlight html %}
 <div class="container">
-    <select multiple="multiple" data-bs-toggle="bootstrap-nice-select" data-tags="true">
+    <select multiple="multiple" data-bs-toggle="bootstrap-nice-select" data-tags>
         <option value="Banana">Banana</option>
         <option value="Apple">Apple</option>
         <option value="Orange">Orange</option>

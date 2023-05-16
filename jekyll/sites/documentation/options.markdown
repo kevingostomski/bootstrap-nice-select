@@ -155,9 +155,22 @@ bootstrapNiceSelect.DEFAULTS.tags = true;
 - **Attribute:** `data-tags`
 - **Type:** `Boolean`
 - **Detail:**
-  Set `true` to enable dynamic item creation on input search field with pressing ",".
+  Set `true` to enable dynamic item creation on input search field with pressing ",". The separators that should be used when tokenizing can be specified using the `tokenSeparators` option.
 - **Default:** `false`
 - **Example:** [Tagging]({% link sites/examples/options/tags.markdown %})
+
+&nbsp;
+
+&nbsp;
+
+## **tagsCheck**
+
+- **Attribute:** `data-tags-check`
+- **Type:** `String` &#124; `Function`
+- **Detail:**
+  Used to add some logic to the select field to return a `Boolean` if an invalid value is entered.
+- **Default:** `undefined`
+- **Example:** [Constraining Tag Creation]({% link sites/examples/options/tagsCheck.markdown %})
 
 &nbsp;
 
@@ -176,3 +189,16 @@ bootstrapNiceSelect.DEFAULTS.tags = true;
   - [bi](https://icons.getbootstrap.com/)
 - **Default:** `'font-awesome-6'`
 - **Example:** [Theme]({% link sites/examples/options/theme.markdown %})
+
+&nbsp;
+
+&nbsp;
+
+## **tokenSeparators**
+
+- **Attribute:** `data-token-separators`
+- **Type:** `Array`
+- **Detail:**
+  The separators that should be used when tokenizing.
+- **Default:** `[","]`
+- **Example:** [Token Separators]({% link sites/examples/options/tokenSeparators.markdown %})

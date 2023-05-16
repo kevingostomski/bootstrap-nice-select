@@ -36,6 +36,13 @@ function callRemoteData(filter) {
     return toRet;
 }
 
+function checkTag(key) {
+    if (key.toLowerCase().includes("ä") || key.toLowerCase().includes("ö") || key.toLowerCase().includes("ü")) {
+        return false;
+    }
+    return true;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 
     // Generate CopyToClipBoard Button for Code Blocks
@@ -176,5 +183,9 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector("#methods-select-deselect-all").addEventListener("click", function () {
             select.bootstrapNiceSelect("deselectAll");
         });
+    }
+
+    if (document.querySelector("#option-tagscheck")) {
+        bootstrapNiceSelect.BootstrapNiceSelect('#option-tagscheck', { tagsCheck: 'checkTag', tags: true });
     }
 });

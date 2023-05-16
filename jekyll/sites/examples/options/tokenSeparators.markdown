@@ -1,16 +1,16 @@
 ---
 layout: "examples"
-permalink: "examples/options/icons"
-selected: "Icons"
-description: "Example how to set the 'icons' option of Bootstrap-Nice-Select - Gives an overview how to implement the option and how it looks like"
-title: "Examples [Options - Icons]"
+permalink: "examples/options/tokenSeparators"
+selected: "TokenSeparators"
+description: "Example how to set the 'tokenSeparators' option of Bootstrap-Nice-Select - Gives an overview how to implement the option and how it looks like"
+title: "Examples [Options - TokenSeparators]"
 ---
 
-# **Custom Icons**
+# **Token Separators**
 
 ---
 
-Use the `icons` option to set own custom icons via Javascript for the placeholder icons. The icons need to be in HTML markup language and you do not need to set values for all icons - only for them you want to override.
+Use `tokenSeparators` option via JavaScript or `data-token-separators` via attribute to set allowed [keys](https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_key_values) that should be used when tokenizing.
 
 <div class="alert alert-light d-flex justify-content-start align-items-center font-size-13" role="alert">
         <i class="fa-solid fa-circle-info pe-2"></i>Possible options to search for are: <i class="ms-2">Banana, Apple, Orange, Lemon, Pepper, Mushrooms, Cabbages, Celery, Brocoli, Garlic</i>
@@ -18,7 +18,7 @@ Use the `icons` option to set own custom icons via Javascript for the placeholde
 
 <div class="container my-4 border rounded p-0">
     <div class="p-5 border-bottom">
-        <select multiple="multiple" id="option-icons">
+        <select multiple="multiple" data-bs-toggle="bootstrap-nice-select" data-tags="true" data-token-separators='[","," ","Enter"]'>
             <option value="Banana">Banana</option>
             <option value="Apple">Apple</option>
             <option value="Orange">Orange</option>
@@ -34,7 +34,7 @@ Use the `icons` option to set own custom icons via Javascript for the placeholde
     <div class="bg-highlight rounded">
 {% highlight html %}
 <div class="container">
-    <select multiple="multiple" id="custom-icons">
+    <select multiple="multiple" data-bs-toggle="bootstrap-nice-select" data-tags="true" data-token-separators='[","," ","Enter"]'>
         <option value="Banana">Banana</option>
         <option value="Apple">Apple</option>
         <option value="Orange">Orange</option>
@@ -47,19 +47,6 @@ Use the `icons` option to set own custom icons via Javascript for the placeholde
         <option value="Brocoli">Brocoli</option>
     </select>
 </div>
-{% endhighlight %}
-<hr>
-{% highlight javascript %}
-
-let select = bootstrapNiceSelect.BootstrapNiceSelect("#custom-icons", {
-    icons: {
-        add: '<i class="material-icons">add</i>',
-        search: '<i class="fa-solid fa-magnifying-glass"></i>',
-        tag: '<i class="fa-solid fa-circle-exclamation"></i>',
-        delete: '<i class="bi bi-trash"></i>'
-    }
-});
-
 {% endhighlight %}
     </div>
 </div>
