@@ -2,7 +2,7 @@
 layout: "examples"
 permalink: "examples/options/theme"
 selected: "Theme"
-description: "Example how to set the 'Theme' option of Bootstrap-Nice-Select - Gives an overview how to implement the option and how it looks like"
+description: "Example how to set the 'theme' option of Bootstrap-Nice-Select - Gives an overview how to implement the option and how it looks like"
 title: "Examples [Options - Theme]"
 ---
 

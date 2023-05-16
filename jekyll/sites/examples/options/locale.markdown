@@ -2,7 +2,7 @@
 layout: "examples"
 permalink: "examples/options/locale"
 selected: "Locale"
-description: "Example how to set the 'Locale' option of Bootstrap-Nice-Select - Gives an overview how to implement the option and how it looks like"
+description: "Example how to set the 'locale' option of Bootstrap-Nice-Select - Gives an overview how to implement the option and how it looks like"
 title: "Examples [Options - Locale]"
 ---
 

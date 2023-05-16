@@ -32,11 +32,11 @@ description: "Getting Started webpage for how to use Bootstrap-Nice-Select"
 {% endhighlight %}
 </div>
 
-For pre-selecting options you can use `selected="selected"` or for multiple select, you can use `multiple="multiple"`.
+For pre-selecting options you can use `selected="selected"` or for multiple select, you can use `multiple="multiple"` or just `multiple`.
 
 <div class="mb-3">
 {% highlight html %}
-<select data-bs-toggle="bootstrap-nice-select" multiple="multiple">
+<select data-bs-toggle="bootstrap-nice-select" multiple>
     <option value="Banana">Banana</option>
     <option value="Apple">Apple</option>
     <option value="Orange">Orange</option>
@@ -74,7 +74,8 @@ You can even use `<optgroup>` tags to render options in a group and search for g
 {% endhighlight %}
 </div>
 
-Currently, remote URL data is only supported through the initialization through JavaScript but the support for data attributes will be added in the upcoming release.
+~~Currently, remote URL data is only supported through the initialization through JavaScript but the support for data attributes will be added in the upcoming release.~~
+The `<select>` data is now supported for remote URL data through the initialization with a data attribute or via JavaScript.
 
 &nbsp;
 

@@ -2,7 +2,7 @@
 layout: "examples"
 permalink: "examples/options/animation"
 selected: "Animation"
-description: "Example how to set the 'Animation' option of Bootstrap-Nice-Select - Gives an overview how to implement the option and how it looks like"
+description: "Example how to set the 'animation' option of Bootstrap-Nice-Select - Gives an overview how to implement the option and how it looks like"
 title: "Examples [Options - Animation]"
 ---
 
@@ -10,7 +10,14 @@ title: "Examples [Options - Animation]"
 
 ---
 
-Use the `animation` option via JavaScript to decide wether the methods `hide()` and `show()` from the API does have an animation or not. Via data attributes, the option is called `data-animation`.
+Use the `animation` option via JavaScript to decide wether the methods
+
+- `.bootstrapNiceSelect('open')`
+- `.bootstrapNiceSelect('close')`
+- `.bootstrapNiceSelect('hide')`
+- `.bootstrapNiceSelect('show')` 
+
+from the API or the animation for the popup modal does exist or not. Via data attributes, the option is called `data-animation`.
 
 <div class="alert alert-light d-flex justify-content-start align-items-center font-size-13" role="alert">
         <i class="fa-solid fa-circle-info pe-2"></i>Possible options to search for are: <i class="ms-2">Banana, Apple, Orange, Lemon, Pepper, Mushrooms, Cabbages, Celery, Brocoli, Garlic</i>
