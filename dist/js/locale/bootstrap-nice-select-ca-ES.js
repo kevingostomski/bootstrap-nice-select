@@ -280,6 +280,26 @@ const BootstrapNiceSelect = function (selector, options) {
         }
     }
 
+    function openOverlay() {
+        if (_bootstrapNiceSelect.animation) {
+            if (!_selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.contains("animate-in") && !_selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.contains("animate-out")) {
+                _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.add("animate-in");
+            } else {
+                _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.remove("animate-out");
+            }
+        } else {
+            _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.add("active");
+        }
+    }
+
+    function closeOverlay() {
+        if (_bootstrapNiceSelect.animation) {
+            _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.add("animate-out");
+        } else {
+            _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.remove("active");
+        }
+    }
+
     function refreshSearchList() {
         let searchUl = _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul");
         searchUl.innerHTML = "";
@@ -330,8 +350,8 @@ const BootstrapNiceSelect = function (selector, options) {
                 if (_bootstrapNiceSelect.searchData === undefined) {
                     _searchData.items = _searchData.items.filter(data => data.id !== this.getAttribute("data-id"));
                 }
-                _selectField.nextElementSibling.querySelector('.bootstrap-nice-select-overlay').classList.remove("active");
                 this.parentNode.classList.remove("active");
+                closeOverlay();
                 if (_selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list button[data-id="${searchOption.id}"]`)) {
                     return;
                 }
@@ -529,7 +549,7 @@ const BootstrapNiceSelect = function (selector, options) {
             button.setAttribute("disabled", 'disabled');
         }
         button.addEventListener("click", function () {
-            _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.add("active");
+            openOverlay();
 
             let input = _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container input");
             input.value = '';
@@ -557,8 +577,8 @@ const BootstrapNiceSelect = function (selector, options) {
         let hideOverlayOnClick = function (event) {
             let target = (event && event.target);
             if (target == this) {
-                overlayElement.classList.remove("active");
                 _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
+                closeOverlay();
             }
         }
 
@@ -625,8 +645,8 @@ const BootstrapNiceSelect = function (selector, options) {
                         let newDeleteButton = createDeleteButton(keyValue, keyValue, undefined, false);
                         _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').appendChild(newDeleteButton);
                     }
-                    _selectField.nextElementSibling.querySelector('.bootstrap-nice-select-overlay').classList.remove("active");
                     _selectField.nextElementSibling.querySelector('.bootstrap-nice-select-overlay div.search-container ul').classList.remove("active");
+                    closeOverlay();
                 }
             }
 
@@ -963,7 +983,7 @@ const BootstrapNiceSelect = function (selector, options) {
                 }
                 break;
             case 'open':
-                _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.add("active");
+                openOverlay();
                 let input = _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container input");
                 if (args.length > 0) {
                     input.value = args[0];
@@ -975,8 +995,8 @@ const BootstrapNiceSelect = function (selector, options) {
                 refreshSearchList();
                 break;
             case 'close':
-                _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.remove("active");
                 _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
+                closeOverlay();
                 break;
         }
     };

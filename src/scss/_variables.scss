@@ -10,7 +10,7 @@ $add-bg-color: #28a745;
 $add-color: #fff;
 
 /* overlay blur color */
-$overlay-background-color: linear-gradient(to bottom, rgba(0, 20, 42, 0.7), rgba(18, 38, 60, 0.7));
+$overlay-background-color: rgba(0, 0, 0, .7);
 $overlay-z-index: 10000;
 
 /* overlay search container */
