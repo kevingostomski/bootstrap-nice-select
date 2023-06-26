@@ -1,6 +1,6 @@
 /*!
  * 
- * Bootstrap-Nice-Select v1.3.0 (https://github.com/kevingostomski/bootstrap-nice-select)
+ * Bootstrap-Nice-Select v1.4.0 (https://github.com/kevingostomski/bootstrap-nice-select)
  * Copyright 2023 Kevin Gostomski <kevingostomski2001@gmail.com>
  * Licensed under MIT (https://github.com/kevingostomski/bootstrap-nice-select/blob/main/LICENSE)
  *
@@ -142,7 +142,8 @@ const CONSTANTS = {
             searchListItem: ["list-group-item", "d-flex", "justify-content-between", "align-items-center"],
             searchListItemText: ["text-truncate"],
             searchListItemBadge: ["badge", "badge-pill"],
-            tagIcon: ["icon", "icon-tag"]
+            tagIcon: ["icon", "icon-tag"],
+            minimumInputLengthContainer: ["text-warning", "minimum-input-length", "pb-3", "inactive"]
         }
     },
     5: {
@@ -170,7 +171,8 @@ const CONSTANTS = {
             searchListItem: ["list-group-item", "d-flex", "justify-content-between", "align-items-center"],
             searchListItemText: ["text-truncate"],
             searchListItemBadge: ["badge", "rounded-pill"],
-            tagIcon: ["icon", "icon-tag"]
+            tagIcon: ["icon", "icon-tag"],
+            minimumInputLengthContainer: ["text-warning", "minimum-input-length", "pb-3", "inactive"]
         }
     }
 }[bootstrapVersion]
@@ -197,7 +199,8 @@ const DEFAULTS = {
     scrollable: {
         on: false,
         height: undefined
-    }
+    },
+    minimumInputLength: 1
 }
 
 const ICONS = {
@@ -273,35 +276,63 @@ const BootstrapNiceSelect = function (selector, options) {
 
     function getRemoteSearchData(filter) {
         if (_bootstrapNiceSelect['searchData'] instanceof Function || typeof _bootstrapNiceSelect['searchData'] === 'function') {
-            _searchData = _bootstrapNiceSelect['searchData'](filter);
+            let remoteData = _bootstrapNiceSelect['searchData'](filter);
+            Promise.resolve(remoteData).then(data => {
+                _searchData = data;
+                refreshSearchList();
+                // it could be that search was already emptied again or miminum input is not reached so search list needs to be invisible
+                if (document.querySelector(".bootstrap-nice-select-overlay div.search-container input").value.length < _bootstrapNiceSelect.minimumInputLength) {
+                    document.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
+                }
+            });
         } else {
             let remoteData = utils.executeFunctionByName(_bootstrapNiceSelect['searchData'], window, filter);
-            _searchData = remoteData;
+            Promise.resolve(remoteData).then(data => {
+                _searchData = data;
+                refreshSearchList();
+                // it could be that search was already emptied again or miminum input is not reached so search list needs to be invisible
+                if (document.querySelector(".bootstrap-nice-select-overlay div.search-container input").value.length < _bootstrapNiceSelect.minimumInputLength) {
+                    document.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
+                }
+            });
         }
+    }
+
+    function showMinimumInputLengthWarning(charsLeftToEnter) {
+        let minimumInputLengthWrapper = document.querySelector(".bootstrap-nice-select-overlay div.search-container .minimum-input-length");
+        minimumInputLengthWrapper.innerText = constants.LOCALISATION[_bootstrapNiceSelect.locale].formatInputToShort(charsLeftToEnter);
+        minimumInputLengthWrapper.classList.remove("inactive");
+    }
+
+    function hideMinimumInputLengthWarning() {
+        document.querySelector(".bootstrap-nice-select-overlay div.search-container .minimum-input-length").classList.add("inactive");
     }
 
     function openOverlay() {
         if (_bootstrapNiceSelect.animation) {
-            if (!_selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.contains("animate-in") && !_selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.contains("animate-out")) {
-                _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.add("animate-in");
-            } else {
-                _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.remove("animate-out");
-            }
-        } else {
-            _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.add("active");
+            document.querySelector(".bootstrap-nice-select-overlay").classList.add("animate-in");
+            showMinimumInputLengthWarning(_bootstrapNiceSelect.minimumInputLength);
+        }
+        else {
+            document.querySelector(".bootstrap-nice-select-overlay").classList.add("active");
         }
     }
 
     function closeOverlay() {
+        document.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
         if (_bootstrapNiceSelect.animation) {
-            _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.add("animate-out");
+            document.querySelector(".bootstrap-nice-select-overlay").classList.add("animate-out");
+            setTimeout(function () {
+                document.querySelector("body").removeChild(document.querySelector(".bootstrap-nice-select-overlay"));
+            }, 500);
         } else {
-            _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.remove("active");
+            document.querySelector(".bootstrap-nice-select-overlay").classList.remove("active");
+            document.querySelector("body").removeChild(document.querySelector(".bootstrap-nice-select-overlay"));
         }
     }
 
     function refreshSearchList() {
-        let searchUl = _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul");
+        let searchUl = document.querySelector(".bootstrap-nice-select-overlay div.search-container ul");
         searchUl.innerHTML = "";
         for (let searchOption of _searchData.items) {
 
@@ -347,12 +378,9 @@ const BootstrapNiceSelect = function (selector, options) {
                     newOption.setAttribute("selected", 'selected');
                     _selectField.appendChild(newOption);
                 }
-                if (_bootstrapNiceSelect.searchData === undefined) {
-                    _searchData.items = _searchData.items.filter(data => data.id !== this.getAttribute("data-id"));
-                }
-                this.parentNode.classList.remove("active");
                 closeOverlay();
                 if (_selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list button[data-id="${searchOption.id}"]`)) {
+                    // already selected. nothing to do...
                     return;
                 }
                 if (searchOption.optGroup) {
@@ -376,9 +404,9 @@ const BootstrapNiceSelect = function (selector, options) {
             });
             li.addEventListener('keydown', function (event) {
                 event.preventDefault();
-                let liElements = _selectField.nextElementSibling.querySelectorAll(".bootstrap-nice-select-overlay div.search-container ul li:not(.hidden)");
+                let liElements = document.querySelectorAll(".bootstrap-nice-select-overlay div.search-container ul li:not(.hidden)");
                 if (_bootstrapNiceSelect.searchData !== undefined) {
-                    liElements = _selectField.nextElementSibling.querySelectorAll(".bootstrap-nice-select-overlay div.search-container ul li");
+                    liElements = document.querySelectorAll(".bootstrap-nice-select-overlay div.search-container ul li");
                 }
                 if (event.key === "ArrowDown") {
                     if (_currentLi + 1 >= liElements.length) {
@@ -401,15 +429,15 @@ const BootstrapNiceSelect = function (selector, options) {
                     this.tabIndex = -1;
                 }
                 if (event.key === "Tab") {
-                    _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container input").focus();
+                    document.querySelector(".bootstrap-nice-select-overlay div.search-container input").focus();
                 }
                 if (event.key === "Enter") {
                     this.click();
                 }
             });
-
             searchUl.appendChild(li);
         }
+        searchUl.classList.add("active");
     }
 
     function createDeleteButton(optKey, optValue, optGroup, disabled) {
@@ -453,7 +481,7 @@ const BootstrapNiceSelect = function (selector, options) {
                 if (!_bootstrapNiceSelect.multiple && _selectField.nextElementSibling.querySelectorAll(".bootstrap-nice-select ul.delete-list li").length === 0) {
                     _selectField.selectedIndex = "-1";
                 }
-                if (_bootstrapNiceSelect.searchData === undefined) {
+                if (_bootstrapNiceSelect.searchData === undefined && !_searchData.items.map(x => x.id.toLowerCase()).includes(optKey.toLowerCase())) {
                     if (optGroup) {
                         _searchData.items.push({
                             id: optKey,
@@ -526,7 +554,6 @@ const BootstrapNiceSelect = function (selector, options) {
         ulElement.classList.add(...constants.CONSTANTS.classes.deleteContainerList);
         if (_bootstrapNiceSelect.scrollable.on) {
             ulElement.classList.add("scrollable");
-            console.log(_bootstrapNiceSelect.scrollable.height);
             ulElement.style.height = _bootstrapNiceSelect.scrollable.height;
         }
         let optGroups = _selectField.getElementsByTagName("optgroup");
@@ -549,13 +576,11 @@ const BootstrapNiceSelect = function (selector, options) {
             button.setAttribute("disabled", 'disabled');
         }
         button.addEventListener("click", function () {
+            initOverlay();
             openOverlay();
-
-            let input = _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container input");
+            let input = document.querySelector(".bootstrap-nice-select-overlay div.search-container input");
             input.value = '';
             input.focus();
-
-            refreshSearchList();
         });
         let icon = document.createElement("span");
         icon.classList.add(...constants.CONSTANTS.classes.addbuttonIcon);
@@ -577,7 +602,6 @@ const BootstrapNiceSelect = function (selector, options) {
         let hideOverlayOnClick = function (event) {
             let target = (event && event.target);
             if (target == this) {
-                _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
                 closeOverlay();
             }
         }
@@ -585,13 +609,15 @@ const BootstrapNiceSelect = function (selector, options) {
         let filterOnSearchInput = function () {
             if (_bootstrapNiceSelect.searchData === undefined) {
                 let filter = this.value.toUpperCase();
-                if (filter.length > 0) {
-                    _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.add("active");
+                if (filter.length >= _bootstrapNiceSelect.minimumInputLength) {
+                    hideMinimumInputLengthWarning();
+                    refreshSearchList();
                 } else {
-                    _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
+                    document.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
+                    showMinimumInputLengthWarning(_bootstrapNiceSelect.minimumInputLength - filter.length);
                     return;
                 }
-                let liNodes = _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").getElementsByTagName("li");
+                let liNodes = document.querySelector(".bootstrap-nice-select-overlay div.search-container ul").getElementsByTagName("li");
                 for (let i = 0; i < liNodes.length; i++) {
                     let txtValue = liNodes[i].textContent || liNodes[i].innerText;
                     if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -602,13 +628,13 @@ const BootstrapNiceSelect = function (selector, options) {
                 }
             } else {
                 let filter = this.value;
-                if (filter.length <= 0) {
-                    _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
+                if (filter.length < _bootstrapNiceSelect.minimumInputLength) {
+                    document.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
+                    showMinimumInputLengthWarning(_bootstrapNiceSelect.minimumInputLength - filter.length);
                     return;
                 }
-                _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.add("active");
+                hideMinimumInputLengthWarning();
                 getRemoteSearchData(filter);
-                refreshSearchList();
             }
         }
 
@@ -645,7 +671,6 @@ const BootstrapNiceSelect = function (selector, options) {
                         let newDeleteButton = createDeleteButton(keyValue, keyValue, undefined, false);
                         _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').appendChild(newDeleteButton);
                     }
-                    _selectField.nextElementSibling.querySelector('.bootstrap-nice-select-overlay div.search-container ul').classList.remove("active");
                     closeOverlay();
                 }
             }
@@ -653,7 +678,7 @@ const BootstrapNiceSelect = function (selector, options) {
             if (_bootstrapNiceSelect.searchData === undefined) {
                 if (event.key === "Tab" || event.key === "ArrowDown") {
                     event.preventDefault();
-                    let liElements = _selectField.nextElementSibling.querySelectorAll(".bootstrap-nice-select-overlay div.search-container ul li:not(.hidden)");
+                    let liElements = document.querySelectorAll(".bootstrap-nice-select-overlay div.search-container ul li:not(.hidden)");
                     if (liElements.length > 0) {
                         liElements.forEach(element => element.tabIndex = -1);
                         liElements[0].tabIndex = 0;
@@ -664,7 +689,7 @@ const BootstrapNiceSelect = function (selector, options) {
             } else {
                 if (event.key === "Tab" || event.key === "ArrowDown") {
                     event.preventDefault();
-                    let liElements = _selectField.nextElementSibling.querySelectorAll(".bootstrap-nice-select-overlay div.search-container ul li");
+                    let liElements = document.querySelectorAll(".bootstrap-nice-select-overlay div.search-container ul li");
                     if (liElements.length > 0) {
                         liElements[0].tabIndex = 0;
                         _currentLi = 0;
@@ -695,13 +720,13 @@ const BootstrapNiceSelect = function (selector, options) {
         let searchInput = document.createElement("input");
         searchInput.classList.add("w-100");
         searchInput.setAttribute("placeholder", constants.LOCALISATION[_bootstrapNiceSelect.locale].formatSearch());
-        searchInput.addEventListener("keyup", filterOnSearchInput);
+        searchInput.addEventListener("input", filterOnSearchInput);
         searchInput.addEventListener('keydown', keyboardInteraction);
         searchInput.addEventListener("focusin", function () {
-            _selectField.nextElementSibling.querySelector('div.search-container span.focus-border').classList.add("active");
+            document.querySelector('.bootstrap-nice-select-overlay div.search-container span.focus-border').classList.add("active");
         });
         searchInput.addEventListener("focusout", function () {
-            _selectField.nextElementSibling.querySelector('div.search-container span.focus-border').classList.remove("active");
+            document.querySelector('.bootstrap-nice-select-overlay div.search-container span.focus-border').classList.remove("active");
         });
         searchInputWrapper.appendChild(searchIcon);
         searchInputWrapper.appendChild(searchInput);
@@ -712,10 +737,22 @@ const BootstrapNiceSelect = function (selector, options) {
             let tooltip = document.createElement("span");
             tooltip.classList.add("tooltip-own");
             tagIcon.appendChild(tooltip);
-            tooltip.append(...utils.htmlToElements(`${constants.LOCALISATION[_bootstrapNiceSelect.locale].formatHelpForTagging()}<br/>${_bootstrapNiceSelect.tokenSeparators.join("<br/>")}`));
+            let index = _bootstrapNiceSelect.tokenSeparators.indexOf(" ");
+            let copySeparators = _bootstrapNiceSelect.tokenSeparators.slice();
+            if (index > -1) {
+                copySeparators.splice(index, 1);
+                copySeparators.push("Spacebar");
+            }
+            tooltip.append(...utils.htmlToElements(`${constants.LOCALISATION[_bootstrapNiceSelect.locale].formatHelpForTagging()}<br/>${copySeparators.join("<br/>")}`));
             searchInputWrapper.appendChild(tagIcon);
         }
         search.appendChild(searchInputWrapper);
+        if (_bootstrapNiceSelect.minimumInputLength > 0) {
+            let minimumInputLengthWrapper = document.createElement("div");
+            minimumInputLengthWrapper.classList.add(...constants.CONSTANTS.classes.minimumInputLengthContainer);
+            minimumInputLengthWrapper.innerText = constants.LOCALISATION[_bootstrapNiceSelect.locale].formatInputToShort(_bootstrapNiceSelect.minimumInputLength);
+            search.appendChild(minimumInputLengthWrapper);
+        }
         let focusHr = document.createElement("span");
         focusHr.classList.add(...constants.CONSTANTS.classes.searchHrFocus);
         search.appendChild(focusHr);
@@ -725,7 +762,7 @@ const BootstrapNiceSelect = function (selector, options) {
         search.appendChild(initSearchList());
         divWrapper.appendChild(search);
         overlayElement.appendChild(divWrapper);
-        return overlayElement;
+        document.querySelector("body").appendChild(overlayElement);
     }
 
     let syncViaHtml = function () {
@@ -752,6 +789,9 @@ const BootstrapNiceSelect = function (selector, options) {
         }
         if (_selectField.getAttribute("data-locale")) {
             _bootstrapNiceSelect.locale = _selectField.getAttribute("data-locale");
+        }
+        if (_selectField.getAttribute("data-minimum-input-length")) {
+            _bootstrapNiceSelect.minimumInputLength = parseInt(_selectField.getAttribute("data-minimum-input-length"), 10);
         }
         if (_selectField.getAttribute("data-search-data")) {
             _bootstrapNiceSelect.searchData = _selectField.getAttribute("data-search-data");
@@ -798,9 +838,13 @@ const BootstrapNiceSelect = function (selector, options) {
      * 
      */
 
-
+    let _selectField = null;
     // private params, which should be not accessible via the public object
-    let _selectField = document.querySelector(selector);
+    if (typeof selector === 'string' || selector instanceof String) {
+        _selectField = document.querySelector(selector);
+    } else {
+        _selectField = selector;
+    }
     _selectField.setAttribute("hidden", 'hidden');
     let _currentLi = 0;
     let _searchData = {
@@ -829,7 +873,6 @@ const BootstrapNiceSelect = function (selector, options) {
 
     main.appendChild(addCol);
     main.appendChild(deleteCol);
-    main.appendChild(initOverlay());
 
     _selectField.parentNode.insertBefore(main, _selectField.nextSibling);
 
@@ -930,9 +973,6 @@ const BootstrapNiceSelect = function (selector, options) {
                         newOption.setAttribute("selected", 'selected');
                         _selectField.appendChild(newOption);
                     }
-                    if (_bootstrapNiceSelect.searchData === undefined) {
-                        _searchData.items = _searchData.items.filter(data => data.id !== searchOption.id);
-                    }
                     if (_selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list button[data-id="${searchOption.id}"]`)) {
                         continue;
                     }
@@ -983,19 +1023,19 @@ const BootstrapNiceSelect = function (selector, options) {
                 }
                 break;
             case 'open':
+                initOverlay();
                 openOverlay();
-                let input = _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container input");
+                let input = document.querySelector(".bootstrap-nice-select-overlay div.search-container input");
                 if (args.length > 0) {
                     input.value = args[0];
-                    input.dispatchEvent(new Event('keyup'));
+                    input.dispatchEvent(new Event('input'));
                 } else {
                     input.value = '';
                 }
                 input.focus();
-                refreshSearchList();
                 break;
             case 'close':
-                _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
+                document.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
                 closeOverlay();
                 break;
         }
@@ -1027,6 +1067,9 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         formatHelpForTagging() {
             return "Om jou eie merkers te skep, fokus op die invoerveld en klik op een van die volgende knoppies om die voorwerp te skep:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'Voer asseblief ' + remainingChars + ' of meer karakters';
         }
     }
     bootstrap_nice_select_locale_all_DEFAULTS.locale = "af-ZA";
@@ -1042,6 +1085,9 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         formatHelpForTagging() {
             return "لإنشاء العلامات الخاصة بك ، ركز على حقل الإدخال وانقر فوق أحد الأزرار التالية لإنشاء الكائن:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'الرجاء إضافة ' + remainingChars + ' عناصر';
         }
     }
     bootstrap_nice_select_locale_all_DEFAULTS.locale = "ar-SA";
@@ -1057,6 +1103,13 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         formatHelpForTagging() {
             return "За да създадете свои собствени тагове, фокусирайте се върху полето за въвеждане и щракнете върху един от следните бутони, за да създадете обекта:";
+        },
+        formatInputToShort(remainingChars) {
+            let message = 'Моля въведете още ' + remainingChars + ' символ';
+            if (remainingChars > 1) {
+                message += 'a';
+            }
+            return message;
         }
     }
     bootstrap_nice_select_locale_all_DEFAULTS.locale = "bg-BG";
@@ -1072,6 +1125,15 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         formatHelpForTagging() {
             return "Per crear les vostres pròpies etiquetes, centreu-vos en el camp d'entrada i feu clic en un dels botons següents per crear l'objecte:";
+        },
+        formatInputToShort(remainingChars) {
+            let message = 'Si us plau, introdueix ' + remainingChars + ' car';
+            if (remainingChars == 1) {
+                message += 'àcter';
+            } else {
+                message += 'àcters';
+            }
+            return message;
         }
     }
     bootstrap_nice_select_locale_all_DEFAULTS.locale = "ca-ES";
@@ -1088,6 +1150,9 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         formatHelpForTagging() {
             return "Chcete-li vytvořit vlastní značky, zaměřte se na vstupní pole a kliknutím na jedno z následujících tlačítek vytvořte objekt:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'Prosím, zadejte ještě dalších ' + remainingChars + ' znaků.';
         }
     }
     bootstrap_nice_select_locale_all_DEFAULTS.locale = "cs-CZ";
@@ -1103,6 +1168,9 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         formatHelpForTagging() {
             return "Um eigene Tags zu erstellen, fokussieren Sie das Eingabefeld und klicken Sie einen der folgenden Tasten um das Objekt zu erstellen:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'Bitte ' + remainingChars + ' Zeichen mehr eingeben';
         }
     }
     bootstrap_nice_select_locale_all_DEFAULTS.locale = "de-DE";
@@ -1118,6 +1186,9 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         formatHelpForTagging() {
             return "To create your own tags, focus on the input field and click one of the following buttons to create the object:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'Please enter ' + remainingChars + ' or more characters';
         }
     }
     bootstrap_nice_select_locale_all_DEFAULTS.locale = "en-US";
@@ -1133,6 +1204,15 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         formatHelpForTagging() {
             return "Para crear sus propias etiquetas, céntrese en el campo de entrada y haga clic en uno de los siguientes botones para crear el objeto:";
+        },
+        formatInputToShort(remainingChars) {
+            let message = 'Por favor, introduzca ' + remainingChars + ' car';
+            if (remainingChars == 1) {
+                message += 'ácter';
+            } else {
+                message += 'acteres';
+            }
+            return message;
         }
     }
     bootstrap_nice_select_locale_all_DEFAULTS.locale = "es-ES";
@@ -1148,6 +1228,14 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         formatHelpForTagging() {
             return "Oma siltide loomiseks keskenduge sisestusväljale ja klõpsake objekti loomiseks ühte järgmistest nuppudest:";
+        },
+        formatInputToShort(remainingChars) {
+            let message = 'Sisesta ' + remainingChars + ' täht';
+            if (remainingChars != 1) {
+                message += 'e';
+            }
+            message += ' rohkem';
+            return message;
         }
     }
     bootstrap_nice_select_locale_all_DEFAULTS.locale = "et-EE";
@@ -1163,6 +1251,10 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         formatHelpForTagging() {
             return "برای ایجاد تگ های خود، روی فیلد ورودی تمرکز کنید و یکی از دکمه های زیر را برای ایجاد شیء کلیک کنید:";
+        },
+        formatInputToShort(remainingChars) {
+            let message = 'لطفاً تعداد ' + remainingChars + ' کاراکتر یا بیشتر وارد نمایید';
+            return message;
         }
     }
     bootstrap_nice_select_locale_all_DEFAULTS.locale = "fa-IR";
@@ -1178,6 +1270,9 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         formatHelpForTagging() {
             return "Jos haluat luoda omia tunnisteita, keskity syöttökenttään ja luo objekti napsauttamalla jotakin seuraavista painikkeista:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'Ole hyvä ja anna ' + remainingChars + ' merkkiä lisää';
         }
     }
     bootstrap_nice_select_locale_all_DEFAULTS.locale = "fi-FI";
@@ -1193,6 +1288,9 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         formatHelpForTagging() {
             return "Pour créer vos propres balises, concentrez-vous sur le champ de saisie et cliquez sur l'un des boutons suivants pour créer l'objet:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'Saisissez au moins ' + remainingChars + ' caractère' + ((remainingChars > 1) ? 's' : '');
         }
     }
     bootstrap_nice_select_locale_all_DEFAULTS.locale = "fr-FR";
@@ -1208,6 +1306,9 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         formatHelpForTagging() {
             return "Per creare i tuoi tag, concentrati sul campo di input e fai clic su uno dei seguenti pulsanti per creare l'oggetto:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'Per favore inserisci ' + remainingChars + ' o più caratteri';
         }
     }
     bootstrap_nice_select_locale_all_DEFAULTS.locale = "it-IT";
@@ -1223,6 +1324,9 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         formatHelpForTagging() {
             return "独自のタグを作成するには、入力フィールドに焦点を当て、次のいずれかのボタンをクリックしてオブジェクトを作成します。";
+        },
+        formatInputToShort(remainingChars) {
+            return '少なくとも ' + remainingChars + ' 文字を入力してください';
         }
     }
     bootstrap_nice_select_locale_all_DEFAULTS.locale = "ja-JP";
@@ -1238,6 +1342,9 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         formatHelpForTagging() {
             return "Om uw eigen tags te maken, focust u zich op het invoerveld en klikt u op een van de volgende knoppen om het object te maken:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'Gelieve ' + remainingChars + ' of meer karakters in te voeren';
         }
     }
     bootstrap_nice_select_locale_all_DEFAULTS.locale = "nl-NL";
@@ -1253,6 +1360,20 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         formatHelpForTagging() {
             return "Aby utworzyć własne tagi, skup się na polu wejściowym i kliknij jeden z poniższych przycisków, aby utworzyć obiekt:";
+        },
+        formatInputToShort(remainingChars) {
+            let charsWords = ['znak', 'znaki', 'znaków'];
+            let pluralWord = function (numberOfChars, words) {
+                if (numberOfChars === 1) {
+                    return words[0];
+                } else if (numberOfChars > 1 && numberOfChars <= 4) {
+                    return words[1];
+                } else if (numberOfChars >= 5) {
+                    return words[2];
+                }
+            };
+            return 'Podaj przynajmniej ' + remainingChars + ' ' +
+                pluralWord(remainingChars, charsWords);
         }
     }
     bootstrap_nice_select_locale_all_DEFAULTS.locale = "pl-PL";
@@ -1268,6 +1389,9 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         formatHelpForTagging() {
             return "Para criar suas próprias tags, concentre-se no campo de entrada e clique em um dos seguintes botões para criar o objeto:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'Introduza ' + remainingChars + ' ou mais caracteres';
         }
     }
     bootstrap_nice_select_locale_all_DEFAULTS.locale = "pt-PT";
@@ -1283,6 +1407,9 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         formatHelpForTagging() {
             return "Pentru a vă crea propriile etichete, concentrați-vă pe câmpul de introducere și faceți clic pe unul dintre următoarele butoane pentru a crea obiectul:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'Vă rugăm să introduceți ' + remainingChars + ' sau mai multe caractere';
         }
     }
     bootstrap_nice_select_locale_all_DEFAULTS.locale = "ro-RO";
@@ -1298,6 +1425,9 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         formatHelpForTagging() {
             return "Чтобы создать собственные теги, сфокусируйтесь на поле ввода и нажмите одну из следующих кнопок, чтобы создать объект:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'Пожалуйста, введите ещё хотя бы ' + remainingChars + ' символ';
         }
     }
     bootstrap_nice_select_locale_all_DEFAULTS.locale = "ru-RU";
@@ -1313,6 +1443,9 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         formatHelpForTagging() {
             return "Kendi etiketlerinizi oluşturmak için giriş alanına odaklanın ve nesneyi oluşturmak için aşağıdaki düğmelerden birine tıklayın:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'En az ' + remainingChars + ' karakter daha girmelisiniz';
         }
     }
     bootstrap_nice_select_locale_all_DEFAULTS.locale = "tr-TR";

@@ -10,6 +10,9 @@
         },
         formatHelpForTagging() {
             return "Kendi etiketlerinizi oluşturmak için giriş alanına odaklanın ve nesneyi oluşturmak için aşağıdaki düğmelerden birine tıklayın:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'En az ' + remainingChars + ' karakter daha girmelisiniz';
         }
     }
     DEFAULTS.locale = "tr-TR";

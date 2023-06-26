@@ -45,10 +45,10 @@ You can source bootstrap-nice-select directly from a CDN like [unpkg](https://un
 
 ```
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://unpkg.com/bootstrap-nice-select@1.3.0/dist/css/bootstrap-nice-select.min.css">
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-nice-select@1.4.0/dist/css/bootstrap-nice-select.min.css">
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://unpkg.com/bootstrap-nice-select@1.3.0/dist/js/bootstrap-nice-select.min.js"></script>
+<script src="https://unpkg.com/bootstrap-nice-select@1.4.0/dist/js/bootstrap-nice-select.min.js"></script>
 
 ```
 

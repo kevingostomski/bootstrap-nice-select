@@ -10,6 +10,9 @@
         },
         formatHelpForTagging() {
             return "Jos haluat luoda omia tunnisteita, keskity syöttökenttään ja luo objekti napsauttamalla jotakin seuraavista painikkeista:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'Ole hyvä ja anna ' + remainingChars + ' merkkiä lisää';
         }
     }
     DEFAULTS.locale = "fi-FI";

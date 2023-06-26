@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // Extract CSS 
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"); // CSS Minifier
 const TerserPlugin = require("terser-webpack-plugin"); // JS Minifier
 const fs = require('fs'); // used for language output per locale
-let version = "v1.3.0";
+let version = "v1.4.0";
 let bannerText = `
 Bootstrap-Nice-Select ${version} (https://github.com/kevingostomski/bootstrap-nice-select)
 Copyright 2023 Kevin Gostomski <kevingostomski2001@gmail.com>

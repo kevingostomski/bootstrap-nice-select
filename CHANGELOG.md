@@ -1,3 +1,17 @@
+# **v1.4.0 (2023-06-26)**
+
+### **Fixed**
+
+- Issue [#27](https://github.com/kevingostomski/bootstrap-nice-select/issues/27) - Make remote call (AJAX/FETCH) workable with async/await with the help of `Promise.resolve()`
+- Issue [#29](https://github.com/kevingostomski/bootstrap-nice-select/issues/29) - Fix sending form on 'Enter' event on trying to add item
+
+### **Added**
+
+- Issue [#26](https://github.com/kevingostomski/bootstrap-nice-select/issues/26) - Input can no be the already selected HTML Dom `>select>` object so you do not need to give a CSS selector
+- Issue [#28](https://github.com/kevingostomski/bootstrap-nice-select/issues/28) - Added new parameter for a minimum input length on popup search named `minimumInputLength`
+
+&nbsp;
+
 # **v1.3.0 (2023-05-16)**
 
 Normally **v2.0** release because of not backwards compatible manner of the standard file if someone is using the locale feature. Nethertheless the component currently is relatively new. That`s why the version will just be inreased as *MINOR release* and *NOT MAYOR release*.

@@ -10,6 +10,9 @@
         },
         formatHelpForTagging() {
             return "To create your own tags, focus on the input field and click one of the following buttons to create the object:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'Please enter ' + remainingChars + ' or more characters';
         }
     }
     DEFAULTS.locale = "en-US";

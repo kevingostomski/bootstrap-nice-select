@@ -10,6 +10,9 @@
         },
         formatHelpForTagging() {
             return "Om jou eie merkers te skep, fokus op die invoerveld en klik op een van die volgende knoppies om die voorwerp te skep:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'Voer asseblief ' + remainingChars + ' of meer karakters';
         }
     }
     DEFAULTS.locale = "af-ZA";

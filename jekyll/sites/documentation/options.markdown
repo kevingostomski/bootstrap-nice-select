@@ -111,6 +111,19 @@ bootstrapNiceSelect.DEFAULTS.tags = true;
 
 &nbsp;
 
+## **minimumInputLength**
+
+- **Attribute:** `data-minimum-input-length`
+- **Type:** `Number`
+- **Detail:**
+  Sets the minimum number of characters required to start a search. Lower as default value `1` is currently not supported and will not work and it will throw errors
+- **Default:** `1`
+- **Example:** [Minimum Input Length]({% link sites/examples/options/minimumInputLength.markdown %})
+
+&nbsp;
+
+&nbsp;
+
 ## **scrollable**
 
 #### **on**

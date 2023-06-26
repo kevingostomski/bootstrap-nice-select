@@ -10,6 +10,9 @@
         },
         formatHelpForTagging() {
             return "Um eigene Tags zu erstellen, fokussieren Sie das Eingabefeld und klicken Sie einen der folgenden Tasten um das Objekt zu erstellen:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'Bitte ' + remainingChars + ' Zeichen mehr eingeben';
         }
     }
     DEFAULTS.locale = "de-DE";

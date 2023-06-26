@@ -11,6 +11,9 @@
         },
         formatHelpForTagging() {
             return "Chcete-li vytvořit vlastní značky, zaměřte se na vstupní pole a kliknutím na jedno z následujících tlačítek vytvořte objekt:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'Prosím, zadejte ještě dalších ' + remainingChars + ' znaků.';
         }
     }
     DEFAULTS.locale = "cs-CZ";

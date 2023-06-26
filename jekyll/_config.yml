@@ -20,7 +20,7 @@
 
 title: Bootstrap-Nice-Select
 email: kevingostomski2001@gmail.com
-version: v1.3.0
+version: v1.4.0
 baseurl: "/bootstrap-nice-select" # the subpath of your site, e.g. /blog
 url: "https://kevingostomski.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 

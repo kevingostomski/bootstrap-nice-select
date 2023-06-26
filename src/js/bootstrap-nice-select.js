@@ -17,35 +17,63 @@ export const BootstrapNiceSelect = function (selector, options) {
 
     function getRemoteSearchData(filter) {
         if (_bootstrapNiceSelect['searchData'] instanceof Function || typeof _bootstrapNiceSelect['searchData'] === 'function') {
-            _searchData = _bootstrapNiceSelect['searchData'](filter);
+            let remoteData = _bootstrapNiceSelect['searchData'](filter);
+            Promise.resolve(remoteData).then(data => {
+                _searchData = data;
+                refreshSearchList();
+                // it could be that search was already emptied again or miminum input is not reached so search list needs to be invisible
+                if (document.querySelector(".bootstrap-nice-select-overlay div.search-container input").value.length < _bootstrapNiceSelect.minimumInputLength) {
+                    document.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
+                }
+            });
         } else {
             let remoteData = Utils.executeFunctionByName(_bootstrapNiceSelect['searchData'], window, filter);
-            _searchData = remoteData;
+            Promise.resolve(remoteData).then(data => {
+                _searchData = data;
+                refreshSearchList();
+                // it could be that search was already emptied again or miminum input is not reached so search list needs to be invisible
+                if (document.querySelector(".bootstrap-nice-select-overlay div.search-container input").value.length < _bootstrapNiceSelect.minimumInputLength) {
+                    document.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
+                }
+            });
         }
+    }
+
+    function showMinimumInputLengthWarning(charsLeftToEnter) {
+        let minimumInputLengthWrapper = document.querySelector(".bootstrap-nice-select-overlay div.search-container .minimum-input-length");
+        minimumInputLengthWrapper.innerText = Constants.LOCALISATION[_bootstrapNiceSelect.locale].formatInputToShort(charsLeftToEnter);
+        minimumInputLengthWrapper.classList.remove("inactive");
+    }
+
+    function hideMinimumInputLengthWarning() {
+        document.querySelector(".bootstrap-nice-select-overlay div.search-container .minimum-input-length").classList.add("inactive");
     }
 
     function openOverlay() {
         if (_bootstrapNiceSelect.animation) {
-            if (!_selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.contains("animate-in") && !_selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.contains("animate-out")) {
-                _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.add("animate-in");
-            } else {
-                _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.remove("animate-out");
-            }
-        } else {
-            _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.add("active");
+            document.querySelector(".bootstrap-nice-select-overlay").classList.add("animate-in");
+            showMinimumInputLengthWarning(_bootstrapNiceSelect.minimumInputLength);
+        }
+        else {
+            document.querySelector(".bootstrap-nice-select-overlay").classList.add("active");
         }
     }
 
     function closeOverlay() {
+        document.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
         if (_bootstrapNiceSelect.animation) {
-            _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.add("animate-out");
+            document.querySelector(".bootstrap-nice-select-overlay").classList.add("animate-out");
+            setTimeout(function () {
+                document.querySelector("body").removeChild(document.querySelector(".bootstrap-nice-select-overlay"));
+            }, 500);
         } else {
-            _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay").classList.remove("active");
+            document.querySelector(".bootstrap-nice-select-overlay").classList.remove("active");
+            document.querySelector("body").removeChild(document.querySelector(".bootstrap-nice-select-overlay"));
         }
     }
 
     function refreshSearchList() {
-        let searchUl = _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul");
+        let searchUl = document.querySelector(".bootstrap-nice-select-overlay div.search-container ul");
         searchUl.innerHTML = "";
         for (let searchOption of _searchData.items) {
 
@@ -91,12 +119,9 @@ export const BootstrapNiceSelect = function (selector, options) {
                     newOption.setAttribute("selected", 'selected');
                     _selectField.appendChild(newOption);
                 }
-                if (_bootstrapNiceSelect.searchData === undefined) {
-                    _searchData.items = _searchData.items.filter(data => data.id !== this.getAttribute("data-id"));
-                }
-                this.parentNode.classList.remove("active");
                 closeOverlay();
                 if (_selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list button[data-id="${searchOption.id}"]`)) {
+                    // already selected. nothing to do...
                     return;
                 }
                 if (searchOption.optGroup) {
@@ -120,9 +145,9 @@ export const BootstrapNiceSelect = function (selector, options) {
             });
             li.addEventListener('keydown', function (event) {
                 event.preventDefault();
-                let liElements = _selectField.nextElementSibling.querySelectorAll(".bootstrap-nice-select-overlay div.search-container ul li:not(.hidden)");
+                let liElements = document.querySelectorAll(".bootstrap-nice-select-overlay div.search-container ul li:not(.hidden)");
                 if (_bootstrapNiceSelect.searchData !== undefined) {
-                    liElements = _selectField.nextElementSibling.querySelectorAll(".bootstrap-nice-select-overlay div.search-container ul li");
+                    liElements = document.querySelectorAll(".bootstrap-nice-select-overlay div.search-container ul li");
                 }
                 if (event.key === "ArrowDown") {
                     if (_currentLi + 1 >= liElements.length) {
@@ -145,15 +170,15 @@ export const BootstrapNiceSelect = function (selector, options) {
                     this.tabIndex = -1;
                 }
                 if (event.key === "Tab") {
-                    _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container input").focus();
+                    document.querySelector(".bootstrap-nice-select-overlay div.search-container input").focus();
                 }
                 if (event.key === "Enter") {
                     this.click();
                 }
             });
-
             searchUl.appendChild(li);
         }
+        searchUl.classList.add("active");
     }
 
     function createDeleteButton(optKey, optValue, optGroup, disabled) {
@@ -197,7 +222,7 @@ export const BootstrapNiceSelect = function (selector, options) {
                 if (!_bootstrapNiceSelect.multiple && _selectField.nextElementSibling.querySelectorAll(".bootstrap-nice-select ul.delete-list li").length === 0) {
                     _selectField.selectedIndex = "-1";
                 }
-                if (_bootstrapNiceSelect.searchData === undefined) {
+                if (_bootstrapNiceSelect.searchData === undefined && !_searchData.items.map(x => x.id.toLowerCase()).includes(optKey.toLowerCase())) {
                     if (optGroup) {
                         _searchData.items.push({
                             id: optKey,
@@ -270,7 +295,6 @@ export const BootstrapNiceSelect = function (selector, options) {
         ulElement.classList.add(...Constants.CONSTANTS.classes.deleteContainerList);
         if (_bootstrapNiceSelect.scrollable.on) {
             ulElement.classList.add("scrollable");
-            console.log(_bootstrapNiceSelect.scrollable.height);
             ulElement.style.height = _bootstrapNiceSelect.scrollable.height;
         }
         let optGroups = _selectField.getElementsByTagName("optgroup");
@@ -293,13 +317,11 @@ export const BootstrapNiceSelect = function (selector, options) {
             button.setAttribute("disabled", 'disabled');
         }
         button.addEventListener("click", function () {
+            initOverlay();
             openOverlay();
-
-            let input = _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container input");
+            let input = document.querySelector(".bootstrap-nice-select-overlay div.search-container input");
             input.value = '';
             input.focus();
-
-            refreshSearchList();
         });
         let icon = document.createElement("span");
         icon.classList.add(...Constants.CONSTANTS.classes.addbuttonIcon);
@@ -321,7 +343,6 @@ export const BootstrapNiceSelect = function (selector, options) {
         let hideOverlayOnClick = function (event) {
             let target = (event && event.target);
             if (target == this) {
-                _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
                 closeOverlay();
             }
         }
@@ -329,13 +350,15 @@ export const BootstrapNiceSelect = function (selector, options) {
         let filterOnSearchInput = function () {
             if (_bootstrapNiceSelect.searchData === undefined) {
                 let filter = this.value.toUpperCase();
-                if (filter.length > 0) {
-                    _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.add("active");
+                if (filter.length >= _bootstrapNiceSelect.minimumInputLength) {
+                    hideMinimumInputLengthWarning();
+                    refreshSearchList();
                 } else {
-                    _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
+                    document.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
+                    showMinimumInputLengthWarning(_bootstrapNiceSelect.minimumInputLength - filter.length);
                     return;
                 }
-                let liNodes = _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").getElementsByTagName("li");
+                let liNodes = document.querySelector(".bootstrap-nice-select-overlay div.search-container ul").getElementsByTagName("li");
                 for (let i = 0; i < liNodes.length; i++) {
                     let txtValue = liNodes[i].textContent || liNodes[i].innerText;
                     if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -346,13 +369,13 @@ export const BootstrapNiceSelect = function (selector, options) {
                 }
             } else {
                 let filter = this.value;
-                if (filter.length <= 0) {
-                    _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
+                if (filter.length < _bootstrapNiceSelect.minimumInputLength) {
+                    document.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
+                    showMinimumInputLengthWarning(_bootstrapNiceSelect.minimumInputLength - filter.length);
                     return;
                 }
-                _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.add("active");
+                hideMinimumInputLengthWarning();
                 getRemoteSearchData(filter);
-                refreshSearchList();
             }
         }
 
@@ -389,7 +412,6 @@ export const BootstrapNiceSelect = function (selector, options) {
                         let newDeleteButton = createDeleteButton(keyValue, keyValue, undefined, false);
                         _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').appendChild(newDeleteButton);
                     }
-                    _selectField.nextElementSibling.querySelector('.bootstrap-nice-select-overlay div.search-container ul').classList.remove("active");
                     closeOverlay();
                 }
             }
@@ -397,7 +419,7 @@ export const BootstrapNiceSelect = function (selector, options) {
             if (_bootstrapNiceSelect.searchData === undefined) {
                 if (event.key === "Tab" || event.key === "ArrowDown") {
                     event.preventDefault();
-                    let liElements = _selectField.nextElementSibling.querySelectorAll(".bootstrap-nice-select-overlay div.search-container ul li:not(.hidden)");
+                    let liElements = document.querySelectorAll(".bootstrap-nice-select-overlay div.search-container ul li:not(.hidden)");
                     if (liElements.length > 0) {
                         liElements.forEach(element => element.tabIndex = -1);
                         liElements[0].tabIndex = 0;
@@ -408,7 +430,7 @@ export const BootstrapNiceSelect = function (selector, options) {
             } else {
                 if (event.key === "Tab" || event.key === "ArrowDown") {
                     event.preventDefault();
-                    let liElements = _selectField.nextElementSibling.querySelectorAll(".bootstrap-nice-select-overlay div.search-container ul li");
+                    let liElements = document.querySelectorAll(".bootstrap-nice-select-overlay div.search-container ul li");
                     if (liElements.length > 0) {
                         liElements[0].tabIndex = 0;
                         _currentLi = 0;
@@ -439,13 +461,13 @@ export const BootstrapNiceSelect = function (selector, options) {
         let searchInput = document.createElement("input");
         searchInput.classList.add("w-100");
         searchInput.setAttribute("placeholder", Constants.LOCALISATION[_bootstrapNiceSelect.locale].formatSearch());
-        searchInput.addEventListener("keyup", filterOnSearchInput);
+        searchInput.addEventListener("input", filterOnSearchInput);
         searchInput.addEventListener('keydown', keyboardInteraction);
         searchInput.addEventListener("focusin", function () {
-            _selectField.nextElementSibling.querySelector('div.search-container span.focus-border').classList.add("active");
+            document.querySelector('.bootstrap-nice-select-overlay div.search-container span.focus-border').classList.add("active");
         });
         searchInput.addEventListener("focusout", function () {
-            _selectField.nextElementSibling.querySelector('div.search-container span.focus-border').classList.remove("active");
+            document.querySelector('.bootstrap-nice-select-overlay div.search-container span.focus-border').classList.remove("active");
         });
         searchInputWrapper.appendChild(searchIcon);
         searchInputWrapper.appendChild(searchInput);
@@ -456,10 +478,22 @@ export const BootstrapNiceSelect = function (selector, options) {
             let tooltip = document.createElement("span");
             tooltip.classList.add("tooltip-own");
             tagIcon.appendChild(tooltip);
-            tooltip.append(...Utils.htmlToElements(`${Constants.LOCALISATION[_bootstrapNiceSelect.locale].formatHelpForTagging()}<br/>${_bootstrapNiceSelect.tokenSeparators.join("<br/>")}`));
+            let index = _bootstrapNiceSelect.tokenSeparators.indexOf(" ");
+            let copySeparators = _bootstrapNiceSelect.tokenSeparators.slice();
+            if (index > -1) {
+                copySeparators.splice(index, 1);
+                copySeparators.push("Spacebar");
+            }
+            tooltip.append(...Utils.htmlToElements(`${Constants.LOCALISATION[_bootstrapNiceSelect.locale].formatHelpForTagging()}<br/>${copySeparators.join("<br/>")}`));
             searchInputWrapper.appendChild(tagIcon);
         }
         search.appendChild(searchInputWrapper);
+        if (_bootstrapNiceSelect.minimumInputLength > 0) {
+            let minimumInputLengthWrapper = document.createElement("div");
+            minimumInputLengthWrapper.classList.add(...Constants.CONSTANTS.classes.minimumInputLengthContainer);
+            minimumInputLengthWrapper.innerText = Constants.LOCALISATION[_bootstrapNiceSelect.locale].formatInputToShort(_bootstrapNiceSelect.minimumInputLength);
+            search.appendChild(minimumInputLengthWrapper);
+        }
         let focusHr = document.createElement("span");
         focusHr.classList.add(...Constants.CONSTANTS.classes.searchHrFocus);
         search.appendChild(focusHr);
@@ -469,7 +503,7 @@ export const BootstrapNiceSelect = function (selector, options) {
         search.appendChild(initSearchList());
         divWrapper.appendChild(search);
         overlayElement.appendChild(divWrapper);
-        return overlayElement;
+        document.querySelector("body").appendChild(overlayElement);
     }
 
     let syncViaHtml = function () {
@@ -496,6 +530,9 @@ export const BootstrapNiceSelect = function (selector, options) {
         }
         if (_selectField.getAttribute("data-locale")) {
             _bootstrapNiceSelect.locale = _selectField.getAttribute("data-locale");
+        }
+        if (_selectField.getAttribute("data-minimum-input-length")) {
+            _bootstrapNiceSelect.minimumInputLength = parseInt(_selectField.getAttribute("data-minimum-input-length"), 10);
         }
         if (_selectField.getAttribute("data-search-data")) {
             _bootstrapNiceSelect.searchData = _selectField.getAttribute("data-search-data");
@@ -542,9 +579,13 @@ export const BootstrapNiceSelect = function (selector, options) {
      * 
      */
 
-
+    let _selectField = null;
     // private params, which should be not accessible via the public object
-    let _selectField = document.querySelector(selector);
+    if (typeof selector === 'string' || selector instanceof String) {
+        _selectField = document.querySelector(selector);
+    } else {
+        _selectField = selector;
+    }
     _selectField.setAttribute("hidden", 'hidden');
     let _currentLi = 0;
     let _searchData = {
@@ -573,7 +614,6 @@ export const BootstrapNiceSelect = function (selector, options) {
 
     main.appendChild(addCol);
     main.appendChild(deleteCol);
-    main.appendChild(initOverlay());
 
     _selectField.parentNode.insertBefore(main, _selectField.nextSibling);
 
@@ -674,9 +714,6 @@ export const BootstrapNiceSelect = function (selector, options) {
                         newOption.setAttribute("selected", 'selected');
                         _selectField.appendChild(newOption);
                     }
-                    if (_bootstrapNiceSelect.searchData === undefined) {
-                        _searchData.items = _searchData.items.filter(data => data.id !== searchOption.id);
-                    }
                     if (_selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list button[data-id="${searchOption.id}"]`)) {
                         continue;
                     }
@@ -727,19 +764,19 @@ export const BootstrapNiceSelect = function (selector, options) {
                 }
                 break;
             case 'open':
+                initOverlay();
                 openOverlay();
-                let input = _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container input");
+                let input = document.querySelector(".bootstrap-nice-select-overlay div.search-container input");
                 if (args.length > 0) {
                     input.value = args[0];
-                    input.dispatchEvent(new Event('keyup'));
+                    input.dispatchEvent(new Event('input'));
                 } else {
                     input.value = '';
                 }
                 input.focus();
-                refreshSearchList();
                 break;
             case 'close':
-                _selectField.nextElementSibling.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
+                document.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
                 closeOverlay();
                 break;
         }

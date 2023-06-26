@@ -10,6 +10,9 @@
         },
         formatHelpForTagging() {
             return "لإنشاء العلامات الخاصة بك ، ركز على حقل الإدخال وانقر فوق أحد الأزرار التالية لإنشاء الكائن:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'الرجاء إضافة ' + remainingChars + ' عناصر';
         }
     }
     DEFAULTS.locale = "ar-SA";

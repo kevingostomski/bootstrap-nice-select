@@ -10,6 +10,9 @@
         },
         formatHelpForTagging() {
             return "Per creare i tuoi tag, concentrati sul campo di input e fai clic su uno dei seguenti pulsanti per creare l'oggetto:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'Per favore inserisci ' + remainingChars + ' o più caratteri';
         }
     }
     DEFAULTS.locale = "it-IT";

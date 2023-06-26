@@ -30,7 +30,8 @@ const CONSTANTS = {
             searchListItem: ["list-group-item", "d-flex", "justify-content-between", "align-items-center"],
             searchListItemText: ["text-truncate"],
             searchListItemBadge: ["badge", "badge-pill"],
-            tagIcon: ["icon", "icon-tag"]
+            tagIcon: ["icon", "icon-tag"],
+            minimumInputLengthContainer: ["text-warning", "minimum-input-length", "pb-3", "inactive"]
         }
     },
     5: {
@@ -58,7 +59,8 @@ const CONSTANTS = {
             searchListItem: ["list-group-item", "d-flex", "justify-content-between", "align-items-center"],
             searchListItemText: ["text-truncate"],
             searchListItemBadge: ["badge", "rounded-pill"],
-            tagIcon: ["icon", "icon-tag"]
+            tagIcon: ["icon", "icon-tag"],
+            minimumInputLengthContainer: ["text-warning", "minimum-input-length", "pb-3", "inactive"]
         }
     }
 }[bootstrapVersion]
@@ -85,7 +87,8 @@ const DEFAULTS = {
     scrollable: {
         on: false,
         height: undefined
-    }
+    },
+    minimumInputLength: 1
 }
 
 const ICONS = {

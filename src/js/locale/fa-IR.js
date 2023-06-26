@@ -10,6 +10,10 @@
         },
         formatHelpForTagging() {
             return "برای ایجاد تگ های خود، روی فیلد ورودی تمرکز کنید و یکی از دکمه های زیر را برای ایجاد شیء کلیک کنید:";
+        },
+        formatInputToShort(remainingChars) {
+            let message = 'لطفاً تعداد ' + remainingChars + ' کاراکتر یا بیشتر وارد نمایید';
+            return message;
         }
     }
     DEFAULTS.locale = "fa-IR";

@@ -10,6 +10,9 @@
         },
         formatHelpForTagging() {
             return "Чтобы создать собственные теги, сфокусируйтесь на поле ввода и нажмите одну из следующих кнопок, чтобы создать объект:";
+        },
+        formatInputToShort(remainingChars) {
+            return 'Пожалуйста, введите ещё хотя бы ' + remainingChars + ' символ';
         }
     }
     DEFAULTS.locale = "ru-RU";
