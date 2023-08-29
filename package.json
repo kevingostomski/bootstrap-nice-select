@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-nice-select",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "This plugin let's you create a modern looking select field for form submits building with Bootstrap. No jQuery needed!",
   "main": "dist/js/bootstrap-nice-select.js",
   "scripts": {

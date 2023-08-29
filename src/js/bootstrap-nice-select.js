@@ -383,12 +383,25 @@ export const BootstrapNiceSelect = function (selector, options) {
 
             let allowTagsInputInteraction = function (keyValue) {
 
+                const afterAdd = new CustomEvent("inserted.bs.bootstrap-nice-select", {
+                    detail: {
+                        key: keyValue,
+                        value: keyValue
+                    }
+                });
+
                 let checkTagBeforeCreation = function () {
                     if (_bootstrapNiceSelect['tagsCheck'] instanceof Function || typeof _bootstrapNiceSelect['tagsCheck'] === 'function') {
-                        return _bootstrapNiceSelect['tagsCheck'](keyValue);
+                        let possiblePromiseBoolean = _bootstrapNiceSelect['tagsCheck'](keyValue);
+                        Promise.resolve(possiblePromiseBoolean).then(boolResult => {
+                            return boolResult;
+                        });
                     }
                     if (_bootstrapNiceSelect['tagsCheck'] instanceof String || typeof _bootstrapNiceSelect['tagsCheck'] === 'string') {
-                        return Utils.executeFunctionByName(_bootstrapNiceSelect['tagsCheck'], window, keyValue);
+                        let possiblePromiseBoolean = Utils.executeFunctionByName(_bootstrapNiceSelect['tagsCheck'], window, keyValue);
+                        Promise.resolve(possiblePromiseBoolean).then(boolResult => {
+                            return boolResult;
+                        });
                     }
                     return true;
                 }
@@ -413,6 +426,7 @@ export const BootstrapNiceSelect = function (selector, options) {
                         _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').appendChild(newDeleteButton);
                     }
                     closeOverlay();
+                    _selectField.dispatchEvent(afterAdd);
                 }
             }
 

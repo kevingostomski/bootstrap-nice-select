@@ -1,3 +1,12 @@
+# **v1.4.1 (2023-08-29)**
+
+### **Fixed**
+
+- Issue [#31](https://github.com/kevingostomski/bootstrap-nice-select/issues/31) - Calling CustomEvent `inserted.bs.bootstrap-nice-select` is getting called now on option `data-tags`, which was missing
+- Issue [#32](https://github.com/kevingostomski/bootstrap-nice-select/issues/32) - Fixing option function `tagsCheck` to work with async/await functionality
+
+&nbsp;
+
 # **v1.4.0 (2023-06-26)**
 
 ### **Fixed**
