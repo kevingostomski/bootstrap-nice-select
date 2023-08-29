@@ -403,12 +403,12 @@ export const BootstrapNiceSelect = function (selector, options) {
                             return boolResult;
                         });
                     }
-                    return true;
                 }
 
                 if (_bootstrapNiceSelect.tokenSeparators.includes(event.key)) {
                     if (!checkTagBeforeCreation()) {
                         console.error(`Can not create option with value '${keyValue}' because of given check function...`);
+                        closeOverlay();
                         return;
                     }
                     let optionAlreadyCreatedBefore = _selectField.querySelector(`option[value="${keyValue}"]`);

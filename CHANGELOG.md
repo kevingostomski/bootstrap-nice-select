@@ -1,3 +1,9 @@
+# **v1.4.2 (2023-08-29)**
+
+### **Fixed**
+
+- Issue [#32](https://github.com/kevingostomski/bootstrap-nice-select/issues/32) fixed again - Fixing option function `tagsCheck` to work with async/await functionality did not work as expected and needed a little tweak
+
 # **v1.4.1 (2023-08-29)**
 
 ### **Fixed**
