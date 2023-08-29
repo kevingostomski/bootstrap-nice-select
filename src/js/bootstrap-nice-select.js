@@ -392,41 +392,37 @@ export const BootstrapNiceSelect = function (selector, options) {
 
                 let checkTagBeforeCreation = function () {
                     if (_bootstrapNiceSelect['tagsCheck'] instanceof Function || typeof _bootstrapNiceSelect['tagsCheck'] === 'function') {
-                        let possiblePromiseBoolean = _bootstrapNiceSelect['tagsCheck'](keyValue);
-                        Promise.resolve(possiblePromiseBoolean).then(boolResult => {
-                            return boolResult;
-                        });
+                        return _bootstrapNiceSelect['tagsCheck'](keyValue);
                     }
                     if (_bootstrapNiceSelect['tagsCheck'] instanceof String || typeof _bootstrapNiceSelect['tagsCheck'] === 'string') {
-                        let possiblePromiseBoolean = Utils.executeFunctionByName(_bootstrapNiceSelect['tagsCheck'], window, keyValue);
-                        Promise.resolve(possiblePromiseBoolean).then(boolResult => {
-                            return boolResult;
-                        });
+                        return Utils.executeFunctionByName(_bootstrapNiceSelect['tagsCheck'], window, keyValue);
                     }
                 }
 
                 if (_bootstrapNiceSelect.tokenSeparators.includes(event.key)) {
-                    if (!checkTagBeforeCreation()) {
-                        console.error(`Can not create option with value '${keyValue}' because of given check function...`);
+                    Promise.resolve(checkTagBeforeCreation()).then(value => {
+                        if (!value) {
+                            console.error(`Can not create option with value '${keyValue}' because of given check function...`);
+                            closeOverlay();
+                            return;
+                        }
+                        let optionAlreadyCreatedBefore = _selectField.querySelector(`option[value="${keyValue}"]`);
+                        if (optionAlreadyCreatedBefore) {
+                            optionAlreadyCreatedBefore.setAttribute("selected", 'selected');
+                        } else {
+                            let newOption = document.createElement("option");
+                            newOption.value = keyValue;
+                            newOption.innerText = keyValue;
+                            newOption.setAttribute("selected", 'selected');
+                            _selectField.appendChild(newOption);
+                        }
+                        if (!_selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list button[data-id="${keyValue}"]`)) {
+                            let newDeleteButton = createDeleteButton(keyValue, keyValue, undefined, false);
+                            _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').appendChild(newDeleteButton);
+                        }
                         closeOverlay();
-                        return;
-                    }
-                    let optionAlreadyCreatedBefore = _selectField.querySelector(`option[value="${keyValue}"]`);
-                    if (optionAlreadyCreatedBefore) {
-                        optionAlreadyCreatedBefore.setAttribute("selected", 'selected');
-                    } else {
-                        let newOption = document.createElement("option");
-                        newOption.value = keyValue;
-                        newOption.innerText = keyValue;
-                        newOption.setAttribute("selected", 'selected');
-                        _selectField.appendChild(newOption);
-                    }
-                    if (!_selectField.nextElementSibling.querySelector(`.bootstrap-nice-select ul.delete-list button[data-id="${keyValue}"]`)) {
-                        let newDeleteButton = createDeleteButton(keyValue, keyValue, undefined, false);
-                        _selectField.nextElementSibling.querySelector('.bootstrap-nice-select ul.delete-list').appendChild(newDeleteButton);
-                    }
-                    closeOverlay();
-                    _selectField.dispatchEvent(afterAdd);
+                        _selectField.dispatchEvent(afterAdd);
+                    })
                 }
             }
 
