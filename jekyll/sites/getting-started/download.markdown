@@ -15,7 +15,7 @@ description: "Getting Started webpage for how to download Bootstrap-Nice-Select"
 
 ## **Latest Release**
 
-Download the latest release [here](https://github.com/kevingostomski/bootstrap-nice-select/releases/download/v1.4.3/bootstrap-nice-select-v1.4.3.zip).
+Download the latest release [here](https://github.com/kevingostomski/bootstrap-nice-select/releases/download/v1.4.4/bootstrap-nice-select-v1.4.4.zip).
 
 &nbsp;
 
@@ -23,7 +23,7 @@ Download the latest release [here](https://github.com/kevingostomski/bootstrap-n
 
 Source CSS, JavaScript, locales, and extensions, along with the available Jekyll docs to create own style with SASS. (Tutorial how to edit the files is in work and will be added in the near future).
 
-<a class="btn btn-outline-primary" href="https://github.com/kevingostomski/bootstrap-nice-select/archive/refs/tags/v1.4.3.zip">Download Source</a>
+<a class="btn btn-outline-primary" href="https://github.com/kevingostomski/bootstrap-nice-select/archive/refs/tags/v1.4.4.zip">Download Source</a>
 
 &nbsp;
 
@@ -35,14 +35,14 @@ Source CSS, JavaScript, locales, and extensions, along with the available Jekyll
 
 ## **UNPKG**
 
-[UNPKG](https://unpkg.com/browse/bootstrap-nice-select@1.4.3/) is a CDN open source project powered by Cloudfare to distribute everything on [npm](https://www.npmjs.com/). Use it to quickly and easily load any file from any package using a URL like notation.
+[UNPKG](https://unpkg.com/browse/bootstrap-nice-select@1.4.4/) is a CDN open source project powered by Cloudfare to distribute everything on [npm](https://www.npmjs.com/). Use it to quickly and easily load any file from any package using a URL like notation.
 
 {% highlight html %}
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://unpkg.com/bootstrap-nice-select@1.4.3/dist/css/bootstrap-nice-select.min.css">
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-nice-select@1.4.4/dist/css/bootstrap-nice-select.min.css">
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://unpkg.com/bootstrap-nice-select@1.4.3/dist/js/bootstrap-nice-select.min.js"></script>
+<script src="https://unpkg.com/bootstrap-nice-select@1.4.4/dist/js/bootstrap-nice-select.min.js"></script>
 {% endhighlight %}
 
 <div class="alert alert-light d-flex align-items-center font-size-13 my-3" role="alert">

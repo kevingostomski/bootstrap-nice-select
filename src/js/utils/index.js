@@ -44,5 +44,18 @@ export default {
             context = context[namespaces[i]];
         }
         return context[funcName].apply(context, args);
-    }
+    },
+    /**
+     * fire the callback after the action has finished for the defined amount of time
+     * @param {Function} callback function the get called
+     * @param {Number} wait definded amount of time to wait in ms
+     * @returns result of callback function
+     */
+    debounce(callback, wait) {
+        let timeout;
+        return (...args) => {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () { callback.apply(this, args); }, wait);
+        };
+      }
 }

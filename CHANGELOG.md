@@ -1,8 +1,19 @@
+# **v1.4.4 (2023-09-01)**
+
+### **Fixed**
+
+- Issue [#33](https://github.com/kevingostomski/bootstrap-nice-select/issues/33) - Search gets nearly only triggered after input ends so there is not every time a request call
+- Fixing option `minimumInputLength` so value `0` can also be used and not like before that the minimumInputLength needs to be `1`. Default is now setted to `0` too
+
+&nbsp;
+
 # **v1.4.2 && 1.4.3 (2023-08-29)**
 
 ### **Fixed**
 
 - Issue [#32](https://github.com/kevingostomski/bootstrap-nice-select/issues/32) fixed again - Fixing option function `tagsCheck` to work with async/await functionality did not work as expected and needed a little tweak
+
+&nbsp;
 
 # **v1.4.1 (2023-08-29)**
 

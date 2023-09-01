@@ -88,7 +88,7 @@ const DEFAULTS = {
         on: false,
         height: undefined
     },
-    minimumInputLength: 1
+    minimumInputLength: 0
 }
 
 const ICONS = {

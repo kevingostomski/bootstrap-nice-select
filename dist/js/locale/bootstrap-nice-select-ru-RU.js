@@ -1,6 +1,6 @@
 /*!
  * 
- * Bootstrap-Nice-Select v1.4.3 (https://github.com/kevingostomski/bootstrap-nice-select)
+ * Bootstrap-Nice-Select v1.4.4 (https://github.com/kevingostomski/bootstrap-nice-select)
  * Copyright 2023 Kevin Gostomski <kevingostomski2001@gmail.com>
  * Licensed under MIT (https://github.com/kevingostomski/bootstrap-nice-select/blob/main/LICENSE)
  *
@@ -107,7 +107,20 @@ __webpack_require__.d(__webpack_exports__, {
             context = context[namespaces[i]];
         }
         return context[funcName].apply(context, args);
-    }
+    },
+    /**
+     * fire the callback after the action has finished for the defined amount of time
+     * @param {Function} callback function the get called
+     * @param {Number} wait definded amount of time to wait in ms
+     * @returns result of callback function
+     */
+    debounce(callback, wait) {
+        let timeout;
+        return (...args) => {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () { callback.apply(this, args); }, wait);
+        };
+      }
 });
 ;// CONCATENATED MODULE: ./src/js/constants/index.js
 
@@ -200,7 +213,7 @@ const DEFAULTS = {
         on: false,
         height: undefined
     },
-    minimumInputLength: 1
+    minimumInputLength: 0
 }
 
 const ICONS = {
@@ -311,7 +324,9 @@ const BootstrapNiceSelect = function (selector, options) {
     function openOverlay() {
         if (_bootstrapNiceSelect.animation) {
             document.querySelector(".bootstrap-nice-select-overlay").classList.add("animate-in");
-            showMinimumInputLengthWarning(_bootstrapNiceSelect.minimumInputLength);
+            if (_bootstrapNiceSelect.minimumInputLength > 0) {
+                showMinimumInputLengthWarning(_bootstrapNiceSelect.minimumInputLength);
+            }
         }
         else {
             document.querySelector(".bootstrap-nice-select-overlay").classList.add("active");
@@ -606,28 +621,26 @@ const BootstrapNiceSelect = function (selector, options) {
             }
         }
 
-        let filterOnSearchInput = function () {
+        let filterOnSearchInput = function (filter) {
             if (_bootstrapNiceSelect.searchData === undefined) {
-                let filter = this.value.toUpperCase();
-                if (filter.length >= _bootstrapNiceSelect.minimumInputLength) {
-                    hideMinimumInputLengthWarning();
-                    refreshSearchList();
-                } else {
+                if (filter.length < _bootstrapNiceSelect.minimumInputLength) {
                     document.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
                     showMinimumInputLengthWarning(_bootstrapNiceSelect.minimumInputLength - filter.length);
                     return;
                 }
+                hideMinimumInputLengthWarning();
+                refreshSearchList();
                 let liNodes = document.querySelector(".bootstrap-nice-select-overlay div.search-container ul").getElementsByTagName("li");
                 for (let i = 0; i < liNodes.length; i++) {
                     let txtValue = liNodes[i].textContent || liNodes[i].innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    if (txtValue.toUpperCase().indexOf(filter.toUpperCase()) > -1) {
                         liNodes[i].classList.remove("hidden");
                     } else {
                         liNodes[i].classList.add("hidden");
                     }
                 }
-            } else {
-                let filter = this.value;
+            }
+            else {
                 if (filter.length < _bootstrapNiceSelect.minimumInputLength) {
                     document.querySelector(".bootstrap-nice-select-overlay div.search-container ul").classList.remove("active");
                     showMinimumInputLengthWarning(_bootstrapNiceSelect.minimumInputLength - filter.length);
@@ -730,14 +743,6 @@ const BootstrapNiceSelect = function (selector, options) {
         let searchInput = document.createElement("input");
         searchInput.classList.add("w-100");
         searchInput.setAttribute("placeholder", constants.LOCALISATION[_bootstrapNiceSelect.locale].formatSearch());
-        searchInput.addEventListener("input", filterOnSearchInput);
-        searchInput.addEventListener('keydown', keyboardInteraction);
-        searchInput.addEventListener("focusin", function () {
-            document.querySelector('.bootstrap-nice-select-overlay div.search-container span.focus-border').classList.add("active");
-        });
-        searchInput.addEventListener("focusout", function () {
-            document.querySelector('.bootstrap-nice-select-overlay div.search-container span.focus-border').classList.remove("active");
-        });
         searchInputWrapper.appendChild(searchIcon);
         searchInputWrapper.appendChild(searchInput);
         if (_bootstrapNiceSelect.tags) {
@@ -757,12 +762,10 @@ const BootstrapNiceSelect = function (selector, options) {
             searchInputWrapper.appendChild(tagIcon);
         }
         search.appendChild(searchInputWrapper);
-        if (_bootstrapNiceSelect.minimumInputLength > 0) {
-            let minimumInputLengthWrapper = document.createElement("div");
-            minimumInputLengthWrapper.classList.add(...constants.CONSTANTS.classes.minimumInputLengthContainer);
-            minimumInputLengthWrapper.innerText = constants.LOCALISATION[_bootstrapNiceSelect.locale].formatInputToShort(_bootstrapNiceSelect.minimumInputLength);
-            search.appendChild(minimumInputLengthWrapper);
-        }
+        let minimumInputLengthWrapper = document.createElement("div");
+        minimumInputLengthWrapper.classList.add(...constants.CONSTANTS.classes.minimumInputLengthContainer);
+        minimumInputLengthWrapper.innerText = constants.LOCALISATION[_bootstrapNiceSelect.locale].formatInputToShort(_bootstrapNiceSelect.minimumInputLength);
+        search.appendChild(minimumInputLengthWrapper);
         let focusHr = document.createElement("span");
         focusHr.classList.add(...constants.CONSTANTS.classes.searchHrFocus);
         search.appendChild(focusHr);
@@ -773,6 +776,19 @@ const BootstrapNiceSelect = function (selector, options) {
         divWrapper.appendChild(search);
         overlayElement.appendChild(divWrapper);
         document.querySelector("body").appendChild(overlayElement);
+        searchInput.addEventListener("input", utils.debounce(function () {
+            filterOnSearchInput(searchInput.value.trim())
+        }, 500));
+        searchInput.addEventListener('keydown', keyboardInteraction);
+        searchInput.addEventListener("focusin", function () {
+            document.querySelector('.bootstrap-nice-select-overlay div.search-container span.focus-border').classList.add("active");
+        });
+        searchInput.addEventListener("focusout", function () {
+            document.querySelector('.bootstrap-nice-select-overlay div.search-container span.focus-border').classList.remove("active");
+        });
+        if (_bootstrapNiceSelect.minimumInputLength === 0) {
+            filterOnSearchInput("");
+        }
     }
 
     let syncViaHtml = function () {
